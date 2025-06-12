@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6110C96E2AF55F0F003BE9A9 /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = 6110C96D2AF55F0F003BE9A9 /* Mockingbird */; };
+		6110C9B52B03A82C003BE9A9 /* SwiftMock in Frameworks */ = {isa = PBXBuildFile; productRef = 6110C9B42B03A82C003BE9A9 /* SwiftMock */; };
+		6110C9B82B03A83C003BE9A9 /* SwiftMock in Frameworks */ = {isa = PBXBuildFile; productRef = 6110C9B72B03A83C003BE9A9 /* SwiftMock */; };
+		6110C9BA2B04FCB1003BE9A9 /* TestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6110C9B92B04FCB1003BE9A9 /* TestSuite.swift */; };
 		6191BC8F2AEE7DDF0086AFDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6191BC8E2AEE7DDF0086AFDE /* Assets.xcassets */; };
 		6191BC922AEE7DDF0086AFDE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6191BC912AEE7DDF0086AFDE /* Preview Assets.xcassets */; };
 		6191BC9D2AEE7DDF0086AFDE /* AirDCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BC9C2AEE7DDF0086AFDE /* AirDCTests.swift */; };
@@ -86,6 +88,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6110C9B92B04FCB1003BE9A9 /* TestSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSuite.swift; sourceTree = "<group>"; };
 		6191BC872AEE7DDE0086AFDE /* AirDC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirDC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6191BC8E2AEE7DDF0086AFDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6191BC912AEE7DDF0086AFDE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -144,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6110C9B52B03A82C003BE9A9 /* SwiftMock in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6110C96E2AF55F0F003BE9A9 /* Mockingbird in Frameworks */,
+				6110C9B82B03A83C003BE9A9 /* SwiftMock in Frameworks */,
 				6191BCD42AEE7FF20086AFDE /* AirDCKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +163,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6110C9B62B03A83C003BE9A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6191BC7E2AEE7DDE0086AFDE = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +181,7 @@
 				6191BCCB2AEE7FF20086AFDE /* AirDCKit */,
 				6191BCD92AEE7FF20086AFDE /* AirDCKitTests */,
 				6191BC882AEE7DDE0086AFDE /* Products */,
+				6110C9B62B03A83C003BE9A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -254,6 +266,7 @@
 				6191BCF42AEE81A50086AFDE /* UtilitiesTests.swift */,
 				6191BCFC2AF13E740086AFDE /* ContinuationsTests.swift */,
 				61A965472AF2E8F9008C2E5B /* WebSocketConnectionTests.swift */,
+				6110C9B92B04FCB1003BE9A9 /* TestSuite.swift */,
 			);
 			path = AirDCKitTests;
 			sourceTree = "<group>";
@@ -341,6 +354,9 @@
 			dependencies = (
 			);
 			name = AirDCKit;
+			packageProductDependencies = (
+				6110C9B42B03A82C003BE9A9 /* SwiftMock */,
+			);
 			productName = AirDCKit;
 			productReference = 6191BCCA2AEE7FF20086AFDE /* AirDCKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -361,7 +377,7 @@
 			);
 			name = AirDCKitTests;
 			packageProductDependencies = (
-				6110C96D2AF55F0F003BE9A9 /* Mockingbird */,
+				6110C9B72B03A83C003BE9A9 /* SwiftMock */,
 			);
 			productName = AirDCKitTests;
 			productReference = 6191BCD32AEE7FF20086AFDE /* AirDCKitTests.xctest */;
@@ -407,7 +423,7 @@
 			);
 			mainGroup = 6191BC7E2AEE7DDE0086AFDE;
 			packageReferences = (
-				6110C96C2AF55F0F003BE9A9 /* XCRemoteSwiftPackageReference "mockingbird" */,
+				6110C9B32B03A82C003BE9A9 /* XCRemoteSwiftPackageReference "swift-mock" */,
 			);
 			productRefGroup = 6191BC882AEE7DDE0086AFDE /* Products */;
 			projectDirPath = "";
@@ -511,6 +527,7 @@
 				6191BCF52AEE81A50086AFDE /* UtilitiesTests.swift in Sources */,
 				6191BCFD2AF13E740086AFDE /* ContinuationsTests.swift in Sources */,
 				6191BCDB2AEE7FF20086AFDE /* AirDCKitTests.swift in Sources */,
+				6110C9BA2B04FCB1003BE9A9 /* TestSuite.swift in Sources */,
 				61A965482AF2E8F9008C2E5B /* WebSocketConnectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -865,6 +882,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPrincipalClass = AirDCKitTests.TestSuite;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDCKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -880,6 +898,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPrincipalClass = AirDCKitTests.TestSuite;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDCKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -948,21 +967,26 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6110C96C2AF55F0F003BE9A9 /* XCRemoteSwiftPackageReference "mockingbird" */ = {
+		6110C9B32B03A82C003BE9A9 /* XCRemoteSwiftPackageReference "swift-mock" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/birdrides/mockingbird";
+			repositoryURL = "https://github.com/MetalheadSanya/swift-mock";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 0.20.0;
+				minimumVersion = 0.7.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6110C96D2AF55F0F003BE9A9 /* Mockingbird */ = {
+		6110C9B42B03A82C003BE9A9 /* SwiftMock */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6110C96C2AF55F0F003BE9A9 /* XCRemoteSwiftPackageReference "mockingbird" */;
-			productName = Mockingbird;
+			package = 6110C9B32B03A82C003BE9A9 /* XCRemoteSwiftPackageReference "swift-mock" */;
+			productName = SwiftMock;
+		};
+		6110C9B72B03A83C003BE9A9 /* SwiftMock */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6110C9B32B03A82C003BE9A9 /* XCRemoteSwiftPackageReference "swift-mock" */;
+			productName = SwiftMock;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
