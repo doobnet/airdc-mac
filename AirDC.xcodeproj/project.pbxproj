@@ -28,6 +28,7 @@
 		6191BCF22AEE818E0086AFDE /* URLSessionWebSocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCEB2AEE818D0086AFDE /* URLSessionWebSocketConnection.swift */; };
 		6191BCF32AEE818E0086AFDE /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCEE2AEE818E0086AFDE /* Utilities.swift */; };
 		6191BCF52AEE81A50086AFDE /* UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCF42AEE81A50086AFDE /* UtilitiesTests.swift */; };
+		6191BCFD2AF13E740086AFDE /* ContinuationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCFC2AF13E740086AFDE /* ContinuationsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		6191BCED2AEE818D0086AFDE /* WebSocketMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketMessage.swift; sourceTree = "<group>"; };
 		6191BCEE2AEE818E0086AFDE /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6191BCF42AEE81A50086AFDE /* UtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitiesTests.swift; sourceTree = "<group>"; };
+		6191BCFC2AF13E740086AFDE /* ContinuationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuationsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 			children = (
 				6191BCDA2AEE7FF20086AFDE /* AirDCKitTests.swift */,
 				6191BCF42AEE81A50086AFDE /* UtilitiesTests.swift */,
+				6191BCFC2AF13E740086AFDE /* ContinuationsTests.swift */,
 			);
 			path = AirDCKitTests;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6191BCF52AEE81A50086AFDE /* UtilitiesTests.swift in Sources */,
+				6191BCFD2AF13E740086AFDE /* ContinuationsTests.swift in Sources */,
 				6191BCDB2AEE7FF20086AFDE /* AirDCKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

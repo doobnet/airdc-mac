@@ -6,6 +6,7 @@ class Continuations {
     typealias ID = Int
     private var continuations: [ID: Continuation] = [:]
     private let maxId = ID(Int32.max)
+    private let logger = Logging.newLogger()
 
     func append(_ continuation: Continuation) -> ID {
         let maxTries = 10
@@ -23,14 +24,14 @@ class Continuations {
 
     func resumeContinuation(withId id: ID, returning data: Data) -> Bool {
         guard let continuation = continuations[id] else { return false }
-        print("resuming continuation: \(continuation) with id: \(id)")
+        logger.debug("resuming continuation with id: \(id)")
         continuation.resume(returning: data)
         return true
     }
 
     func resumeContinuation(withId id: ID, throwing error: Error) -> Bool {
         guard let continuation = continuations[id] else { return false }
-        print("throwing continuation: \(continuation) with id: \(id)")
+        logger.debug("throwing continuation with id: \(id)")
         continuation.resume(throwing: error)
         return true
     }
