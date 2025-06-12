@@ -17,19 +17,27 @@ class WebSocketConnectionTests: TestCase {
         continuations: continuations
     )
 
-    override func setUp() {
-        connection.disconnect()
-    }
-
-    func testConnect_resume() throws {
+    func test_connect_resume() async throws {
         when(transport.$resume()).thenReturn()
         when(transport.$receive()).thenReturn(.string(json))
         when(continuations.$resumeContinuation(withId: any(), returning: any()))
             .thenReturn(true)
 
-        try connection.connect()
-        connection.disconnect()
+        try await connection.connect()
+        await connection.disconnect()
 
         verify(transport).resume()
+    }
+
+    func test_connect_receive() async throws {
+        when(transport.$resume()).thenReturn()
+        when(transport.$receive()).thenReturn(.string(json))
+        when(continuations.$resumeContinuation(withId: any(), returning: any()))
+            .thenReturn(true)
+
+        try await connection.connect()
+        await connection.disconnect()
+
+        verify(transport).receive()
     }
 }
