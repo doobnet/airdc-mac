@@ -1,15 +1,7 @@
-//
-//  AirDCKitTests.swift
-//  AirDCKitTests
-//
-//  Created by Jacob Carlborg on 2023-10-29.
-//
-
-import XCTest
 @testable import AirDCKit
+import XCTest
 
 final class AirDCKitTests: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -32,5 +24,4 @@ final class AirDCKitTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }
