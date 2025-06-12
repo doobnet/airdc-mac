@@ -20,10 +20,10 @@ class WebSocketConnection {
         let data: Data
     }
 
+    private let socket: Transport
+    private let logger = Logging.newLogger()
     private var continuations: Continuations = .init()
     private var authorizationToken: String?
-
-    private let socket: Transport
 
     private lazy var encoder = tap(JSONEncoder()) {
         $0.keyEncodingStrategy = .convertToSnakeCase
@@ -38,7 +38,7 @@ class WebSocketConnection {
     }
 
     func connect() throws {
-        print("connect")
+        logger.debug("connect")
         socket.resume()
 
         Task {
@@ -66,7 +66,7 @@ class WebSocketConnection {
                 method: method, path: path, callbackId: id, data: message
             )
 
-            print("sending message: \(operation) with ID: \(id)")
+            logger.debug("sending message: \(operation) with ID: \(id)")
 
             try! socket.send(encode(socketMessage)) {
                 if let error = $0 {
@@ -87,7 +87,7 @@ class WebSocketConnection {
             var error: Error?
         }
 
-        print("Received message: \(String(decoding: data, as: UTF8.self))")
+        logger.debug("Received message: \(String(decoding: data, as: UTF8.self))")
 
         let message = try decoder.decode(Response.self, from: data)
 
