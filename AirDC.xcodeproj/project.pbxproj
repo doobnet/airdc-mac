@@ -650,6 +650,7 @@
 		};
 		6191BCAD2AEE7DDF0086AFDE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6191BCB92AEE7E920086AFDE /* local.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
