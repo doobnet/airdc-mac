@@ -19,8 +19,8 @@ public class URLSessionWebSocketConnection: NSObject {
         endpoint = buildURL(host: host, port: port, path: path)
     }
 
-    func connect() throws {
-        try connection.connect()
+    func connect() async throws {
+        try await connection.connect()
     }
 
     func send<Data: Codable>(_ message: Data, to path: String, using method: Method, operation: String = #function) async throws -> Foundation.Data {

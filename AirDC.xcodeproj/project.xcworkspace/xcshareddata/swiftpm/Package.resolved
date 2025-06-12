@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/MetalheadSanya/swift-mock",
       "state" : {
-        "revision" : "3003ee55cc2aa2aabf6ecbd49df4bcc43c3525c8",
-        "version" : "0.7.0"
+        "revision" : "54b3e1b980e0383f0d9cf09335b6b5f1c11bfab5",
+        "version" : "0.8.0"
       }
     },
     {
