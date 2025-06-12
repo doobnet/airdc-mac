@@ -3,7 +3,7 @@ import Foundation
 import XCTest
 
 class ContinuationsTests: XCTestCase {
-    let continuations = Continuations()
+    let continuations = DefaultContinuations()
 
     func unknownId(_ id: Continuations.ID) -> Continuations.ID {
         id == Continuations.ID.max ? id - 1 : id + 1

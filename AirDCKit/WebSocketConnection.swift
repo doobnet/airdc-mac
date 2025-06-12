@@ -1,10 +1,7 @@
 import Foundation
+import SwiftMock
 
-// protocol Session {
-//    func webSocketTask(with request: URLRequest) -> Transport
-// }
-
-public protocol Transport {
+@Mock public protocol Transport {
     func resume() -> Void
     func receive() async throws -> URLSessionWebSocketTask.Message
     func send(_ message: URLSessionWebSocketTask.Message, completionHandler: @escaping (Error?) -> Void)
@@ -20,9 +17,11 @@ class WebSocketConnection {
         let data: Data
     }
 
+    private(set) var isConnected = false
+
     private let socket: Transport
     private let logger = Logging.newLogger()
-    private var continuations: Continuations = .init()
+    private var continuations: Continuations
     private var authorizationToken: String?
 
     private lazy var encoder = tap(JSONEncoder()) {
@@ -33,16 +32,18 @@ class WebSocketConnection {
         $0.keyDecodingStrategy = .convertFromSnakeCase
     }
 
-    init(transport: Transport) {
+    init(transport: Transport, continuations: Continuations = DefaultContinuations()) {
         socket = transport
+        self.continuations = continuations
     }
 
     func connect() throws {
         logger.debug("connect")
         socket.resume()
+        isConnected = true
 
         Task {
-            while true {
+            while isConnected {
                 do {
                     switch try await socket.receive() {
                     case .data(let data):
@@ -57,6 +58,10 @@ class WebSocketConnection {
                 }
             }
         }
+    }
+
+    func disconnect() {
+        isConnected = false
     }
 
     func send<Data: Codable>(_ message: Data, to path: String, using method: Method, operation: String = #function) async throws -> Foundation.Data {

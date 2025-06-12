@@ -1,9 +1,18 @@
 import Foundation
 
+import SwiftMock
+
 typealias Continuation = CheckedContinuation<Foundation.Data, Error>
 
-class Continuations {
+@Mock protocol Continuations {
     typealias ID = Int
+
+    func append(_ continuation: Continuation) -> ID
+    func resumeContinuation(withId id: ID, returning data: Data) -> Bool
+    func resumeContinuation(withId id: ID, throwing error: Error) -> Bool
+}
+
+class DefaultContinuations: Continuations {
     private var continuations: [ID: Continuation] = [:]
     private let maxId = ID(Int32.max)
     private let logger = Logging.newLogger()
