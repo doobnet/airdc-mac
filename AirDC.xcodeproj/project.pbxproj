@@ -96,6 +96,8 @@
 		6191BCCD2AEE7FF20086AFDE /* AirDCKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AirDCKit.docc; sourceTree = "<group>"; };
 		6191BCD32AEE7FF20086AFDE /* AirDCKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirDCKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6191BCDA2AEE7FF20086AFDE /* AirDCKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirDCKitTests.swift; sourceTree = "<group>"; };
+		6191BCE82AEE80AB0086AFDE /* AirDCKit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AirDCKit.xctestplan; sourceTree = "<group>"; };
+		6191BCE92AEE81170086AFDE /* AirDC.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AirDC.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,8 @@
 		6191BC7E2AEE7DDE0086AFDE = {
 			isa = PBXGroup;
 			children = (
+				6191BCE92AEE81170086AFDE /* AirDC.xctestplan */,
+				6191BCE82AEE80AB0086AFDE /* AirDCKit.xctestplan */,
 				6191BC892AEE7DDE0086AFDE /* AirDC */,
 				6191BC9B2AEE7DDF0086AFDE /* AirDCTests */,
 				6191BCA52AEE7DDF0086AFDE /* AirDCUITests */,

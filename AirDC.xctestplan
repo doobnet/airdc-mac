@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "73F98085-C8E7-4300-B3AF-09E4C124EA8B",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:AirDC.xcodeproj",
+      "identifier" : "6191BC862AEE7DDE0086AFDE",
+      "name" : "AirDC"
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:AirDC.xcodeproj",
+        "identifier" : "6191BC972AEE7DDF0086AFDE",
+        "name" : "AirDCTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:AirDC.xcodeproj",
+        "identifier" : "6191BCA12AEE7DDF0086AFDE",
+        "name" : "AirDCUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
