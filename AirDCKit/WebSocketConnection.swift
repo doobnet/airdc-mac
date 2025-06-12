@@ -1,3 +1,4 @@
+import Cocoa
 import Foundation
 import SwiftMock
 
@@ -36,7 +37,8 @@ class WebSocketConnection {
     private var continuations: Continuations
     private var authorizationToken: String?
     private var state = State()
-    private let sequence: WebSocketSequence
+    private var receiveMessageTask: Task<Void, Never>?
+//    private let sequence: WebSocketSequence
 
     private lazy var encoder = tap(JSONEncoder()) {
         $0.keyEncodingStrategy = .convertToSnakeCase
@@ -49,7 +51,7 @@ class WebSocketConnection {
     init(transport: Transport, continuations: Continuations = DefaultContinuations()) {
         socket = transport
         self.continuations = continuations
-        self.sequence = WebSocketSequence(task: transport)
+//        sequence = WebSocketSequence(task: transport)
     }
 
     var isConnected: Bool {
@@ -61,24 +63,42 @@ class WebSocketConnection {
         socket.resume()
         await state.setConnected(true)
 
-        for try await message in sequence {
-            do {
-                switch message {
-                case .data(let data):
-                    try handleMessage(data)
-                case .string(let text):
-                    try handleMessage(Data(text.utf8))
-                @unknown default:
-                    fatalError("Unhandled case for receiving from web socket")
+        receiveMessageTask = Task {
+            while await state.isConnected {
+                do {
+                    switch try await socket.receive() {
+                    case .data(let data):
+                        try handleMessage(data)
+                    case .string(let text):
+                        try handleMessage(Data(text.utf8))
+                    @unknown default:
+                        fatalError("Unhandled case for receiving from web socket")
+                    }
+                } catch {
+                    print("Handle error: \(error)")
                 }
-            } catch {
-                print("Handle error: \(error)")
             }
         }
+
+//        for try await message in sequence {
+//            do {
+//                switch message {
+//                case .data(let data):
+//                    try handleMessage(data)
+//                case .string(let text):
+//                    try handleMessage(Data(text.utf8))
+//                @unknown default:
+//                    fatalError("Unhandled case for receiving from web socket")
+//                }
+//            } catch {
+//                print("Handle error: \(error)")
+//            }
+//        }
     }
 
     func disconnect() async {
         await state.setConnected(false)
+        receiveMessageTask?.cancel()
     }
 
     func send<Data: Codable>(_ message: Data, to path: String, using method: Method, operation: String = #function) async throws -> Foundation.Data {
