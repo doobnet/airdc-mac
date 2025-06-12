@@ -1,6 +1,6 @@
 import Foundation
 
-enum Method: String, Codable {
+public enum Method: String, Codable {
     case post = "POST"
     case get = "GET"
 }

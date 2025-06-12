@@ -1,20 +1,8 @@
 import Foundation
 
-protocol Session {
-    func webSocketTask(with request: URLRequest) -> Transport
-}
-
-struct URLSession: Session {
-    private let session: Foundation.URLSession
-
-    init(session: Foundation.URLSession) {
-        self.session = session
-    }
-
-    func webSocketTask(with request: URLRequest) -> Transport {
-        session.webSocketTask(with: request)
-    }
-}
+// protocol Session {
+//    func webSocketTask(with request: URLRequest) -> Transport
+// }
 
 public protocol Transport {
     func resume() -> Void
@@ -22,9 +10,7 @@ public protocol Transport {
     func send(_ message: URLSessionWebSocketTask.Message, completionHandler: @escaping (Error?) -> Void)
 }
 
-extension URLSessionWebSocketTask: Transport {}
-
-private class Implementation: NSObject {
+class WebSocketConnection {
     enum Error: Swift.Error {
         case clientError(code: Int, message: String)
         case serverError(code: Int, message: String)
@@ -73,7 +59,24 @@ private class Implementation: NSObject {
         }
     }
 
-    func handleMessage(_ data: Data) throws {
+    func send<Data: Codable>(_ message: Data, to path: String, using method: Method, operation: String = #function) async throws -> Foundation.Data {
+        return try await withCheckedThrowingContinuation { continuation in
+            let id = continuations.append(continuation)
+            let socketMessage = WebSocketMessage<Data>(
+                method: method, path: path, callbackId: id, data: message
+            )
+
+            print("sending message: \(operation) with ID: \(id)")
+
+            try! socket.send(encode(socketMessage)) {
+                if let error = $0 {
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+    }
+
+    private func handleMessage(_ data: Data) throws {
         struct Response: Codable {
             struct Error: Codable {
                 var message: String
@@ -105,23 +108,6 @@ private class Implementation: NSObject {
         }
 
         if resumed == false { print("Message not initiated by client") }
-    }
-
-    private func send<Data: Codable>(_ message: Data, to path: String, using method: Method, operation: String = #function) async throws -> Foundation.Data {
-        return try await withCheckedThrowingContinuation { continuation in
-            let id = continuations.append(continuation)
-            let socketMessage = WebSocketMessage<Data>(
-                method: method, path: path, callbackId: id, data: message
-            )
-
-            print("sending message: \(operation) with ID: \(id)")
-
-            try! socket.send(encode(socketMessage)) {
-                if let error = $0 {
-                    continuation.resume(throwing: error)
-                }
-            }
-        }
     }
 
     private func encode<Data: Encodable>(_ message: WebSocketMessage<Data>) throws -> URLSessionWebSocketTask.Message {
