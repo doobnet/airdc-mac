@@ -1,0 +1,26 @@
+{
+  "configurations" : [
+    {
+      "id" : "373E3C3E-77B4-4D7B-A6D0-26FF18454DE2",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:AirDC.xcodeproj",
+        "identifier" : "6191BCD22AEE7FF20086AFDE",
+        "name" : "AirDCKitTests"
+      }
+    }
+  ],
+  "version" : 1
+}
