@@ -61,9 +61,9 @@ class WebSocketConnection {
     func connect() async throws {
         logger.debug("connect")
         socket.resume()
-        await state.setConnected(true)
 
         receiveMessageTask = Task {
+            await state.setConnected(true)
             while await state.isConnected {
                 do {
                     switch try await socket.receive() {
@@ -79,6 +79,8 @@ class WebSocketConnection {
                 }
             }
         }
+
+        _ = await state.isConnected
 
 //        for try await message in sequence {
 //            do {
@@ -97,6 +99,7 @@ class WebSocketConnection {
     }
 
     func disconnect() async {
+        logger.debug("disconnect")
         await state.setConnected(false)
         receiveMessageTask?.cancel()
     }
