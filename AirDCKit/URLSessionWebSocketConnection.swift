@@ -42,7 +42,6 @@ extension URLSessionWebSocketConnection: URLSessionDelegate {
 }
 
 extension URLSessionWebSocketTask: Transport {}
-
 // struct URLSession: Session {
 //    private let session: Foundation.URLSession
 //

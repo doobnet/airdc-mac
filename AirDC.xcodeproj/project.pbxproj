@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6110C9B52B03A82C003BE9A9 /* SwiftMock in Frameworks */ = {isa = PBXBuildFile; productRef = 6110C9B42B03A82C003BE9A9 /* SwiftMock */; };
-		6110C9B82B03A83C003BE9A9 /* SwiftMock in Frameworks */ = {isa = PBXBuildFile; productRef = 6110C9B72B03A83C003BE9A9 /* SwiftMock */; };
 		6110C9BA2B04FCB1003BE9A9 /* TestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6110C9B92B04FCB1003BE9A9 /* TestSuite.swift */; };
 		6191BC8F2AEE7DDF0086AFDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6191BC8E2AEE7DDF0086AFDE /* Assets.xcassets */; };
 		6191BC922AEE7DDF0086AFDE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6191BC912AEE7DDF0086AFDE /* Preview Assets.xcassets */; };
@@ -31,9 +29,10 @@
 		6191BCF32AEE818E0086AFDE /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCEE2AEE818E0086AFDE /* Utilities.swift */; };
 		6191BCF52AEE81A50086AFDE /* UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCF42AEE81A50086AFDE /* UtilitiesTests.swift */; };
 		6191BCFD2AF13E740086AFDE /* ContinuationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCFC2AF13E740086AFDE /* ContinuationsTests.swift */; };
+		61993A0F2DFC1F0000461938 /* SwiftMock in Frameworks */ = {isa = PBXBuildFile; productRef = 61993A0E2DFC1F0000461938 /* SwiftMock */; };
+		61993A112DFC1F0000461938 /* SwiftMockConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = 61993A102DFC1F0000461938 /* SwiftMockConfiguration */; };
+		61993A152DFC20CE00461938 /* SwiftMockConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = 61993A142DFC20CE00461938 /* SwiftMockConfiguration */; };
 		61A965482AF2E8F9008C2E5B /* WebSocketConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A965472AF2E8F9008C2E5B /* WebSocketConnectionTests.swift */; };
-		61C6C1B72B10DA2F0032F85E /* SwiftMockConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = 61C6C1B62B10DA2F0032F85E /* SwiftMockConfiguration */; };
-		61C6C1B92B10DA360032F85E /* SwiftMockConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = 61C6C1B82B10DA360032F85E /* SwiftMockConfiguration */; };
 		61DC93972B0B7B4400A21373 /* WebSocketSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DC93962B0B7B4400A21373 /* WebSocketSequence.swift */; };
 		61DC93992B0B907E00A21373 /* WebSocketSequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DC93982B0B907E00A21373 /* WebSocketSequenceTests.swift */; };
 /* End PBXBuildFile section */
@@ -137,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61993A112DFC1F0000461938 /* SwiftMockConfiguration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,8 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6110C9B52B03A82C003BE9A9 /* SwiftMock in Frameworks */,
-				61C6C1B72B10DA2F0032F85E /* SwiftMockConfiguration in Frameworks */,
+				61993A0F2DFC1F0000461938 /* SwiftMock in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,9 +159,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6110C9B82B03A83C003BE9A9 /* SwiftMock in Frameworks */,
-				61C6C1B92B10DA360032F85E /* SwiftMockConfiguration in Frameworks */,
 				6191BCD42AEE7FF20086AFDE /* AirDCKit.framework in Frameworks */,
+				61993A152DFC20CE00461938 /* SwiftMockConfiguration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,11 +357,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				61993A172DFC20E100461938 /* PBXTargetDependency */,
 			);
 			name = AirDCKit;
 			packageProductDependencies = (
-				6110C9B42B03A82C003BE9A9 /* SwiftMock */,
-				61C6C1B62B10DA2F0032F85E /* SwiftMockConfiguration */,
+				61993A0E2DFC1F0000461938 /* SwiftMock */,
 			);
 			productName = AirDCKit;
 			productReference = 6191BCCA2AEE7FF20086AFDE /* AirDCKit.framework */;
@@ -380,13 +378,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				61993A132DFC209800461938 /* PBXTargetDependency */,
 				6191BCD62AEE7FF20086AFDE /* PBXTargetDependency */,
 				6191BCD82AEE7FF20086AFDE /* PBXTargetDependency */,
 			);
 			name = AirDCKitTests;
 			packageProductDependencies = (
-				6110C9B72B03A83C003BE9A9 /* SwiftMock */,
-				61C6C1B82B10DA360032F85E /* SwiftMockConfiguration */,
+				61993A142DFC20CE00461938 /* SwiftMockConfiguration */,
 			);
 			productName = AirDCKitTests;
 			productReference = 6191BCD32AEE7FF20086AFDE /* AirDCKitTests.xctest */;
@@ -432,7 +430,7 @@
 			);
 			mainGroup = 6191BC7E2AEE7DDE0086AFDE;
 			packageReferences = (
-				6110C9B32B03A82C003BE9A9 /* XCRemoteSwiftPackageReference "swift-mock" */,
+				61993A0D2DFC1F0000461938 /* XCRemoteSwiftPackageReference "swift-mock" */,
 			);
 			productRefGroup = 6191BC882AEE7DDE0086AFDE /* Products */;
 			projectDirPath = "";
@@ -569,6 +567,14 @@
 			isa = PBXTargetDependency;
 			target = 6191BCC92AEE7FF20086AFDE /* AirDCKit */;
 			targetProxy = 6191BCDD2AEE7FF20086AFDE /* PBXContainerItemProxy */;
+		};
+		61993A132DFC209800461938 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 61993A122DFC209800461938 /* SwiftMockConfiguration */;
+		};
+		61993A172DFC20E100461938 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 61993A162DFC20E100461938 /* SwiftMock */;
 		};
 /* End PBXTargetDependency section */
 
@@ -979,7 +985,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6110C9B32B03A82C003BE9A9 /* XCRemoteSwiftPackageReference "swift-mock" */ = {
+		61993A0D2DFC1F0000461938 /* XCRemoteSwiftPackageReference "swift-mock" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MetalheadSanya/swift-mock";
 			requirement = {
@@ -990,25 +996,30 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6110C9B42B03A82C003BE9A9 /* SwiftMock */ = {
+		61993A0E2DFC1F0000461938 /* SwiftMock */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6110C9B32B03A82C003BE9A9 /* XCRemoteSwiftPackageReference "swift-mock" */;
+			package = 61993A0D2DFC1F0000461938 /* XCRemoteSwiftPackageReference "swift-mock" */;
 			productName = SwiftMock;
 		};
-		6110C9B72B03A83C003BE9A9 /* SwiftMock */ = {
+		61993A102DFC1F0000461938 /* SwiftMockConfiguration */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6110C9B32B03A82C003BE9A9 /* XCRemoteSwiftPackageReference "swift-mock" */;
+			package = 61993A0D2DFC1F0000461938 /* XCRemoteSwiftPackageReference "swift-mock" */;
+			productName = SwiftMockConfiguration;
+		};
+		61993A122DFC209800461938 /* SwiftMockConfiguration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61993A0D2DFC1F0000461938 /* XCRemoteSwiftPackageReference "swift-mock" */;
+			productName = SwiftMockConfiguration;
+		};
+		61993A142DFC20CE00461938 /* SwiftMockConfiguration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61993A0D2DFC1F0000461938 /* XCRemoteSwiftPackageReference "swift-mock" */;
+			productName = SwiftMockConfiguration;
+		};
+		61993A162DFC20E100461938 /* SwiftMock */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61993A0D2DFC1F0000461938 /* XCRemoteSwiftPackageReference "swift-mock" */;
 			productName = SwiftMock;
-		};
-		61C6C1B62B10DA2F0032F85E /* SwiftMockConfiguration */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6110C9B32B03A82C003BE9A9 /* XCRemoteSwiftPackageReference "swift-mock" */;
-			productName = SwiftMockConfiguration;
-		};
-		61C6C1B82B10DA360032F85E /* SwiftMockConfiguration */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6110C9B32B03A82C003BE9A9 /* XCRemoteSwiftPackageReference "swift-mock" */;
-			productName = SwiftMockConfiguration;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
