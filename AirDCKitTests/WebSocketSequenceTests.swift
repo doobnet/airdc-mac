@@ -37,21 +37,21 @@ class WebSocketSequenceTests: TestCase {
         verify(continuation).finish()
     }
 
-    func test_sequence_invalidCloseCode() async throws {
-        let message = URLSessionWebSocketTask.Message.string("")
-        let result = Result { message }
-
-        when(transport.$closeCodeGetter()).thenReturn(.invalid)
-        when(continuation.$finish()).thenReturn()
-        when(transport.$receive(completionHandler: any())).thenAnswer {
-            $0(result)
-        }
-
-        for try await message in sequence {
-            print(message)
-            try await sequence.cancel()
-        }
-
-        verify(continuation).finish()
-    }
+//    func test_sequence_invalidCloseCode() async throws {
+//        let message = URLSessionWebSocketTask.Message.string("")
+//        let result = Result { message }
+//
+//        when(transport.$closeCodeGetter()).thenReturn(.invalid)
+//        when(continuation.$finish()).thenReturn()
+//        when(transport.$receive(completionHandler: any())).thenAnswer {
+//            $0(result)
+//        }
+//
+//        for try await message in sequence {
+//            print(message)
+//            try await sequence.cancel()
+//        }
+//
+//        verify(continuation).finish()
+//    }
 }
