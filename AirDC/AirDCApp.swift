@@ -247,8 +247,8 @@ struct AirDCApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView().task {
-                try! client.connect()
-                let _ = try! await client.authorize()
+//                try! client.connect()
+//                let _ = try! await client.authorize()
             }.environmentObject(client)
         }
     }

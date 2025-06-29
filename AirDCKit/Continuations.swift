@@ -1,6 +1,7 @@
 import Foundation
 
 import SwiftMock
+import UtilityKit
 
 typealias Continuation = CheckedContinuation<Foundation.Data, Error>
 
