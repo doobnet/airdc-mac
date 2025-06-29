@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "F60D6660-99E1-4C84-B91F-D987C52B6D8A",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AirDC.xcodeproj",
+        "identifier" : "61993A262DFC45CC00461938",
+        "name" : "WebSocketKitTests"
+      }
+    }
+  ],
+  "version" : 1
+}

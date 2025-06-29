@@ -1,6 +1,7 @@
 import Cocoa
 import Foundation
 import SwiftMock
+import UtilityKit
 
 @Mock public protocol Transport {
     var closeCode: URLSessionWebSocketTask.CloseCode { get }

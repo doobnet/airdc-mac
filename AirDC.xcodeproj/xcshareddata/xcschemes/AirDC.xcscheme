@@ -67,6 +67,28 @@
                ReferencedContainer = "container:AirDC.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "61993A262DFC45CC00461938"
+               BuildableName = "WebSocketKitTests.xctest"
+               BlueprintName = "WebSocketKitTests"
+               ReferencedContainer = "container:AirDC.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "61993A7A2DFC48F100461938"
+               BuildableName = "UtilityKitTests.xctest"
+               BlueprintName = "UtilityKitTests"
+               ReferencedContainer = "container:AirDC.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
