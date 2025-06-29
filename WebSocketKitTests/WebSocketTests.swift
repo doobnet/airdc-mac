@@ -91,7 +91,9 @@ struct WebSocketTests {
     try await webSocket.connect()
     webSocket.disconnect()
 
-    #expect(webSocket.state == .disconnected(closeCode: .normalClosure, closeReason: nil))
+    #expect(
+      webSocket.state
+        == .disconnected(closeCode: .normalClosure, closeReason: nil)
+    )
   }
 }
-
