@@ -4,6 +4,22 @@ import UtilityKit
 
 @testable import WebSocketKit
 
+extension URLSessionWebSocketTask.Message: @retroactive Equatable {
+  public static func == (
+    lhs: URLSessionWebSocketTask.Message,
+    rhs: URLSessionWebSocketTask.Message
+  ) -> Bool {
+    switch (lhs, rhs) {
+    case (.string(let l), .string(let r)):
+      return l == r
+    case (.data(let l), .data(let r)):
+      return l == r
+    default:
+      return false
+    }
+  }
+}
+
 struct WebSocketTests {
   class Transport: WebSocketKit.Transport {
     struct Called {
@@ -95,5 +111,49 @@ struct WebSocketTests {
       webSocket.state
         == .disconnected(closeCode: .normalClosure, closeReason: nil)
     )
+  }
+
+  lazy var stdin = Pipe()
+
+  lazy var serverProcess = {
+    let process = Process()
+
+    process.executableURL = URL(fileURLWithPath: "/usr/local/bin/bun")
+    process.arguments = ["--port", "8080", "-"]
+    process.standardInput = stdin
+    process.standardOutput = FileHandle.standardOutput
+    process.standardError = FileHandle.standardError
+    process.environment = ["NO_COLOR": "1"]
+
+    return process
+  }()
+
+  @Test("end to end test")
+  mutating func endToEnd() async throws {
+    let js = """
+      Bun.serve({
+        fetch(req, server) {
+          if (!server.upgrade(req))
+            return new Response("Upgrade failed", { status: 500 });
+        },
+        websocket: {
+          message(ws, message) { ws.send(message) }
+        }
+      })
+      """
+
+    try serverProcess.run()
+    stdin.fileHandleForWriting.write(js.data(using: .utf8)!)
+    stdin.fileHandleForWriting.closeFile()
+    defer { serverProcess.terminate() }
+
+    try await Task.sleep(for: .seconds(1))
+
+    let url = URL(string: "ws://localhost:8080")!
+    let webSocket = WebSocket(url: url)
+    try await webSocket.connect()
+    try await webSocket.send("first message")
+
+    try await #expect(webSocket.receive() == .string("first message"))
   }
 }

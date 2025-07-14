@@ -46,6 +46,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		614235A62E145B1E005C78E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 614235992E145B0D005C78E2;
+			remoteInfo = TestHost;
+		};
 		615321D72E07DA8000E7418B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
@@ -164,6 +171,7 @@
 
 /* Begin PBXFileReference section */
 		6110C9B92B04FCB1003BE9A9 /* TestSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSuite.swift; sourceTree = "<group>"; };
+		6142359A2E145B0D005C78E2 /* TestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		615321912E070BD800E7418B /* WebSocketKit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WebSocketKit.xctestplan; sourceTree = "<group>"; };
 		615321CB2E07DA8000E7418B /* WebSocketKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebSocketKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		615321D52E07DA8000E7418B /* WebSocketKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebSocketKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,6 +210,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		6142359B2E145B0D005C78E2 /* TestHost */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TestHost; sourceTree = "<group>"; };
 		615321CC2E07DA8000E7418B /* WebSocketKit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = WebSocketKit; sourceTree = "<group>"; };
 		615321DB2E07DA8000E7418B /* WebSocketKitTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = WebSocketKitTests; sourceTree = "<group>"; };
 		61993A722DFC48F100461938 /* UtilityKit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UtilityKit; sourceTree = "<group>"; };
@@ -209,6 +218,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		614235972E145B0D005C78E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		615321C82E07DA8000E7418B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -308,6 +324,7 @@
 				61993A812DFC48F100461938 /* UtilityKitTests */,
 				615321CC2E07DA8000E7418B /* WebSocketKit */,
 				615321DB2E07DA8000E7418B /* WebSocketKitTests */,
+				6142359B2E145B0D005C78E2 /* TestHost */,
 				6191BC882AEE7DDE0086AFDE /* Products */,
 				6110C9B62B03A83C003BE9A9 /* Frameworks */,
 			);
@@ -325,6 +342,7 @@
 				61993A7B2DFC48F100461938 /* UtilityKitTests.xctest */,
 				615321CB2E07DA8000E7418B /* WebSocketKit.framework */,
 				615321D52E07DA8000E7418B /* WebSocketKitTests.xctest */,
+				6142359A2E145B0D005C78E2 /* TestHost.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -432,6 +450,28 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		614235992E145B0D005C78E2 /* TestHost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 614235A32E145B0F005C78E2 /* Build configuration list for PBXNativeTarget "TestHost" */;
+			buildPhases = (
+				614235962E145B0D005C78E2 /* Sources */,
+				614235972E145B0D005C78E2 /* Frameworks */,
+				614235982E145B0D005C78E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6142359B2E145B0D005C78E2 /* TestHost */,
+			);
+			name = TestHost;
+			packageProductDependencies = (
+			);
+			productName = TestHost;
+			productReference = 6142359A2E145B0D005C78E2 /* TestHost.app */;
+			productType = "com.apple.product-type.application";
+		};
 		615321CA2E07DA8000E7418B /* WebSocketKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 615321E22E07DA8000E7418B /* Build configuration list for PBXNativeTarget "WebSocketKit" */;
@@ -470,6 +510,7 @@
 			dependencies = (
 				615321D82E07DA8000E7418B /* PBXTargetDependency */,
 				615321DA2E07DA8000E7418B /* PBXTargetDependency */,
+				614235A72E145B1E005C78E2 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				615321DB2E07DA8000E7418B /* WebSocketKitTests */,
@@ -643,12 +684,15 @@
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					614235992E145B0D005C78E2 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					615321CA2E07DA8000E7418B = {
 						CreatedOnToolsVersion = 16.4;
 					};
 					615321D42E07DA8000E7418B = {
 						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 6191BC862AEE7DDE0086AFDE;
+						TestTargetID = 614235992E145B0D005C78E2;
 					};
 					6191BC862AEE7DDE0086AFDE = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -702,11 +746,19 @@
 				61993A7A2DFC48F100461938 /* UtilityKitTests */,
 				615321CA2E07DA8000E7418B /* WebSocketKit */,
 				615321D42E07DA8000E7418B /* WebSocketKitTests */,
+				614235992E145B0D005C78E2 /* TestHost */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		614235982E145B0D005C78E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		615321C92E07DA8000E7418B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -777,6 +829,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		614235962E145B0D005C78E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		615321C72E07DA8000E7418B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -860,6 +919,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		614235A72E145B1E005C78E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 614235992E145B0D005C78E2 /* TestHost */;
+			targetProxy = 614235A62E145B1E005C78E2 /* PBXContainerItemProxy */;
+		};
 		615321D82E07DA8000E7418B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 615321CA2E07DA8000E7418B /* WebSocketKit */;
@@ -941,6 +1005,80 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		614235A42E145B0F005C78E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TestHost/TestHost.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.TestHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.5;
+			};
+			name = Debug;
+		};
+		614235A52E145B0F005C78E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TestHost/TestHost.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.TestHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 2.5;
+			};
+			name = Release;
+		};
 		615321E32E07DA8000E7418B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1050,7 +1188,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirDC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirDC";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestHost";
 				XROS_DEPLOYMENT_TARGET = 2.5;
 			};
 			name = Debug;
@@ -1072,7 +1210,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirDC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirDC";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestHost";
 				XROS_DEPLOYMENT_TARGET = 2.5;
 			};
 			name = Release;
@@ -1562,6 +1700,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		614235A32E145B0F005C78E2 /* Build configuration list for PBXNativeTarget "TestHost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				614235A42E145B0F005C78E2 /* Debug */,
+				614235A52E145B0F005C78E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		615321E22E07DA8000E7418B /* Build configuration list for PBXNativeTarget "WebSocketKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
