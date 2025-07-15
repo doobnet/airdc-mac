@@ -1,4 +1,5 @@
 import Foundation
+import Network
 import OSLog
 import SwiftMock
 import UtilityKit
@@ -20,13 +21,11 @@ import UtilityKit
   )
 }
 
-typealias InternalStream = AsyncThrowingStream<
-  URLSessionWebSocketTask.Message, Error
->
+typealias InternalStream = AsyncThrowingStream<Data, Error>
 
-class WebSocket: NSObject, AsyncSequence {
+class WebSocket: AsyncSequence {
   typealias AsyncIterator = InternalStream.Iterator
-  typealias Element = URLSessionWebSocketTask.Message
+  typealias Element = InternalStream.Element
 
   enum Error: Swift.Error {
     case clientError(code: Int, message: String)
@@ -70,51 +69,20 @@ class WebSocket: NSObject, AsyncSequence {
   }
 
   private(set) var state = State.readyToConnect
-  private var socket: Transport
   private let logger: Logger
-  private var receivingContinuation: InternalStream.Continuation?
+  private let url: URL
+  private let endpoint: NWEndpoint
+  private var streamContinuation: InternalStream.Continuation?
+  private var sendContinuation: CheckedContinuation<Void, Swift.Error>?
+  private var receiveContinuation: CheckedContinuation<Data, Swift.Error>?
   private var connectionContinuation: CheckedContinuation<Void, Swift.Error>?
+  private var connection: NWConnection?
+  private let queue = DispatchQueue(label: "WebSocketQueue")
 
-  private lazy var stream: InternalStream = {
-    InternalStream { continuation in
-      self.receivingContinuation = continuation
-
-      Task {
-        var isAlive = true
-
-        while isAlive && self.state.isConnected {
-          do {
-            let value = try await socket.receive()
-            continuation.yield(value)
-          } catch {
-            continuation.finish(throwing: error)
-            isAlive = false
-          }
-        }
-      }
-    }
-  }()
-
-  init(transport: Transport, logger: Logger = Logging.newLogger()) {
-    socket = transport
+  init(url: URL, logger: Logger = Logging.newLogger()) {
     self.logger = logger
-    super.init()
-    socket.delegate = self
-  }
-
-  convenience init(url: URL, timeout: TimeInterval = 60) {
-    let configuration = URLSessionConfiguration.default
-    configuration.timeoutIntervalForRequest = timeout
-    configuration.waitsForConnectivity = true
-
-    let session = URLSession(
-      configuration: configuration,
-      delegate: nil,
-      delegateQueue: nil
-    )
-    let task = session.webSocketTask(with: url)
-
-    self.init(transport: task)
+    self.url = url
+    self.endpoint = NWEndpoint.url(url)
   }
 
   deinit {
@@ -123,87 +91,162 @@ class WebSocket: NSObject, AsyncSequence {
 
   func connect(timeout: TimeInterval = 60) async throws {
     logger.debug("connect")
-    socket.resume()
+
     state = .connecting
+
+    connection = NWConnection(to: endpoint, using: newConnectionParameters())
+    guard let connection = connection else {
+      throw Error.clientError(code: 0, message: "Failed to create connection")
+    }
+
+    connection.stateUpdateHandler = { [weak self] state in
+      self?.stateDidChange(to: state)
+    }
+
+    try await withCheckedThrowingContinuation { continuation in
+      self.connectionContinuation = continuation
+      connection.start(queue: queue)
+    }
   }
 
   func disconnect() {
     logger.debug("disconnect")
 
     if state.isConnected {
+      connection?.cancel()
       state = .disconnected(closeCode: .normalClosure)
-      socket.cancel(with: .normalClosure, reason: nil)
+    } else {
+      connection?.forceCancel()
     }
 
-    receivingContinuation?.finish()
-    receivingContinuation = nil
+    sendContinuation?.resume(throwing: CancellationError())
+    sendContinuation = nil
+    receiveContinuation?.resume(throwing: CancellationError())
+    receiveContinuation = nil
     connectionContinuation?.resume(throwing: CancellationError())
     connectionContinuation = nil
+    streamContinuation?.finish(throwing: CancellationError())
+    streamContinuation = nil
+    connection = nil
   }
 
-  func receive() async throws -> URLSessionWebSocketTask.Message {
-    logger.debug("receive")
-    return try await socket.receive()
-  }
+  func receive(operation: String = #function) async throws -> Data {
+    logger.debug("\(operation) -> receive")
 
-  func send(_ message: Foundation.Data, operation: String = #function) async throws {
-    try await socket.send(.data(message))
-  }
+    guard let connection = connection, state.isConnected else {
+      throw Error.clientError(code: 0, message: "WebSocket is not connected")
+    }
 
-  func send(_ message: String, operation: String = #function) async throws {
-    try await socket.send(.string(message))
+    let logger = self.logger
+    defer { receiveContinuation = nil }
+
+    return try await withCheckedThrowingContinuation { continuation in
+      self.receiveContinuation = continuation
+
+      connection.receiveMessage(completion: { (content, context, isComplete, error) in
+        logger.debug("Received message. content: \(String(describing: content)), isComplete: \(isComplete), error: \(String(describing: error))")
+
+        if let error = error {
+          continuation.resume(throwing: error)
+          return
+        }
+
+        guard let content = content, isComplete else { return }
+        continuation.resume(returning: content)
+      })
+    }
   }
 
   @available(macOS 14, iOS 17.0, watchOS 10.0, tvOS 17.0, *)
   func makeAsyncIterator() -> InternalStream.Iterator {
     stream.makeAsyncIterator()
   }
-}
 
-extension WebSocket: URLSessionWebSocketDelegate {
-  func urlSession(
-    _ session: URLSession,
-    webSocketTask: URLSessionWebSocketTask,
-    didCloseWith closeCode: URLSessionWebSocketTask.CloseCode,
-    reason: Data?
-  ) {
-    logger.debug(
-      "WebSocket closed with code: \(String(describing: closeCode)), reason: \(String(describing: reason))"
-    )
-    state = .disconnected(closeCode: closeCode, closeReason: reason)
+  func send(_ message: String, operation: String = #function) async throws {
+    let data = message.data(using: .utf8)!
+    let metadata = NWProtocolWebSocket.Metadata(opcode: .text)
+    let context = NWConnection.ContentContext(identifier: "textContext", metadata: [metadata])
+    try await send(data, context: context, operation: operation)
   }
 
-  func urlSession(
-    _ session: URLSession,
-    webSocketTask: URLSessionWebSocketTask,
-    didOpenWithProtocol protocol: String?
-  ) {
-    logger.debug(
-      "WebSocket opened with protocol: \(String(describing: `protocol`))"
-    )
-
-    state = .connected(protocol: `protocol`)
-    connectionContinuation?.resume()
-    connectionContinuation = nil
+  func send(_ message: Data, operation: String = #function) async throws {
+    let metadata = NWProtocolWebSocket.Metadata(opcode: .binary)
+    let context = NWConnection.ContentContext(identifier: "binaryContext", metadata: [metadata])
+    try await send(message, context: context, operation: operation)
   }
 
-  func urlSession(
-    _ session: URLSession,
-    task: URLSessionTask,
-    didCompleteWithError error: Swift.Error?
-  ) {
+  private func send(_ message: Data, context: NWConnection.ContentContext, operation: String = #function) async throws {
+    logger.debug("\(operation) -> send")
 
-    if let error = error {
-      logger.error("WebSocket task completed with error: \(error)")
+    guard let connection = connection, state.isConnected else {
+      throw Error.clientError(code: 0, message: "WebSocket is not connected")
+    }
 
-      state = .disconnected(
-        closeCode: .abnormalClosure,
-        closeReason: error.localizedDescription.data(using: .utf8)
-      )
-    } else {
-      logger.debug("WebSocket task completed successfully")
+    let logger = self.logger
 
-      state = .disconnected(closeCode: .normalClosure)
+    defer { sendContinuation = nil }
+
+    try await withCheckedThrowingContinuation { continuation in
+      self.sendContinuation = continuation
+
+      connection.send(content: message, contentContext: context, completion: .contentProcessed { error in
+        if let error = error {
+          logger.error("Send error: \(error)")
+          continuation.resume(throwing: error)
+        } else {
+          logger.debug("Message sent successfully: \(message)")
+          continuation.resume()
+        }
+      })
+    }
+  }
+
+  private lazy var stream: InternalStream = {
+    InternalStream { continuation in
+      self.streamContinuation = continuation
+
+      Task {
+        var isAlive = true
+
+        while isAlive && self.state.isConnected {
+          do {
+            let value = try await receive()
+            continuation.yield(value)
+          } catch {
+            continuation.finish(throwing: error)
+            self.streamContinuation = nil
+            isAlive = false
+          }
+        }
+      }
+    }
+  }()
+
+  private func newConnectionParameters() -> NWParameters {
+    let parameters = url.scheme == "wss" ? NWParameters.tls : NWParameters.tcp
+    parameters.defaultProtocolStack.applicationProtocols.insert(NWProtocolWebSocket.Options(), at: 0)
+    return parameters
+  }
+
+  private func stateDidChange(to state: NWConnection.State) {
+    switch state {
+    case .ready:
+      logger.debug("Connection ready")
+      self.state = .connected()
+      connectionContinuation?.resume()
+      connectionContinuation = nil
+    case .failed(let error):
+      logger.error("Connection failed: \(error)")
+      self.state = .disconnected(closeCode: .abnormalClosure, closeReason: error.localizedDescription.data(using: .utf8))
+      connectionContinuation?.resume(throwing: error)
+      connectionContinuation = nil
+    case .waiting(let error):
+      logger.debug("Connection waiting: \(error)")
+    case .cancelled:
+      logger.debug("Connection cancelled")
+      disconnect()
+    default:
+      break
     }
   }
 }
