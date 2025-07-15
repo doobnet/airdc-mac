@@ -21,7 +21,7 @@ extension URLSessionWebSocketTask.Message: @retroactive Equatable {
 }
 
 struct WebSocketTests {
-  class Transport: WebSocketKit.Transport {
+  /*class Transport: WebSocketKit.Transport {
     struct Called {
       var resume = 0
       var cancel: [(closeCode: CloseCode, reason: Data?)] = []
@@ -111,7 +111,7 @@ struct WebSocketTests {
       webSocket.state
         == .disconnected(closeCode: .normalClosure, closeReason: nil)
     )
-  }
+  }*/
 
   lazy var stdin = Pipe()
 
@@ -128,22 +128,22 @@ struct WebSocketTests {
     return process
   }()
 
+  let javaScriptServer = """
+    Bun.serve({
+      fetch(req, server) {
+        if (!server.upgrade(req))
+          return new Response("Upgrade failed", { status: 500 });
+      },
+      websocket: {
+        message(ws, message) { ws.send(message) }
+      }
+    })
+  """
+
   @Test("end to end test")
   mutating func endToEnd() async throws {
-    let js = """
-      Bun.serve({
-        fetch(req, server) {
-          if (!server.upgrade(req))
-            return new Response("Upgrade failed", { status: 500 });
-        },
-        websocket: {
-          message(ws, message) { ws.send(message) }
-        }
-      })
-      """
-
     try serverProcess.run()
-    stdin.fileHandleForWriting.write(js.data(using: .utf8)!)
+    stdin.fileHandleForWriting.write(javaScriptServer.data(using: .utf8)!)
     stdin.fileHandleForWriting.closeFile()
     defer { serverProcess.terminate() }
 
@@ -153,7 +153,30 @@ struct WebSocketTests {
     let webSocket = WebSocket(url: url)
     try await webSocket.connect()
     try await webSocket.send("first message")
+    let result = try await webSocket.receive()
 
-    try await #expect(webSocket.receive() == .string("first message"))
+    #expect(String(data: result, encoding: .utf8)! == "first message")
+  }
+
+  @Test("end to end async sequence test")
+  mutating func asyncSequence() async throws {
+    try serverProcess.run()
+    defer { serverProcess.terminate() }
+    stdin.fileHandleForWriting.write(javaScriptServer.data(using: .utf8)!)
+    stdin.fileHandleForWriting.closeFile()
+    try await Task.sleep(for: .seconds(1))
+    let url = URL(string: "ws://localhost:8080")!
+    let webSocket = WebSocket(url: url)
+    try await webSocket.connect()
+
+    try await webSocket.send("first message")
+    try await webSocket.send("second message")
+
+    let result = try await webSocket
+      .prefix(2)
+      .map { String(data: $0, encoding: .utf8)! }
+      .reduce(into: Array()) { $0.append($1) }
+
+    #expect(result == ["first message", "second message"])
   }
 }
