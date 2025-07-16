@@ -239,7 +239,7 @@ class WebSocket: AsyncSequence {
       logger.error("Connection failed: \(error)")
       self.state = .disconnected(closeCode: .abnormalClosure, closeReason: error.localizedDescription.data(using: .utf8))
       connectionContinuation?.resume(throwing: error)
-      connectionContinuation = nil
+      disconnect()
     case .waiting(let error):
       logger.debug("Connection waiting: \(error)")
     case .cancelled:
