@@ -1,10 +1,9 @@
 import Foundation
 import Network
 import OSLog
-import SwiftMock
 import UtilityKit
 
-@Mock public protocol Transport {
+public protocol Transport {
   typealias CloseCode = URLSessionWebSocketTask.CloseCode
 
   var closeCode: CloseCode { get }
@@ -37,7 +36,7 @@ class WebSocket: AsyncSequence {
     case readyToConnect
     case disconnected(
       closeCode: Transport.CloseCode,
-      closeReason: Data? = nil
+      closeReason: String? = nil
     )
     case connecting
     case connected(protocol: String? = nil)
@@ -93,12 +92,8 @@ class WebSocket: AsyncSequence {
     logger.debug("connect")
 
     state = .connecting
-
-    connection = NWConnection(to: endpoint, using: newConnectionParameters())
-    guard let connection = connection else {
-      throw Error.clientError(code: 0, message: "Failed to create connection")
-    }
-
+    let connection = NWConnection(to: endpoint, using: newConnectionParameters())
+    self.connection = connection
     connection.stateUpdateHandler = { [weak self] state in
       self?.stateDidChange(to: state)
     }
@@ -110,6 +105,10 @@ class WebSocket: AsyncSequence {
   }
 
   func disconnect() {
+    disconnect(throwing: CancellationError())
+  }
+
+  private func disconnect(throwing error: Swift.Error) {
     logger.debug("disconnect")
 
     if state.isConnected {
@@ -119,13 +118,13 @@ class WebSocket: AsyncSequence {
       connection?.forceCancel()
     }
 
-    sendContinuation?.resume(throwing: CancellationError())
+    sendContinuation?.resume(throwing: error)
     sendContinuation = nil
-    receiveContinuation?.resume(throwing: CancellationError())
+    receiveContinuation?.resume(throwing: error)
     receiveContinuation = nil
-    connectionContinuation?.resume(throwing: CancellationError())
+    connectionContinuation?.resume(throwing: error)
     connectionContinuation = nil
-    streamContinuation?.finish(throwing: CancellationError())
+    streamContinuation?.finish(throwing: error)
     streamContinuation = nil
     connection = nil
   }
@@ -151,14 +150,13 @@ class WebSocket: AsyncSequence {
           return
         }
 
-        guard let content = content, isComplete else { return }
-        continuation.resume(returning: content)
+        content.map { continuation.resume(returning: $0) }
       })
     }
   }
 
   @available(macOS 14, iOS 17.0, watchOS 10.0, tvOS 17.0, *)
-  func makeAsyncIterator() -> InternalStream.Iterator {
+  func makeAsyncIterator() -> AsyncIterator {
     stream.makeAsyncIterator()
   }
 
@@ -237,9 +235,8 @@ class WebSocket: AsyncSequence {
       connectionContinuation = nil
     case .failed(let error):
       logger.error("Connection failed: \(error)")
-      self.state = .disconnected(closeCode: .abnormalClosure, closeReason: error.localizedDescription.data(using: .utf8))
-      connectionContinuation?.resume(throwing: error)
-      disconnect()
+      self.state = .disconnected(closeCode: .abnormalClosure, closeReason: error.localizedDescription)
+      disconnect(throwing: error)
     case .waiting(let error):
       logger.debug("Connection waiting: \(error)")
     case .cancelled:

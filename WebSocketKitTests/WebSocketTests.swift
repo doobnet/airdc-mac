@@ -4,22 +4,6 @@ import UtilityKit
 
 @testable import WebSocketKit
 
-extension URLSessionWebSocketTask.Message: @retroactive Equatable {
-  public static func == (
-    lhs: URLSessionWebSocketTask.Message,
-    rhs: URLSessionWebSocketTask.Message
-  ) -> Bool {
-    switch (lhs, rhs) {
-    case (.string(let l), .string(let r)):
-      return l == r
-    case (.data(let l), .data(let r)):
-      return l == r
-    default:
-      return false
-    }
-  }
-}
-
 struct WebSocketTests {
   /*class Transport: WebSocketKit.Transport {
     struct Called {
