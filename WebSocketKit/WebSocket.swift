@@ -26,11 +26,14 @@ class WebSocket: AsyncSequence {
   typealias AsyncIterator = InternalStream.Iterator
   typealias Element = InternalStream.Element
   typealias State = NWConnection.State
+  typealias StateUpdateHandler = (@Sendable (_ state: NWConnection.State) -> Void)
 
   enum Error: Swift.Error {
     case notConnected
     case timeout
   }
+
+  var stateUpdateHandler: StateUpdateHandler = { _ in }
 
   private let logger: Logger
   private let url: URL
