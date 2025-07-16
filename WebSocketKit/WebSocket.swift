@@ -25,49 +25,13 @@ typealias InternalStream = AsyncThrowingStream<Data, Error>
 class WebSocket: AsyncSequence {
   typealias AsyncIterator = InternalStream.Iterator
   typealias Element = InternalStream.Element
+  typealias State = NWConnection.State
 
   enum Error: Swift.Error {
-    case clientError(code: Int, message: String)
-    case serverError(code: Int, message: String)
+    case notConnected
     case timeout
   }
 
-  enum State: Equatable {
-    case readyToConnect
-    case disconnected(
-      closeCode: Transport.CloseCode,
-      closeReason: String? = nil
-    )
-    case connecting
-    case connected(protocol: String? = nil)
-
-    var isConnected: Bool {
-      switch self {
-      case .connected: return true
-      default: return false
-      }
-    }
-
-    static func == (lhs: State, rhs: State) -> Bool {
-      switch (lhs, rhs) {
-      case (.readyToConnect, .readyToConnect):
-        return true
-      case (
-        .disconnected(let lhsCode, let lhsReason),
-        .disconnected(let rhsCode, let rhsReason)
-      ):
-        return lhsCode == rhsCode && lhsReason == rhsReason
-      case (.connecting, .connecting):
-        return true
-      case (.connected(let lhsProtocol), .connected(let rhsProtocol)):
-        return lhsProtocol == rhsProtocol
-      default:
-        return false
-      }
-    }
-  }
-
-  private(set) var state = State.readyToConnect
   private let logger: Logger
   private let url: URL
   private let endpoint: NWEndpoint
@@ -88,10 +52,13 @@ class WebSocket: AsyncSequence {
     disconnect()
   }
 
+  var state: State {
+    get { connection?.state ?? .setup }
+  }
+
   func connect(timeout: TimeInterval = 60) async throws {
     logger.debug("connect")
 
-    state = .connecting
     let connection = NWConnection(to: endpoint, using: newConnectionParameters())
     self.connection = connection
     connection.stateUpdateHandler = { [weak self] state in
@@ -113,7 +80,6 @@ class WebSocket: AsyncSequence {
 
     if state.isConnected {
       connection?.cancel()
-      state = .disconnected(closeCode: .normalClosure)
     } else {
       connection?.forceCancel()
     }
@@ -133,7 +99,7 @@ class WebSocket: AsyncSequence {
     logger.debug("\(operation) -> receive")
 
     guard let connection = connection, state.isConnected else {
-      throw Error.clientError(code: 0, message: "WebSocket is not connected")
+      throw Error.notConnected
     }
 
     let logger = self.logger
@@ -177,7 +143,7 @@ class WebSocket: AsyncSequence {
     logger.debug("\(operation) -> send")
 
     guard let connection = connection, state.isConnected else {
-      throw Error.clientError(code: 0, message: "WebSocket is not connected")
+      throw Error.notConnected
     }
 
     let logger = self.logger
@@ -230,12 +196,10 @@ class WebSocket: AsyncSequence {
     switch state {
     case .ready:
       logger.debug("Connection ready")
-      self.state = .connected()
       connectionContinuation?.resume()
       connectionContinuation = nil
     case .failed(let error):
       logger.error("Connection failed: \(error)")
-      self.state = .disconnected(closeCode: .abnormalClosure, closeReason: error.localizedDescription)
       disconnect(throwing: error)
     case .waiting(let error):
       logger.debug("Connection waiting: \(error)")
@@ -246,4 +210,8 @@ class WebSocket: AsyncSequence {
       break
     }
   }
+}
+
+extension WebSocket.State {
+  var isConnected: Bool { self == .ready }
 }
