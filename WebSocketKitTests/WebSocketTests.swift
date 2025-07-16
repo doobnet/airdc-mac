@@ -4,7 +4,7 @@ import UtilityKit
 
 @testable import WebSocketKit
 
-struct WebSocketTests {
+final class WebSocketTests {
   /*class Transport: WebSocketKit.Transport {
     struct Called {
       var resume = 0
@@ -97,6 +97,14 @@ struct WebSocketTests {
     )
   }*/
 
+  deinit {
+    print("deinit in test")
+    if serverProcess.isRunning {
+      serverProcess.terminate()
+      serverProcess.waitUntilExit()
+    }
+  }
+
   lazy var stdin = Pipe()
 
   lazy var serverProcess = {
@@ -108,6 +116,9 @@ struct WebSocketTests {
     process.standardOutput = FileHandle.standardOutput
     process.standardError = FileHandle.standardError
     process.environment = ["NO_COLOR": "1"]
+
+    stdin.fileHandleForWriting.write(javaScriptServer.data(using: .utf8)!)
+    stdin.fileHandleForWriting.closeFile()
 
     return process
   }()
@@ -124,18 +135,20 @@ struct WebSocketTests {
     })
   """
 
-  @Test("end to end test")
-  mutating func endToEnd() async throws {
+  func newWebSocket() async throws -> WebSocket {
     try serverProcess.run()
-    stdin.fileHandleForWriting.write(javaScriptServer.data(using: .utf8)!)
-    stdin.fileHandleForWriting.closeFile()
-    defer { serverProcess.terminate() }
 
+    let webSocket = WebSocket(url: URL(string: "ws://localhost:8080")!)
     try await Task.sleep(for: .seconds(1))
-
-    let url = URL(string: "ws://localhost:8080")!
-    let webSocket = WebSocket(url: url)
     try await webSocket.connect()
+
+    return webSocket
+  }
+
+  @Test("end to end test")
+  func endToEnd() async throws {
+    let webSocket = try await newWebSocket()
+
     try await webSocket.send("first message")
     let result = try await webSocket.receive()
 
@@ -143,15 +156,8 @@ struct WebSocketTests {
   }
 
   @Test("end to end async sequence test")
-  mutating func asyncSequence() async throws {
-    try serverProcess.run()
-    defer { serverProcess.terminate() }
-    stdin.fileHandleForWriting.write(javaScriptServer.data(using: .utf8)!)
-    stdin.fileHandleForWriting.closeFile()
-    try await Task.sleep(for: .seconds(1))
-    let url = URL(string: "ws://localhost:8080")!
-    let webSocket = WebSocket(url: url)
-    try await webSocket.connect()
+  func asyncSequence() async throws {
+    let webSocket = try await newWebSocket()
 
     try await webSocket.send("first message")
     try await webSocket.send("second message")
@@ -162,5 +168,10 @@ struct WebSocketTests {
       .reduce(into: Array()) { $0.append($1) }
 
     #expect(result == ["first message", "second message"])
+  }
+
+  @Test("state update handler")
+  func stateUpdateHandler() async throws {
+    let webSocket = try await newWebSocket()
   }
 }
