@@ -17,35 +17,33 @@ class WebSocketServer {
 
   }
 
-  func start() {
-    do {
-      let listener = try NWListener(
-        using: newConnectionParameters(),
-        on: requestedPort
-      )
-      self.listener = listener
-      let serverQueue = DispatchQueue(label: "serverQueue")
+  func start() throws {
 
-      listener.newConnectionHandler = { newConnection in
-        self.connectedClients.append(newConnection)
-        newConnection.start(queue: serverQueue)
+    let listener = try NWListener(
+      using: newConnectionParameters(),
+      on: requestedPort
+    )
+    self.listener = listener
+    let serverQueue = DispatchQueue(label: "serverQueue")
 
-        func receive() {
-          newConnection.receiveMessage { (data, context, isComplete, error) in
-            if let data = data, let context = context {
-              self.handleMessage(data: data, context: context)
-              receive()
-            }
+    listener.newConnectionHandler = { newConnection in
+      self.connectedClients.append(newConnection)
+      newConnection.start(queue: serverQueue)
+
+      func receive() {
+        newConnection.receiveMessage { (data, context, isComplete, error) in
+          if let data = data, let context = context {
+            self.handleMessage(data: data, context: context)
+            receive()
           }
         }
-
-        receive()
       }
 
-      listener.start(queue: serverQueue)
-    } catch {
-      fatalError(error.localizedDescription)
+      receive()
     }
+
+    listener.start(queue: serverQueue)
+
   }
 
   private func newConnectionParameters() -> NWParameters {
