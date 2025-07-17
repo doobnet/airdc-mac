@@ -67,7 +67,13 @@ final class WebSocketTests {
 
   @Test("end to end test")
   func endToEnd() async throws {
-    let webSocket = try await newWebSocket()
+//    let webSocket = try await newWebSocket()
+
+    let server = WebSocketServer(tls: false)
+    server.start()
+
+    let webSocket = WebSocket(url: URL(string: "ws://localhost:\(server.port ?? 8080)")!)
+    try await webSocket.connect()
 
     try await webSocket.send("first message")
     let result = try await webSocket.receive()

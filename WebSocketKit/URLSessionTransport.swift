@@ -7,5 +7,5 @@
 
 import Foundation
 
-extension URLSessionWebSocketTask: Transport {}
+//extension URLSessionWebSocketTask: Transport {}
 
