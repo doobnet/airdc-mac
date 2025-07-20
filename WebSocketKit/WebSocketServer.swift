@@ -10,6 +10,7 @@ class WebSocketServer {
   private var listener: NWListener?
   private var connectedClients: [NWConnection] = []
   private var startContinuation: CheckedContinuation<Void, Swift.Error>?
+  private var stopContinuation: CheckedContinuation<Void, Never>?
 
   init(port: NWEndpoint.Port = .any, tls: Bool = true) {
     shouldUseTLS = tls
@@ -17,10 +18,10 @@ class WebSocketServer {
   }
 
   deinit {
-    stop()
+    stop(throwing: CancellationError())
   }
 
-  func start() async throws {
+  func start() async throws -> Self {
     let listener = try NWListener(
       using: newConnectionParameters(),
       on: requestedPort
@@ -40,17 +41,23 @@ class WebSocketServer {
     try await withCheckedThrowingContinuation { continuation in
       self.startContinuation = continuation
     }
+
+    return self
   }
 
-  func stop() {
+  func stop() async {
+    await withCheckedContinuation {
+      self.stopContinuation = $0
+      stop(throwing: CancellationError())
+    }
+  }
+
+  private func stop(throwing error: Swift.Error) {
     connectedClients.forEach { $0.cancel() }
 
-    connectedClients.forEach {
-      $0.stateUpdateHandler = nil
-      $0.forceCancel()
-    }
+    startContinuation?.resume(throwing: error)
+    startContinuation = nil
 
-    connectedClients.removeAll()
     listener?.cancel()
     listener = nil
   }
@@ -76,7 +83,8 @@ class WebSocketServer {
     connection.start(queue: serverQueue)
 
     func receive() {
-      connection.receiveMessage { [weak self] (data, context, isComplete, error) in
+      connection.receiveMessage {
+        [weak self] (data, context, isComplete, error) in
         if let data = data, let context = context {
           self?.handleMessage(data: data, in: context, for: connection)
           receive()
@@ -87,8 +95,11 @@ class WebSocketServer {
     receive()
   }
 
-  private func handleMessage(data: Data, in context: NWConnection.ContentContext, for connection: NWConnection) {
-    print("Received message: \(context)")
+  private func handleMessage(
+    data: Data,
+    in context: NWConnection.ContentContext,
+    for connection: NWConnection
+  ) {
     let metadata = NWProtocolWebSocket.Metadata(opcode: .binary)
     let context = NWConnection.ContentContext(
       identifier: "binaryContext",
@@ -107,20 +118,23 @@ class WebSocketServer {
     switch state {
     case .ready:
       self.startContinuation?.resume()
+      self.startContinuation = nil
     case .failed(let error):
-      stop()
-    case .waiting(let error):
-      print("Connection waiting with error: \(error)")
+      stop(throwing: error)
     case .cancelled:
-      print("Connection cancelled")
+      stopContinuation?.resume()
+      stopContinuation = nil
     default:
       break
     }
   }
 
-  func connectionStateDidChange(to state: NWConnection.State, for connection: NWConnection) {
+  func connectionStateDidChange(
+    to state: NWConnection.State,
+    for connection: NWConnection
+  ) {
     switch state {
-    case .failed(let error):
+    case .failed:
       connection.cancel()
       connectedClients.remove(connection)
     case .cancelled:
@@ -137,10 +151,10 @@ extension NWConnection: @retroactive Equatable {
   }
 }
 
-extension Array where Element: Equatable{
+extension Array where Element: Equatable {
   @discardableResult mutating func remove(_ element: Element) -> Element? {
     if let index = firstIndex(of: element) {
-      return remove(at: 0)
+      return remove(at: index)
     }
     return nil
   }
