@@ -1,4 +1,5 @@
 import Foundation
+import UtilityKit
 
 public class URLSessionWebSocketConnection: NSObject {
     private let endpoint: URL

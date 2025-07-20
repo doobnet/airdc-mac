@@ -31,8 +31,6 @@
 		6191BCF02AEE818E0086AFDE /* Continuations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCEC2AEE818D0086AFDE /* Continuations.swift */; };
 		6191BCF12AEE818E0086AFDE /* WebSocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCEA2AEE818D0086AFDE /* WebSocketConnection.swift */; };
 		6191BCF22AEE818E0086AFDE /* URLSessionWebSocketConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCEB2AEE818D0086AFDE /* URLSessionWebSocketConnection.swift */; };
-		6191BCF32AEE818E0086AFDE /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCEE2AEE818E0086AFDE /* Utilities.swift */; };
-		6191BCF52AEE81A50086AFDE /* UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCF42AEE81A50086AFDE /* UtilitiesTests.swift */; };
 		6191BCFD2AF13E740086AFDE /* ContinuationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCFC2AF13E740086AFDE /* ContinuationsTests.swift */; };
 		61993A0F2DFC1F0000461938 /* SwiftMock in Frameworks */ = {isa = PBXBuildFile; productRef = 61993A0E2DFC1F0000461938 /* SwiftMock */; };
 		61993A112DFC1F0000461938 /* SwiftMockConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = 61993A102DFC1F0000461938 /* SwiftMockConfiguration */; };
@@ -199,8 +197,6 @@
 		6191BCEB2AEE818D0086AFDE /* URLSessionWebSocketConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionWebSocketConnection.swift; sourceTree = "<group>"; };
 		6191BCEC2AEE818D0086AFDE /* Continuations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Continuations.swift; sourceTree = "<group>"; };
 		6191BCED2AEE818D0086AFDE /* WebSocketMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketMessage.swift; sourceTree = "<group>"; };
-		6191BCEE2AEE818E0086AFDE /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		6191BCF42AEE81A50086AFDE /* UtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitiesTests.swift; sourceTree = "<group>"; };
 		6191BCFC2AF13E740086AFDE /* ContinuationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuationsTests.swift; sourceTree = "<group>"; };
 		61993A712DFC48F100461938 /* UtilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UtilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61993A7B2DFC48F100461938 /* UtilityKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtilityKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -402,7 +398,6 @@
 				6191BCCD2AEE7FF20086AFDE /* AirDCKit.docc */,
 				6191BCEC2AEE818D0086AFDE /* Continuations.swift */,
 				6191BCEB2AEE818D0086AFDE /* URLSessionWebSocketConnection.swift */,
-				6191BCEE2AEE818E0086AFDE /* Utilities.swift */,
 				6191BCEA2AEE818D0086AFDE /* WebSocketConnection.swift */,
 				6191BCED2AEE818D0086AFDE /* WebSocketMessage.swift */,
 				61DC93962B0B7B4400A21373 /* WebSocketSequence.swift */,
@@ -413,7 +408,6 @@
 		6191BCD92AEE7FF20086AFDE /* AirDCKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				6191BCF42AEE81A50086AFDE /* UtilitiesTests.swift */,
 				6191BCFC2AF13E740086AFDE /* ContinuationsTests.swift */,
 				61A965472AF2E8F9008C2E5B /* WebSocketConnectionTests.swift */,
 				6110C9B92B04FCB1003BE9A9 /* TestSuite.swift */,
@@ -880,7 +874,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6191BCF32AEE818E0086AFDE /* Utilities.swift in Sources */,
 				6191BCCE2AEE7FF20086AFDE /* AirDCKit.docc in Sources */,
 				6191BCEF2AEE818E0086AFDE /* WebSocketMessage.swift in Sources */,
 				6191BCF02AEE818E0086AFDE /* Continuations.swift in Sources */,
@@ -894,7 +887,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6191BCF52AEE81A50086AFDE /* UtilitiesTests.swift in Sources */,
 				6191BCFD2AF13E740086AFDE /* ContinuationsTests.swift in Sources */,
 				61DC93992B0B907E00A21373 /* WebSocketSequenceTests.swift in Sources */,
 				6110C9BA2B04FCB1003BE9A9 /* TestSuite.swift in Sources */,

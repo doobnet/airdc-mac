@@ -67,12 +67,11 @@ final class WebSocketTests {
 
   @Test("end to end test")
   func endToEnd() async throws {
-//    let webSocket = try await newWebSocket()
-
     let server = WebSocketServer(tls: false)
-    server.start()
+    try await server.start()
 
-    let webSocket = WebSocket(url: URL(string: "ws://localhost:\(server.port ?? 8080)")!)
+    let url = buildURL(scheme: "ws", host: "localhost", port: server.port!)
+    let webSocket = WebSocket(url: url)
     try await webSocket.connect()
 
     try await webSocket.send("first message")
@@ -115,3 +114,4 @@ final class WebSocketTests {
     #expect(await stateHandler.isHandled)
   }
 }
+
