@@ -18,7 +18,10 @@ final class WebSocketTests {
   func newWebSocket(
     stateUpdateHandler: @escaping WebSocket.StateUpdateHandler = { _ in }
   ) async throws -> WebSocket {
-    let server = try await WebSocketServer(tls: false).start()
+    let server = try await WebSocketServer(
+      tls: false,
+      requiredInterfaceType: .loopback
+    ).start()
 
     let url = buildURL(scheme: "ws", host: "localhost", port: server.port!)
     let webSocket = WebSocket(url: url)
