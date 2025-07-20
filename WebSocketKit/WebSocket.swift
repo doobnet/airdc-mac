@@ -42,7 +42,8 @@ class WebSocket: AsyncSequence {
     connection?.state ?? .setup
   }
 
-  func connect(timeout: TimeInterval = 60) async throws {
+  @discardableResult
+  func connect(timeout: TimeInterval = 60) async throws -> Self {
     logger.debug("connect")
 
     let connection = NWConnection(
@@ -58,6 +59,8 @@ class WebSocket: AsyncSequence {
       self.connectionContinuation = continuation
       connection.start(queue: queue)
     }
+
+    return self
   }
 
   func disconnect() {
@@ -118,7 +121,8 @@ class WebSocket: AsyncSequence {
     stream.makeAsyncIterator()
   }
 
-  func send(_ message: String, operation: String = #function) async throws {
+  @discardableResult
+  func send(_ message: String, operation: String = #function) async throws -> Self {
     let data = message.data(using: .utf8)!
     let metadata = NWProtocolWebSocket.Metadata(opcode: .text)
     let context = NWConnection.ContentContext(
@@ -126,15 +130,20 @@ class WebSocket: AsyncSequence {
       metadata: [metadata]
     )
     try await send(data, context: context, operation: operation)
+
+    return self
   }
 
-  func send(_ message: Data, operation: String = #function) async throws {
+  @discardableResult
+  func send(_ message: Data, operation: String = #function) async throws -> Self {
     let metadata = NWProtocolWebSocket.Metadata(opcode: .binary)
     let context = NWConnection.ContentContext(
       identifier: "binaryContext",
       metadata: [metadata]
     )
     try await send(message, context: context, operation: operation)
+
+    return self
   }
 
   private func send(
