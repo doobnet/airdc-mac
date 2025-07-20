@@ -6,15 +6,21 @@ class WebSocketServer {
 
   private let shouldUseTLS: Bool
   private let requestedPort: NWEndpoint.Port
+  private let requiredInterfaceType: NWInterface.InterfaceType
   private let serverQueue = DispatchQueue(label: "serverQueue")
   private var listener: NWListener?
   private var connectedClients: [NWConnection] = []
   private var startContinuation: CheckedContinuation<Void, Swift.Error>?
   private var stopContinuation: CheckedContinuation<Void, Never>?
 
-  init(port: NWEndpoint.Port = .any, tls: Bool = true) {
+  init(
+    port: NWEndpoint.Port = .any,
+    tls: Bool = true,
+    requiredInterfaceType: NWInterface.InterfaceType = .other
+  ) {
     shouldUseTLS = tls
     self.requestedPort = port
+    self.requiredInterfaceType = requiredInterfaceType
   }
 
   deinit {
@@ -24,7 +30,8 @@ class WebSocketServer {
   func start() async throws -> Self {
     let listener = try NWListener(
       using: newConnectionParameters(),
-      on: requestedPort
+      on: requestedPort,
+
     )
     self.listener = listener
 
@@ -64,12 +71,16 @@ class WebSocketServer {
 
   private func newConnectionParameters() -> NWParameters {
     let parameters = shouldUseTLS ? NWParameters.tls : NWParameters.tcp
+    parameters.requiredInterfaceType = requiredInterfaceType
+
     let wsOptions = NWProtocolWebSocket.Options()
     wsOptions.autoReplyPing = true
+
     parameters.defaultProtocolStack.applicationProtocols.insert(
       wsOptions,
       at: 0
     )
+
     return parameters
   }
 
