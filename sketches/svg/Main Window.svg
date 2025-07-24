@@ -1,0 +1,620 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1700" height="1080" viewBox="0 0 1700 1080">
+  <defs>
+    <filter id="Window_Background" x="-7" y="18" width="1655.76" height="1031.363" filterUnits="userSpaceOnUse">
+      <feOffset dy="25" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feFlood flood-opacity="0.278"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ecebec"/>
+      <stop offset="1" stop-color="#d4d3d4"/>
+    </linearGradient>
+    <filter id="Background" x="507.756" y="46.5" width="625.979" height="24" filterUnits="userSpaceOnUse">
+      <feOffset dy="0.5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur-2"/>
+      <feFlood flood-opacity="0.278"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Background-2" x="1442.76" y="46.5" width="155" height="24" filterUnits="userSpaceOnUse">
+      <feOffset dy="0.5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur-3"/>
+      <feFlood flood-opacity="0.278"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <rect width="124.996" height="42" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-4">
+      <rect width="124.996" height="89" fill="none"/>
+    </clipPath>
+    <filter id="Background-3" x="178" y="689.5" width="476.11" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="0.5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur-4"/>
+      <feFlood flood-opacity="0.278"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Background-4" x="685.93" y="689.5" width="662.039" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="0.5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur-5"/>
+      <feFlood flood-opacity="0.278"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path-5">
+      <rect width="1440.65" height="172" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-6">
+      <rect width="931.98" height="483" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-Main_Window">
+      <rect width="1700" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="Main_Window" data-name="Main Window" clip-path="url(#clip-Main_Window)">
+    <rect width="1700" height="1080" fill="#fff"/>
+    <g id="Main_Window-2" data-name="Main Window" transform="translate(-528 -352)">
+      <g id="Window_with_Toolbar" data-name="Window with Toolbar" transform="translate(567 391)">
+        <g transform="matrix(1, 0, 0, 1, -39, -39)" filter="url(#Window_Background)">
+          <g id="Window_Background-2" data-name="Window Background" transform="translate(39 39)" fill="#f2f2f2" stroke="rgba(0,0,0,0.1)" stroke-width="1">
+            <rect width="1563.76" height="939.363" rx="4" stroke="none"/>
+            <rect x="-0.5" y="-0.5" width="1564.76" height="940.363" rx="4.5" fill="none"/>
+          </g>
+        </g>
+        <g id="Toolbar" transform="translate(0 0)">
+          <path id="Background-5" data-name="Background" d="M4,0H1559.76a4,4,0,0,1,4,4V38a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V4A4,4,0,0,1,4,0Z" fill="url(#linear-gradient)"/>
+          <g id="Close" transform="translate(-17.5 208)" fill="#ff6157">
+            <path d="M28.5-184a5,5,0,0,0,5-5,5,5,0,0,0-5-5,5,5,0,0,0-5,5A5,5,0,0,0,28.5-184Z" stroke="none"/>
+            <path d="M 28.5 -184.5 C 30.98130989074707 -184.5 33 -186.5186920166016 33 -189 C 33 -191.4813079833984 30.98130989074707 -193.5 28.5 -193.5 C 26.01869010925293 -193.5 24 -191.4813079833984 24 -189 C 24 -186.5186920166016 26.01869010925293 -184.5 28.5 -184.5 M 28.5 -184 C 25.73858070373535 -184 23.5 -186.2386016845703 23.5 -189 C 23.5 -191.7613983154297 25.73858070373535 -194 28.5 -194 C 31.26141929626465 -194 33.5 -191.7613983154297 33.5 -189 C 33.5 -186.2386016845703 31.26141929626465 -184 28.5 -184 Z" stroke="none" fill="rgba(0,0,0,0.15)"/>
+          </g>
+          <g id="Minimize" transform="translate(-1.5 208)" fill="#ffc12f">
+            <path d="M28.5-184a5,5,0,0,0,5-5,5,5,0,0,0-5-5,5,5,0,0,0-5,5A5,5,0,0,0,28.5-184Z" stroke="none"/>
+            <path d="M 28.5 -184.5 C 30.98130989074707 -184.5 33 -186.5186920166016 33 -189 C 33 -191.4813079833984 30.98130989074707 -193.5 28.5 -193.5 C 26.01869010925293 -193.5 24 -191.4813079833984 24 -189 C 24 -186.5186920166016 26.01869010925293 -184.5 28.5 -184.5 M 28.5 -184 C 25.73858070373535 -184 23.5 -186.2386016845703 23.5 -189 C 23.5 -191.7613983154297 25.73858070373535 -194 28.5 -194 C 31.26141929626465 -194 33.5 -191.7613983154297 33.5 -189 C 33.5 -186.2386016845703 31.26141929626465 -184 28.5 -184 Z" stroke="none" fill="rgba(0,0,0,0.15)"/>
+          </g>
+          <g id="Fullscreen" transform="translate(14.5 208)" fill="#2acb42">
+            <path d="M28.5-184a5,5,0,0,0,5-5,5,5,0,0,0-5-5,5,5,0,0,0-5,5A5,5,0,0,0,28.5-184Z" stroke="none"/>
+            <path d="M 28.5 -184.5 C 30.98130989074707 -184.5 33 -186.5186920166016 33 -189 C 33 -191.4813079833984 30.98130989074707 -193.5 28.5 -193.5 C 26.01869010925293 -193.5 24 -191.4813079833984 24 -189 C 24 -186.5186920166016 26.01869010925293 -184.5 28.5 -184.5 M 28.5 -184 C 25.73858070373535 -184 23.5 -186.2386016845703 23.5 -189 C 23.5 -191.7613983154297 25.73858070373535 -194 28.5 -194 C 31.26141929626465 -194 33.5 -191.7613983154297 33.5 -189 C 33.5 -186.2386016845703 31.26141929626465 -184 28.5 -184 Z" stroke="none" fill="rgba(0,0,0,0.15)"/>
+          </g>
+          <path id="Divider" d="M0,0H1563.76V1H0Z" transform="translate(0 37)" opacity="0.06"/>
+          <g id="Event_Field" data-name="Event Field" transform="translate(470.756 9)">
+            <g transform="matrix(1, 0, 0, 1, -509.76, -48)" filter="url(#Background)">
+              <g id="Background-6" data-name="Background" transform="translate(509.76 48)" fill="#fff" stroke="rgba(0,0,0,0.1)" stroke-width="0.5">
+                <rect width="621.979" height="20" rx="3" stroke="none"/>
+                <rect x="-0.25" y="-0.25" width="622.479" height="20.5" rx="3.25" fill="none"/>
+              </g>
+            </g>
+            <text id="Text" transform="translate(240.468 14.5)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.006em"><tspan x="0" y="0">Foobar Downloaded</tspan></text>
+            <path id="clock" d="M15,8a7,7,0,1,0,7,7A7,7,0,0,0,15,8Zm1.612,9.882-2.49-1.809a.341.341,0,0,1-.138-.274v-4.75a.34.34,0,0,1,.339-.339h1.355a.34.34,0,0,1,.339.339v3.887l1.792,1.3a.339.339,0,0,1,.073.474l-.8,1.1a.341.341,0,0,1-.474.073Z" transform="translate(596.995 -5)" fill="gray"/>
+            <path id="history" d="M22,14.987A7,7,0,0,1,10.607,20.45a.677.677,0,0,1-.052-1.005l.318-.318a.679.679,0,0,1,.9-.056,5.194,5.194,0,1,0-.332-7.855l1.433,1.433a.452.452,0,0,1-.319.771h-4.1A.452.452,0,0,1,8,12.968v-4.1a.452.452,0,0,1,.771-.319l1.394,1.394A7,7,0,0,1,22,14.987Zm-5.106,2.224.277-.356a.677.677,0,0,0-.119-.951L15.9,15.01V12.065a.677.677,0,0,0-.677-.677h-.452a.677.677,0,0,0-.677.677v3.829l1.846,1.436A.677.677,0,0,0,16.894,17.211Z" transform="translate(-5.043 -5)" fill="gray"/>
+          </g>
+          <g id="Search_Field" data-name="Search Field" transform="translate(1405.76 9)">
+            <g transform="matrix(1, 0, 0, 1, -1444.76, -48)" filter="url(#Background-2)">
+              <g id="Background-7" data-name="Background" transform="translate(1444.76 48)" fill="#fff" stroke="rgba(0,0,0,0.1)" stroke-width="0.5">
+                <rect width="151" height="20" rx="3" stroke="none"/>
+                <rect x="-0.25" y="-0.25" width="151.5" height="20.5" rx="3.25" fill="none"/>
+              </g>
+            </g>
+            <text id="Text-2" data-name="Text" transform="translate(23.5 14.5)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.006em"><tspan x="0" y="0">Search Term</tspan></text>
+            <path id="Magnifier" d="M15.783-8.916,19-5.7l-.7.7L15.083-8.216A4.929,4.929,0,0,1,11.95-7.1,4.95,4.95,0,0,1,7-12.05,4.95,4.95,0,0,1,11.95-17a4.95,4.95,0,0,1,4.95,4.95A4.93,4.93,0,0,1,15.783-8.916Zm-3.833.827a3.96,3.96,0,0,0,3.96-3.96,3.96,3.96,0,0,0-3.96-3.96,3.96,3.96,0,0,0-3.96,3.96A3.96,3.96,0,0,0,11.95-8.089Z" transform="translate(-1 21)" fill="gray" fill-rule="evenodd"/>
+            <path id="Clear" d="M142.561-11.5l2.652-2.652-1.061-1.061L141.5-12.561l-2.652-2.652-1.061,1.061,2.652,2.652-2.652,2.652,1.061,1.061,2.652-2.652,2.652,2.652,1.061-1.061Zm-1.061,7a7,7,0,0,1-7-7,7,7,0,0,1,7-7,7,7,0,0,1,7,7A7,7,0,0,1,141.5-4.5Z" transform="translate(-0.5 21.5)" fill="gray" fill-rule="evenodd"/>
+          </g>
+        </g>
+      </g>
+      <g id="Sidebar" transform="translate(567 429)">
+        <rect id="Background-8" data-name="Background" width="124.996" height="901.363" transform="translate(0 0)" fill="#e9e9e9"/>
+        <g id="Files" transform="translate(2 263)">
+          <text id="Title" transform="translate(7 10)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Bold, SF Pro Text" font-weight="700" letter-spacing="-0.003em"><tspan x="0" y="0">Files</tspan></text>
+          <g id="Items" transform="translate(0 14)" clip-path="url(#clip-path)">
+            <g id="Items-2" data-name="Items" transform="translate(-20 -1742)">
+              <rect id="Base" width="180" height="22" transform="translate(20 1742)" fill="none"/>
+              <text id="Item_A" data-name="Item A" transform="translate(60 1757)" fill="rgba(0,0,0,0.76)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.007em"><tspan x="0" y="0">Item A</tspan></text>
+              <g id="Box" transform="translate(37 1744)" fill="rgba(255,59,48,0.2)" stroke="rgba(255,59,48,0.2)" stroke-width="1">
+                <rect width="18" height="18" rx="4" stroke="none"/>
+                <rect x="0.5" y="0.5" width="17" height="17" rx="3.5" fill="none"/>
+              </g>
+            </g>
+            <g id="Items-3" data-name="Items" transform="translate(-20 -1720)">
+              <rect id="Base-2" data-name="Base" width="180" height="22" transform="translate(20 1742)" fill="none"/>
+              <text id="Item_B" data-name="Item B" transform="translate(60 1757)" fill="rgba(0,0,0,0.76)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.007em"><tspan x="0" y="0">Item B</tspan></text>
+              <g id="Box-2" data-name="Box" transform="translate(37 1744)" fill="rgba(255,59,48,0.2)" stroke="rgba(255,59,48,0.2)" stroke-width="1">
+                <rect width="18" height="18" rx="4" stroke="none"/>
+                <rect x="0.5" y="0.5" width="17" height="17" rx="3.5" fill="none"/>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g id="Filelists" transform="translate(2 192)">
+          <text id="Title-2" data-name="Title" transform="translate(7 10)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Bold, SF Pro Text" font-weight="700" letter-spacing="-0.003em"><tspan x="0" y="0">Filelists</tspan></text>
+          <g id="Items-4" data-name="Items" transform="translate(0 14)" clip-path="url(#clip-path)">
+            <g id="Items-5" data-name="Items" transform="translate(-20 -1742)">
+              <rect id="Base-3" data-name="Base" width="180" height="22" transform="translate(20 1742)" fill="none"/>
+              <text id="Item_A-2" data-name="Item A" transform="translate(60 1757)" fill="rgba(0,0,0,0.76)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.007em"><tspan x="0" y="0">Item A</tspan></text>
+              <g id="Box-3" data-name="Box" transform="translate(37 1744)" fill="rgba(255,59,48,0.2)" stroke="rgba(255,59,48,0.2)" stroke-width="1">
+                <rect width="18" height="18" rx="4" stroke="none"/>
+                <rect x="0.5" y="0.5" width="17" height="17" rx="3.5" fill="none"/>
+              </g>
+            </g>
+            <g id="Items-6" data-name="Items" transform="translate(-20 -1720)">
+              <rect id="Base-4" data-name="Base" width="180" height="22" transform="translate(20 1742)" fill="none"/>
+              <text id="Item_B-2" data-name="Item B" transform="translate(60 1757)" fill="rgba(0,0,0,0.76)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.007em"><tspan x="0" y="0">Item B</tspan></text>
+              <g id="Box-4" data-name="Box" transform="translate(37 1744)" fill="rgba(255,59,48,0.2)" stroke="rgba(255,59,48,0.2)" stroke-width="1">
+                <rect width="18" height="18" rx="4" stroke="none"/>
+                <rect x="0.5" y="0.5" width="17" height="17" rx="3.5" fill="none"/>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g id="Messages" transform="translate(2 121)">
+          <text id="Title-3" data-name="Title" transform="translate(7 10)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Bold, SF Pro Text" font-weight="700" letter-spacing="-0.003em"><tspan x="0" y="0">Messages</tspan></text>
+          <g id="Items-7" data-name="Items" transform="translate(0 14)" clip-path="url(#clip-path)">
+            <g id="Items-8" data-name="Items" transform="translate(-20 -1742)">
+              <rect id="Base-5" data-name="Base" width="180" height="22" transform="translate(20 1742)" fill="none"/>
+              <text id="Item_A-3" data-name="Item A" transform="translate(60 1757)" fill="rgba(0,0,0,0.76)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.007em"><tspan x="0" y="0">Item A</tspan></text>
+              <g id="Box-5" data-name="Box" transform="translate(37 1744)" fill="rgba(255,59,48,0.2)" stroke="rgba(255,59,48,0.2)" stroke-width="1">
+                <rect width="18" height="18" rx="4" stroke="none"/>
+                <rect x="0.5" y="0.5" width="17" height="17" rx="3.5" fill="none"/>
+              </g>
+            </g>
+            <g id="Items-9" data-name="Items" transform="translate(-20 -1720)">
+              <rect id="Base-6" data-name="Base" width="180" height="22" transform="translate(20 1742)" fill="none"/>
+              <text id="Item_B-3" data-name="Item B" transform="translate(60 1757)" fill="rgba(0,0,0,0.76)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.007em"><tspan x="0" y="0">Item B</tspan></text>
+              <g id="Box-6" data-name="Box" transform="translate(37 1744)" fill="rgba(255,59,48,0.2)" stroke="rgba(255,59,48,0.2)" stroke-width="1">
+                <rect width="18" height="18" rx="4" stroke="none"/>
+                <rect x="0.5" y="0.5" width="17" height="17" rx="3.5" fill="none"/>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g id="Hubs" transform="translate(0 8)">
+          <text id="Title-4" data-name="Title" transform="translate(9 10)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Bold, SF Pro Text" font-weight="700" letter-spacing="-0.003em"><tspan x="0" y="0">Hubs</tspan></text>
+          <g id="Items-10" data-name="Items" transform="translate(0 14)" clip-path="url(#clip-path-4)">
+            <g id="Items-11" data-name="Items" transform="translate(-20 -1742)">
+              <g id="Item">
+                <rect id="Base-7" data-name="Base" width="180" height="22" transform="translate(20 1742)" fill="none"/>
+                <text id="Item_1" data-name="Item 1" transform="translate(60 1757)" fill="rgba(0,0,0,0.76)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.007em"><tspan x="0" y="0">Item 1</tspan></text>
+                <g id="Box-7" data-name="Box" transform="translate(37 1744)" fill="rgba(255,59,48,0.2)" stroke="rgba(255,59,48,0.2)" stroke-width="1">
+                  <rect width="18" height="18" rx="4" stroke="none"/>
+                  <rect x="0.5" y="0.5" width="17" height="17" rx="3.5" fill="none"/>
+                </g>
+              </g>
+            </g>
+            <g id="Items-12" data-name="Items" transform="translate(-20 -1720)">
+              <g id="Item-2" data-name="Item">
+                <rect id="Base-8" data-name="Base" width="180" height="22" transform="translate(20 1742)" fill="none"/>
+                <text id="Item_2" data-name="Item 2" transform="translate(60 1757)" fill="rgba(0,0,0,0.76)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.007em"><tspan x="0" y="0">Item 2</tspan></text>
+                <g id="Box-8" data-name="Box" transform="translate(37 1744)" fill="rgba(255,59,48,0.2)" stroke="rgba(255,59,48,0.2)" stroke-width="1">
+                  <rect width="18" height="18" rx="4" stroke="none"/>
+                  <rect x="0.5" y="0.5" width="17" height="17" rx="3.5" fill="none"/>
+                </g>
+              </g>
+            </g>
+            <g id="Items-13" data-name="Items" transform="translate(-20 -1698)">
+              <g id="Item-3" data-name="Item">
+                <rect id="Base-9" data-name="Base" width="180" height="22" transform="translate(20 1742)" fill="none"/>
+                <text id="Item_3" data-name="Item 3" transform="translate(60 1757)" fill="rgba(0,0,0,0.76)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.007em"><tspan x="0" y="0">Item 3</tspan></text>
+                <g id="Box-9" data-name="Box" transform="translate(37 1744)" fill="rgba(255,59,48,0.2)" stroke="rgba(255,59,48,0.2)" stroke-width="1">
+                  <rect width="18" height="18" rx="4" stroke="none"/>
+                  <rect x="0.5" y="0.5" width="17" height="17" rx="3.5" fill="none"/>
+                </g>
+              </g>
+            </g>
+            <g id="Items-14" data-name="Items" transform="translate(-20 -1676)">
+              <g id="Item-4" data-name="Item">
+                <rect id="Base-10" data-name="Base" width="180" height="22" transform="translate(20 1742)" fill="none"/>
+                <text id="Item_4" data-name="Item 4" transform="translate(60 1757)" fill="rgba(0,0,0,0.76)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.007em"><tspan x="0" y="0">Item 4</tspan></text>
+                <g id="Box-10" data-name="Box" transform="translate(37 1744)" fill="rgba(255,59,48,0.2)" stroke="rgba(255,59,48,0.2)" stroke-width="1">
+                  <rect width="18" height="18" rx="4" stroke="none"/>
+                  <rect x="0.5" y="0.5" width="17" height="17" rx="3.5" fill="none"/>
+                </g>
+              </g>
+            </g>
+            <g id="Items-15" data-name="Items" transform="translate(-20 -1654)">
+              <g id="Item-5" data-name="Item">
+                <rect id="Base-11" data-name="Base" width="180" height="22" transform="translate(20 1742)" fill="none"/>
+                <text id="Item_5" data-name="Item 5" transform="translate(60 1757)" fill="rgba(0,0,0,0.76)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.007em"><tspan x="0" y="0">Item 5</tspan></text>
+                <g id="Box-11" data-name="Box" transform="translate(37 1744)" fill="rgba(255,59,48,0.2)" stroke="rgba(255,59,48,0.2)" stroke-width="1">
+                  <rect width="18" height="18" rx="4" stroke="none"/>
+                  <rect x="0.5" y="0.5" width="17" height="17" rx="3.5" fill="none"/>
+                </g>
+              </g>
+            </g>
+          </g>
+          <rect id="Selected" width="124.996" height="22" transform="translate(0 36)" fill="rgba(0,0,0,0.04)"/>
+          <g id="Counter" transform="translate(92.996 84)">
+            <rect id="Rectangle_276" data-name="Rectangle 276" width="27" height="14" rx="7" fill="#b4b4b4"/>
+            <text id="_67" data-name="67" transform="translate(6.34 11)" fill="#fff" font-size="11" font-family="SFProText-Bold, SF Pro Text" font-weight="700" letter-spacing="0.006em"><tspan x="0" y="0">67</tspan></text>
+          </g>
+        </g>
+      </g>
+      <rect id="Sidebar_Divider" data-name="Sidebar Divider" width="898.359" height="1" transform="translate(690.498 432.502) rotate(90)" opacity="0.06"/>
+      <g id="Scroll_View" data-name="Scroll View" transform="translate(690 468.76)">
+        <g id="Box-12" data-name="Box" fill="#fff" stroke="rgba(0,0,0,0.22)" stroke-width="1">
+          <rect width="508.54" height="564.24" stroke="none"/>
+          <rect x="0.5" y="0.5" width="507.54" height="563.24" fill="none"/>
+        </g>
+        <rect id="scroll" width="8" height="78" rx="4" transform="translate(496.54 4)" fill="#c4c4c4"/>
+        <text id="Lorem" transform="translate(4.25 16)" fill="rgba(0,0,0,0.76)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.006em"><tspan x="0" y="0">Lorem</tspan></text>
+      </g>
+      <g id="Message_Field" data-name="Message Field" transform="translate(708 1043)">
+        <g transform="matrix(1, 0, 0, 1, -180, -691)" filter="url(#Background-3)">
+          <g id="Background-9" data-name="Background" transform="translate(180 691)" fill="#fff" stroke="rgba(0,0,0,0.1)" stroke-width="0.5">
+            <rect width="472.11" height="24" rx="10" stroke="none"/>
+            <rect x="-0.25" y="-0.25" width="472.61" height="24.5" rx="10.25" fill="none"/>
+          </g>
+        </g>
+        <text id="Placeholder" transform="translate(6.5 16.5)" fill="rgba(0,0,0,0.4)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.006em"><tspan x="0" y="0">Message</tspan></text>
+        <path id="grin-alt" d="M6.461,15.742a3.475,3.475,0,0,0,0-3.613.633.633,0,0,0-1.055,0,3.475,3.475,0,0,0,0,3.613A.633.633,0,0,0,6.461,15.742Zm4.129,0a3.475,3.475,0,0,0,0-3.613.633.633,0,0,0-1.055,0,3.475,3.475,0,0,0,0,3.613A.633.633,0,0,0,10.59,15.742ZM8,8a8,8,0,1,0,8,8A8,8,0,0,0,8,8ZM8,22.452A6.452,6.452,0,1,1,14.452,16,6.458,6.458,0,0,1,8,22.452Zm3.406-4.884A11.973,11.973,0,0,1,8,17.99a11.989,11.989,0,0,1-3.406-.423.442.442,0,0,0-.571.494c.255,1.523,2.3,2.581,3.977,2.581s3.719-1.061,3.977-2.581a.444.444,0,0,0-.571-.494Z" transform="translate(450.142 -4)" fill="gray"/>
+        <path id="arrow-alt-circle-up" d="M16,24a8,8,0,1,0-8-8A8,8,0,0,0,16,24ZM16,9.548A6.452,6.452,0,1,1,9.548,16,6.45,6.45,0,0,1,16,9.548Zm.645,10.581h-1.29a.388.388,0,0,1-.387-.387V16H12.806a.388.388,0,0,1-.274-.661l3.194-3.194a.387.387,0,0,1,.548,0l3.194,3.194a.387.387,0,0,1-.274.661H17.032v3.742A.388.388,0,0,1,16.645,20.129Z" transform="translate(420.142 -4)" fill="gray"/>
+      </g>
+      <g id="Filter_Field" data-name="Filter Field" transform="translate(1215.93 1043)">
+        <g transform="matrix(1, 0, 0, 1, -687.93, -691)" filter="url(#Background-4)">
+          <g id="Background-10" data-name="Background" transform="translate(687.93 691)" fill="#fff" stroke="rgba(0,0,0,0.1)" stroke-width="0.5">
+            <rect width="658.039" height="24" rx="10" stroke="none"/>
+            <rect x="-0.25" y="-0.25" width="658.539" height="24.5" rx="10.25" fill="none"/>
+          </g>
+        </g>
+        <text id="Placeholder-2" data-name="Placeholder" transform="translate(6.5 16.5)" fill="rgba(0,0,0,0.4)" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.006em"><tspan x="0" y="0">Filter…</tspan></text>
+      </g>
+      <g id="Transfers" transform="translate(690 1077)">
+        <g id="Base-12" data-name="Base" fill="#fff" stroke="silver" stroke-width="1">
+          <rect width="1442.65" height="253.363" stroke="none"/>
+          <rect x="0.5" y="0.5" width="1441.65" height="252.363" fill="none"/>
+        </g>
+        <rect id="Selected-2" data-name="Selected" width="1440.65" height="20" transform="translate(1 43)" fill="#0075db"/>
+        <g id="Repeat_Grid_2" data-name="Repeat Grid 2" transform="translate(1 76.752)" clip-path="url(#clip-path-5)">
+          <g transform="translate(-421 -1801)">
+            <rect id="Base-13" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1801)">
+            <rect id="Base-14" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1801)">
+            <rect id="Base-15" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1801)">
+            <rect id="Base-16" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(779 -1801)">
+            <rect id="Base-17" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1763)">
+            <rect id="Base-18" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1763)">
+            <rect id="Base-19" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1763)">
+            <rect id="Base-20" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1763)">
+            <rect id="Base-21" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(779 -1763)">
+            <rect id="Base-22" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1725)">
+            <rect id="Base-23" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1725)">
+            <rect id="Base-24" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1725)">
+            <rect id="Base-25" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1725)">
+            <rect id="Base-26" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(779 -1725)">
+            <rect id="Base-27" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1687)">
+            <rect id="Base-28" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1687)">
+            <rect id="Base-29" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1687)">
+            <rect id="Base-30" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1687)">
+            <rect id="Base-31" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(779 -1687)">
+            <rect id="Base-32" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1649)">
+            <rect id="Base-33" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1649)">
+            <rect id="Base-34" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1649)">
+            <rect id="Base-35" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1649)">
+            <rect id="Base-36" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(779 -1649)">
+            <rect id="Base-37" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+        </g>
+        <g id="Base-38" data-name="Base" fill="#f0f0f0" stroke="silver" stroke-width="1">
+          <rect width="1442.65" height="24" stroke="none"/>
+          <rect x="0.5" y="0.5" width="1441.65" height="23" fill="none"/>
+        </g>
+        <rect id="Divider-2" data-name="Divider" width="1" height="18" transform="translate(150 3)" fill="#d8d8d8"/>
+        <rect id="Divider-3" data-name="Divider" width="1" height="18" transform="translate(251 3)" fill="#d8d8d8"/>
+        <rect id="Divider-4" data-name="Divider" width="1" height="18" transform="translate(352 3)" fill="#d8d8d8"/>
+        <rect id="Divider-5" data-name="Divider" width="1" height="18" transform="translate(453 3)" fill="#d8d8d8"/>
+        <rect id="Divider-6" data-name="Divider" width="1" height="18" transform="translate(554 3)" fill="#d8d8d8"/>
+        <rect id="Divider-7" data-name="Divider" width="1" height="18" transform="translate(655 3)" fill="#d8d8d8"/>
+        <rect id="Divider-8" data-name="Divider" width="1" height="18" transform="translate(756 3)" fill="#d8d8d8"/>
+        <rect id="Divider-9" data-name="Divider" width="1" height="18" transform="translate(857 3)" fill="#d8d8d8"/>
+        <rect id="Divider-10" data-name="Divider" width="1" height="18" transform="translate(946 3)" fill="#d8d8d8"/>
+        <rect id="Divider-11" data-name="Divider" width="1" height="18" transform="translate(1035 3)" fill="#d8d8d8"/>
+        <rect id="Divider-12" data-name="Divider" width="1" height="18" transform="translate(1124 3)" fill="#d8d8d8"/>
+        <rect id="Divider-13" data-name="Divider" width="1" height="18" transform="translate(1222 3)" fill="#d8d8d8"/>
+        <rect id="Divider-14" data-name="Divider" width="1" height="18" transform="translate(1302 3)" fill="#d8d8d8"/>
+        <text id="Name" transform="translate(8 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Medium, SF Pro Text" font-weight="500" letter-spacing="0em"><tspan x="0" y="0">Name</tspan></text>
+        <text id="Size" transform="translate(158 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Size</tspan></text>
+        <text id="Type_Content" data-name="Type/Content" transform="translate(260 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Type/Content</tspan></text>
+        <text id="Status" transform="translate(361 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Status</tspan></text>
+        <text id="Sources" transform="translate(462 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Sources</tspan></text>
+        <text id="Time_Left" data-name="Time Left" transform="translate(563 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Time Left</tspan></text>
+        <text id="Speed" transform="translate(664 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Speed</tspan></text>
+        <text id="Priority" transform="translate(765 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Priority</tspan></text>
+        <text id="Added_" data-name="Added " transform="translate(866 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Added </tspan></text>
+        <text id="Finished" transform="translate(955 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Finished</tspan></text>
+        <text id="User" transform="translate(1044 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">User</tspan></text>
+        <text id="Segment" transform="translate(1133 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Segment</tspan></text>
+        <text id="Flags" transform="translate(1231 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Flags</tspan></text>
+        <text id="IP" transform="translate(1311 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">IP</tspan></text>
+        <g id="arrow" transform="translate(135.007 10.495)">
+          <path id="arrow-2" data-name="arrow" d="M141.818-269.341h0a.682.682,0,0,0-.887,0l-2.269,1.942a.25.25,0,0,1-.325,0l-2.269-1.942a.682.682,0,0,0-.887,0h0a.5.5,0,0,0-.055.7.5.5,0,0,0,.055.055l2.831,2.423a.75.75,0,0,0,.975,0l2.831-2.423a.5.5,0,0,0,.055-.7A.5.5,0,0,0,141.818-269.341Z" transform="translate(-135.007 269.505)" fill="#3b3b3b"/>
+        </g>
+        <text id="Item_2-2" data-name="Item 2" transform="translate(7 57.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.007em"><tspan x="0" y="0">Item 2</tspan></text>
+        <text id="_349.68_MiB" data-name="349.68 MiB" transform="translate(157 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">349.68 MiB</tspan></text>
+        <text id="_1_folder_10_files" data-name="1 folder, 10 files" transform="translate(258 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">1 folder, 10 files</tspan></text>
+        <text id="Waiting_92.2_" data-name="Waiting (92.2%)" transform="translate(359 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">Waiting (92.2%)</tspan></text>
+        <text id="_1_1_Online" data-name="1/1 Online" transform="translate(460 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">1/1 Online</tspan></text>
+        <text id="High_auto_" data-name="High (auto)" transform="translate(763 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">High (auto)</tspan></text>
+        <text id="a_day_ago" data-name="a day ago" transform="translate(864 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">a day ago</tspan></text>
+        <text id="a_day_ago-2" data-name="a day ago" transform="translate(953 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">a day ago</tspan></text>
+        <text id="Foobar" transform="translate(1042 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">Foobar</tspan></text>
+        <text id="_14.81_MiB" data-name="14.81 MiB" transform="translate(1131 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">14.81 MiB</tspan></text>
+        <text id="_84.123.4.5" data-name="84.123.4.5" transform="translate(1309 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">84.123.4.5</tspan></text>
+      </g>
+      <g id="Users" transform="translate(1197.7 469)">
+        <g id="Base-39" data-name="Base" fill="#fff" stroke="silver" stroke-width="1">
+          <rect width="933.98" height="564" stroke="none"/>
+          <rect x="0.5" y="0.5" width="932.98" height="563" fill="none"/>
+        </g>
+        <rect id="Selected-3" data-name="Selected" width="931.98" height="20" transform="translate(1 43)" fill="#0075db"/>
+        <g id="Repeat_Grid_2-2" data-name="Repeat Grid 2" transform="translate(1 81)" clip-path="url(#clip-path-6)">
+          <g transform="translate(-421 -1801)">
+            <rect id="Base-40" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1801)">
+            <rect id="Base-41" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1801)">
+            <rect id="Base-42" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1801)">
+            <rect id="Base-43" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1763)">
+            <rect id="Base-44" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1763)">
+            <rect id="Base-45" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1763)">
+            <rect id="Base-46" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1763)">
+            <rect id="Base-47" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1725)">
+            <rect id="Base-48" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1725)">
+            <rect id="Base-49" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1725)">
+            <rect id="Base-50" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1725)">
+            <rect id="Base-51" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1687)">
+            <rect id="Base-52" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1687)">
+            <rect id="Base-53" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1687)">
+            <rect id="Base-54" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1687)">
+            <rect id="Base-55" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1649)">
+            <rect id="Base-56" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1649)">
+            <rect id="Base-57" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1649)">
+            <rect id="Base-58" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1649)">
+            <rect id="Base-59" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1611)">
+            <rect id="Base-60" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1611)">
+            <rect id="Base-61" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1611)">
+            <rect id="Base-62" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1611)">
+            <rect id="Base-63" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1573)">
+            <rect id="Base-64" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1573)">
+            <rect id="Base-65" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1573)">
+            <rect id="Base-66" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1573)">
+            <rect id="Base-67" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1535)">
+            <rect id="Base-68" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1535)">
+            <rect id="Base-69" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1535)">
+            <rect id="Base-70" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1535)">
+            <rect id="Base-71" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1497)">
+            <rect id="Base-72" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1497)">
+            <rect id="Base-73" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1497)">
+            <rect id="Base-74" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1497)">
+            <rect id="Base-75" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1459)">
+            <rect id="Base-76" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1459)">
+            <rect id="Base-77" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1459)">
+            <rect id="Base-78" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1459)">
+            <rect id="Base-79" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1421)">
+            <rect id="Base-80" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1421)">
+            <rect id="Base-81" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1421)">
+            <rect id="Base-82" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1421)">
+            <rect id="Base-83" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1383)">
+            <rect id="Base-84" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1383)">
+            <rect id="Base-85" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1383)">
+            <rect id="Base-86" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1383)">
+            <rect id="Base-87" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-421 -1345)">
+            <rect id="Base-88" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(-121 -1345)">
+            <rect id="Base-89" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(179 -1345)">
+            <rect id="Base-90" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+          <g transform="translate(479 -1345)">
+            <rect id="Base-91" data-name="Base" width="300" height="20" transform="translate(421 1801)" fill="#f7f7f7"/>
+          </g>
+        </g>
+        <g id="Base-92" data-name="Base" fill="#f0f0f0" stroke="silver" stroke-width="1">
+          <rect width="933.98" height="24" stroke="none"/>
+          <rect x="0.5" y="0.5" width="932.98" height="23" fill="none"/>
+        </g>
+        <rect id="Divider-15" data-name="Divider" width="1" height="18" transform="translate(150 3)" fill="#d8d8d8"/>
+        <rect id="Divider-16" data-name="Divider" width="1" height="18" transform="translate(251 3)" fill="#d8d8d8"/>
+        <rect id="Divider-17" data-name="Divider" width="1" height="18" transform="translate(352 3)" fill="#d8d8d8"/>
+        <rect id="Divider-18" data-name="Divider" width="1" height="18" transform="translate(453 3)" fill="#d8d8d8"/>
+        <rect id="Divider-19" data-name="Divider" width="1" height="18" transform="translate(554 3)" fill="#d8d8d8"/>
+        <rect id="Divider-20" data-name="Divider" width="1" height="18" transform="translate(655 3)" fill="#d8d8d8"/>
+        <rect id="Divider-21" data-name="Divider" width="1" height="18" transform="translate(756 3)" fill="#d8d8d8"/>
+        <rect id="Divider-22" data-name="Divider" width="1" height="18" transform="translate(857 3)" fill="#d8d8d8"/>
+        <rect id="Divider-23" data-name="Divider" width="1" height="18" transform="translate(930.347 3)" fill="#d8d8d8"/>
+        <text id="Nick" transform="translate(8 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Medium, SF Pro Text" font-weight="500" letter-spacing="0em"><tspan x="0" y="0">Nick</tspan></text>
+        <text id="Share_Size" data-name="Share Size" transform="translate(158 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Share Size</tspan></text>
+        <text id="Description" transform="translate(260 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Description</tspan></text>
+        <text id="Tag" transform="translate(361 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Tag</tspan></text>
+        <text id="Upload_Speed" data-name="Upload Speed" transform="translate(462 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Upload Speed</tspan></text>
+        <text id="Download_Speed" data-name="Download Speed" transform="translate(563 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Download Speed</tspan></text>
+        <text id="IP_v4_" data-name="IP (v4)" transform="translate(664 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">IP (v4)</tspan></text>
+        <text id="IP_v6_" data-name="IP (v6)" transform="translate(765 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">IP (v6)</tspan></text>
+        <text id="Files-2" data-name="Files" transform="translate(866 16)" fill="rgba(0,0,0,0.76)" font-size="11" font-family="SFProText-Regular, SF Pro Text"><tspan x="0" y="0">Files</tspan></text>
+        <g id="arrow-3" data-name="arrow" transform="translate(135.007 10.495)">
+          <path id="arrow-4" data-name="arrow" d="M141.818-269.341h0a.682.682,0,0,0-.887,0l-2.269,1.942a.25.25,0,0,1-.325,0l-2.269-1.942a.682.682,0,0,0-.887,0h0a.5.5,0,0,0-.055.7.5.5,0,0,0,.055.055l2.831,2.423a.75.75,0,0,0,.975,0l2.831-2.423a.5.5,0,0,0,.055-.7A.5.5,0,0,0,141.818-269.341Z" transform="translate(-135.007 269.505)" fill="#3b3b3b"/>
+        </g>
+        <text id="Item_2-3" data-name="Item 2" transform="translate(7 57.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.007em"><tspan x="0" y="0">Item 2</tspan></text>
+        <text id="_5.15_GiB" data-name="5.15 GiB" transform="translate(157 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">5.15 GiB</tspan></text>
+        <text id="_BOT_" data-name="[ BOT ]" transform="translate(258 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">[ BOT ]</tspan></text>
+        <text id="_Bot_2" data-name="&lt; Bot &gt; " transform="translate(359 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">&lt; Bot &gt; </tspan></text>
+        <text id="_100.00_Mbit_s" data-name="100.00 Mbit/s" transform="translate(460 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">100.00 Mbit/s</tspan></text>
+        <text id="_100.00_Mbit_s-2" data-name="100.00 Mbit/s" transform="translate(561 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">100.00 Mbit/s</tspan></text>
+        <text id="_82.123.156.78" data-name="82.123.156.78" transform="translate(662 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">82.123.156.78</tspan></text>
+        <text id="_77" data-name="77" transform="translate(864 58.5)" fill="#fff" font-size="13" font-family="SFProText-Regular, SF Pro Text" letter-spacing="-0.036em"><tspan x="0" y="0">77</tspan></text>
+      </g>
+      <rect id="Divider-24" data-name="Divider" width="1" height="18" transform="translate(1940 1046)" fill="#bebebe"/>
+      <rect id="Divider-25" data-name="Divider" width="1" height="18" transform="translate(2076 1047)" fill="#bebebe"/>
+      <text id="_3.54_PiB_3.04_TiB_user_" data-name="3.54 PiB (3.04 TiB/user)" transform="translate(1945.41 1059)" font-size="11" font-family="SFProText-Regular, SF Pro Text" letter-spacing="0.006em"><tspan x="0" y="0">3.54 PiB (3.04 TiB/user)</tspan></text>
+      <text id="_709_users" data-name="709 users" transform="translate(1883.41 1059)" font-size="11" font-family="SFProText-Regular, SF Pro Text" letter-spacing="0.006em"><tspan x="0" y="0">709 users</tspan></text>
+      <g id="Left_Button" data-name="Left Button" transform="translate(2081.697 1049)">
+        <g id="Rectangle_277" data-name="Rectangle 277" fill="rgba(255,255,255,0)" stroke="#707070" stroke-width="1">
+          <rect width="13" height="13" stroke="none"/>
+          <rect x="0.5" y="0.5" width="12" height="12" fill="none"/>
+        </g>
+        <line id="Line_1" data-name="Line 1" y2="9" transform="translate(2.5 2)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="Line_2" data-name="Line 2" y2="9" transform="translate(3.5 2)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <g id="Right_Button" data-name="Right Button" transform="translate(2114.712 1062) rotate(180)">
+        <g id="Path_288" data-name="Path 288" transform="translate(-1 -1)" fill="rgba(255,255,255,0)">
+          <path d="M 14 14 L 1.000000476837158 14 L 1.000000476837158 1.000000476837158 L 14 1.000000476837158 L 14 14 Z" stroke="none"/>
+          <path d="M 2.000000953674316 2.000000953674316 L 2.000000953674316 13 L 13 13 L 13 2.000000953674316 L 2.000000953674316 2.000000953674316 M 9.5367431640625e-07 9.5367431640625e-07 L 15 9.5367431640625e-07 L 15 15 L 9.5367431640625e-07 15 L 9.5367431640625e-07 9.5367431640625e-07 Z" stroke="none" fill="#0075db"/>
+        </g>
+        <line id="Line_1-2" data-name="Line 1" y2="9" transform="translate(2.5 2)" fill="none" stroke="#0075db" stroke-width="1"/>
+        <path id="Path_287" data-name="Path 287" d="M0,0V9" transform="translate(3.5 2)" fill="none" stroke="#0075db" stroke-width="1"/>
+      </g>
+      <g id="Header" transform="translate(528 352)">
+        <rect id="Rectangle_278" data-name="Rectangle 278" width="1439.78" height="40" transform="translate(163 77)" fill="#fefefe"/>
+        <text id="Foobar-2" data-name="Foobar" transform="translate(208 104)" font-size="20" font-family="SFProDisplay-Regular, SF Pro Display" letter-spacing="0.006em"><tspan x="0" y="0">Foobar</tspan></text>
+        <text id="Lorem_ipsum_dolor_sit_amet_consectetur_adipisicing_elit_sed_do_eiusmod_tempor_incididunt" data-name="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt" transform="translate(288 101)" font-size="11" font-family="SFProText-Regular, SF Pro Text" letter-spacing="0.006em"><tspan x="0" y="0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</tspan></text>
+        <rect id="Divider-26" data-name="Divider" width="1" height="29" transform="translate(277 83)" fill="#bebebe"/>
+        <path id="sitemap" d="M5,13.75H1.25A1.25,1.25,0,0,0,0,15v3.75A1.25,1.25,0,0,0,1.25,20H5a1.25,1.25,0,0,0,1.25-1.25V15A1.25,1.25,0,0,0,5,13.75Zm-.937-3.125h7.5V12.5h1.875V10.625h7.5V12.5h1.875V10.25a1.5,1.5,0,0,0-1.5-1.5H13.438V6.25H15A1.25,1.25,0,0,0,16.25,5V1.25A1.25,1.25,0,0,0,15,0H10A1.25,1.25,0,0,0,8.75,1.25V5A1.25,1.25,0,0,0,10,6.25h1.563v2.5H3.688a1.5,1.5,0,0,0-1.5,1.5V12.5H4.063ZM14.375,13.75h-3.75A1.25,1.25,0,0,0,9.375,15v3.75A1.25,1.25,0,0,0,10.625,20h3.75a1.25,1.25,0,0,0,1.25-1.25V15A1.25,1.25,0,0,0,14.375,13.75Zm9.375,0H20A1.25,1.25,0,0,0,18.75,15v3.75A1.25,1.25,0,0,0,20,20h3.75A1.25,1.25,0,0,0,25,18.75V15A1.25,1.25,0,0,0,23.75,13.75Z" transform="translate(173 87)" fill="#27ca41"/>
+        <path id="redo-alt" d="M15.013,8a6.976,6.976,0,0,1,4.823,1.939L20.844,8.93A.677.677,0,0,1,22,9.409v3.784a.677.677,0,0,1-.677.677H17.539a.677.677,0,0,1-.479-1.156l1.178-1.178a4.742,4.742,0,1,0-.115,7.033.338.338,0,0,1,.462.016L19.7,19.7a.339.339,0,0,1-.014.492A7,7,0,1,1,15.013,8Z" transform="translate(1565.005 82)" fill="gray"/>
+        <path id="trash-alt" d="M.875,12.687A1.312,1.312,0,0,0,2.187,14h7.875a1.312,1.312,0,0,0,1.313-1.312V3.5H.875Zm7.437-7a.438.438,0,0,1,.875,0v6.125a.438.438,0,1,1-.875,0Zm-2.625,0a.437.437,0,1,1,.875,0v6.125a.437.437,0,1,1-.875,0Zm-2.625,0a.437.437,0,1,1,.875,0v6.125a.437.437,0,1,1-.875,0ZM11.812.875H8.531L8.274.364A.656.656,0,0,0,7.686,0H4.561a.649.649,0,0,0-.585.364L3.719.875H.437A.437.437,0,0,0,0,1.312v.875a.437.437,0,0,0,.437.437H11.812a.438.438,0,0,0,.438-.437V1.312A.438.438,0,0,0,11.812.875Z" transform="translate(1551.005 90)" fill="gray"/>
+      </g>
+    </g>
+  </g>
+</svg>
