@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MainWindowView: View {
+struct MainView: View {
   @State private var selectedSidebarItem: SidebarItem? = nil
 
   @State private var chatMessages: [String: [String]] = [
@@ -88,5 +88,5 @@ struct MainWindowView: View {
 }
 
 #Preview {
-  MainWindowView()
+  MainView()
 }

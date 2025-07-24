@@ -4,7 +4,7 @@ import SwiftUI
 struct AirDCApp: App {
   var body: some Scene {
     WindowGroup {
-      MainWindowView()
+      MainView()
     }
   }
 }
