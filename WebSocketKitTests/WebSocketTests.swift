@@ -71,4 +71,29 @@ final class WebSocketTests {
 
     #expect(await state.isHandled)
   }
+
+  @Test("automatically reconnect on failure")
+  func autoReconnect() async throws {
+    let server = try await WebSocketServer(
+      tls: false,
+      requiredInterfaceType: .loopback
+    ).start()
+
+    let url = buildURL(scheme: "ws", host: "localhost", port: server.port!)
+    let autoReconnect = WebSocket.AutoReconnect(
+      enabled: true,
+      delay: .milliseconds(1)
+    )
+    let webSocket = WebSocket(url: url, autoReconnect: autoReconnect)
+    try await webSocket.connect()
+    await server.stop()
+    try await server.start()
+
+    let result = try await webSocket
+      .send("first message") // for some reason there's no error reported for this send
+      .send("second message")
+      .receive()
+
+    #expect(String(data: result, encoding: .utf8)! == "second message")
+  }
 }

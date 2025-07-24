@@ -9,6 +9,7 @@ class WebSocketServer {
   private let requiredInterfaceType: NWInterface.InterfaceType
   private let serverQueue = DispatchQueue(label: "serverQueue")
   private var listener: NWListener?
+  private var lastUsedPort: NWEndpoint.Port? = nil
   private var connectedClients: [NWConnection] = []
   private var startContinuation: CheckedContinuation<Void, Swift.Error>?
   private var stopContinuation: CheckedContinuation<Void, Never>?
@@ -27,11 +28,11 @@ class WebSocketServer {
     stop(throwing: CancellationError())
   }
 
+  @discardableResult
   func start() async throws -> Self {
     let listener = try NWListener(
       using: newConnectionParameters(),
-      on: requestedPort,
-
+      on: lastUsedPort ?? requestedPort
     )
     self.listener = listener
 
@@ -128,8 +129,9 @@ class WebSocketServer {
   private func stateDidChange(to state: NWListener.State) {
     switch state {
     case .ready:
-      self.startContinuation?.resume()
-      self.startContinuation = nil
+      startContinuation?.resume()
+      startContinuation = nil
+      lastUsedPort = port
     case .failed(let error):
       stop(throwing: error)
     case .cancelled:

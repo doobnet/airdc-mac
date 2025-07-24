@@ -6,6 +6,18 @@ import UtilityKit
 typealias InternalStream = AsyncThrowingStream<Data, Error>
 
 class WebSocket: AsyncSequence {
+  struct AutoReconnect {
+    let enabled: Bool
+    let maxRetries: Int
+    let delay: Duration
+
+    init(enabled: Bool = false, maxRetries: Int = 5, delay: Duration = .seconds(10)) {
+      self.enabled = enabled
+      self.maxRetries = maxRetries
+      self.delay = delay
+    }
+  }
+
   typealias AsyncIterator = InternalStream.Iterator
   typealias Element = InternalStream.Element
   typealias State = NWConnection.State
@@ -22,16 +34,17 @@ class WebSocket: AsyncSequence {
   private let url: URL
   private let endpoint: NWEndpoint
   private var streamContinuation: InternalStream.Continuation?
-  private var sendContinuation: CheckedContinuation<Void, Swift.Error>?
   private var receiveContinuation: CheckedContinuation<Data, Swift.Error>?
   private var connectionContinuation: CheckedContinuation<Void, Swift.Error>?
   private var connection: NWConnection?
   private let queue = DispatchQueue(label: "WebSocketQueue")
+  private let autoReconnect: AutoReconnect
 
-  init(url: URL, logger: Logger = Logging.newLogger()) {
+  init(url: URL, logger: Logger = Logging.newLogger(), autoReconnect: AutoReconnect = AutoReconnect()) {
     self.logger = logger
     self.url = url
     self.endpoint = NWEndpoint.url(url)
+    self.autoReconnect = autoReconnect
   }
 
   deinit {
@@ -76,8 +89,6 @@ class WebSocket: AsyncSequence {
       connection?.forceCancel()
     }
 
-    sendContinuation?.resume(throwing: error)
-    sendContinuation = nil
     receiveContinuation?.resume(throwing: error)
     receiveContinuation = nil
     connectionContinuation?.resume(throwing: error)
@@ -88,6 +99,12 @@ class WebSocket: AsyncSequence {
   }
 
   func receive(operation: String = #function) async throws -> Data {
+    try await withRetry {
+      try await receiveWihtoutRetry(operation: operation)
+    }
+  }
+
+  private func receiveWihtoutRetry(operation: String = #function) async throws -> Data {
     logger.debug("\(operation) -> receive")
 
     guard let connection = connection, state.isConnected else {
@@ -129,7 +146,10 @@ class WebSocket: AsyncSequence {
       identifier: "textContext",
       metadata: [metadata]
     )
-    try await send(data, context: context, operation: operation)
+
+    try await withRetry {
+      try await send(data, context: context, operation: operation)
+    }
 
     return self
   }
@@ -141,7 +161,10 @@ class WebSocket: AsyncSequence {
       identifier: "binaryContext",
       metadata: [metadata]
     )
-    try await send(message, context: context, operation: operation)
+
+    try await withRetry {
+      try await send(message, context: context, operation: operation)
+    }
 
     return self
   }
@@ -159,11 +182,7 @@ class WebSocket: AsyncSequence {
 
     let logger = self.logger
 
-    defer { sendContinuation = nil }
-
-    try await withCheckedThrowingContinuation { continuation in
-      self.sendContinuation = continuation
-
+    try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Swift.Error>) in
       connection.send(
         content: message,
         contentContext: context,
@@ -210,6 +229,26 @@ class WebSocket: AsyncSequence {
     return parameters
   }
 
+  private func withRetry<R>(operation: () async throws -> R) async throws -> R {
+    guard autoReconnect.enabled else { return try await operation() }
+
+    var lastError: Swift.Error?
+
+    for attempt in 0..<self.autoReconnect.maxRetries {
+      do {
+        return try await operation()
+      } catch {
+        lastError = error
+        logger.debug("Reconnection attempt \(attempt + 1) failed: \(error)")
+      }
+
+      try? await Task.sleep(for: autoReconnect.delay)
+      try await connect()
+    }
+
+    throw lastError!
+  }
+
   private func stateDidChange(to state: NWConnection.State) {
     switch state {
     case .ready:
@@ -219,8 +258,6 @@ class WebSocket: AsyncSequence {
     case .failed(let error):
       logger.error("Connection failed: \(error)")
       disconnect(throwing: error)
-    case .waiting(let error):
-      logger.debug("Connection waiting: \(error)")
     case .cancelled:
       logger.debug("Connection cancelled")
       disconnect()
