@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		6110C9BA2B04FCB1003BE9A9 /* TestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6110C9B92B04FCB1003BE9A9 /* TestSuite.swift */; };
 		6151BA142E320F9C00278871 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA132E320F9700278871 /* Client.swift */; };
+		6151BA162E3212A700278871 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA152E3212A100278871 /* User.swift */; };
+		6151BA182E3212B900278871 /* DownloadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA172E3212B000278871 /* DownloadItem.swift */; };
+		6151BA1A2E32132700278871 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA192E32132400278871 /* SidebarView.swift */; };
+		6151BA1C2E32135100278871 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA1B2E32134D00278871 /* ChatView.swift */; };
+		6151BA1E2E3213FA00278871 /* AirDCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA1D2E3213F700278871 /* AirDCApp.swift */; };
+		6151BA202E32145900278871 /* MainWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA1F2E32145500278871 /* MainWindowView.swift */; };
+		6151BA222E32157A00278871 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA212E32157600278871 /* TopBarView.swift */; };
 		615321D62E07DA8000E7418B /* WebSocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615321CB2E07DA8000E7418B /* WebSocketKit.framework */; };
 		615321E02E07DA8000E7418B /* WebSocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615321CB2E07DA8000E7418B /* WebSocketKit.framework */; };
 		615321E12E07DA8000E7418B /* WebSocketKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 615321CB2E07DA8000E7418B /* WebSocketKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -21,7 +28,7 @@
 		6191BCA92AEE7DDF0086AFDE /* AirDCUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCA82AEE7DDF0086AFDE /* AirDCUITestsLaunchTests.swift */; };
 		6191BCBA2AEE7E920086AFDE /* example.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6191BCB82AEE7E920086AFDE /* example.xcconfig */; };
 		6191BCBB2AEE7E920086AFDE /* local.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6191BCB92AEE7E920086AFDE /* local.xcconfig */; };
-		6191BCC32AEE7FAD0086AFDE /* AirDCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCC12AEE7FAD0086AFDE /* AirDCApp.swift */; };
+		6191BCC32AEE7FAD0086AFDE /* OldAirDCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCC12AEE7FAD0086AFDE /* OldAirDCApp.swift */; };
 		6191BCC42AEE7FAD0086AFDE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCC22AEE7FAD0086AFDE /* ContentView.swift */; };
 		6191BCCE2AEE7FF20086AFDE /* AirDCKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCCD2AEE7FF20086AFDE /* AirDCKit.docc */; };
 		6191BCD42AEE7FF20086AFDE /* AirDCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6191BCCA2AEE7FF20086AFDE /* AirDCKit.framework */; };
@@ -172,6 +179,13 @@
 		6110C9B92B04FCB1003BE9A9 /* TestSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSuite.swift; sourceTree = "<group>"; };
 		6142359A2E145B0D005C78E2 /* TestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6151BA132E320F9700278871 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		6151BA152E3212A100278871 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6151BA172E3212B000278871 /* DownloadItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadItem.swift; sourceTree = "<group>"; };
+		6151BA192E32132400278871 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		6151BA1B2E32134D00278871 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		6151BA1D2E3213F700278871 /* AirDCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirDCApp.swift; sourceTree = "<group>"; };
+		6151BA1F2E32145500278871 /* MainWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowView.swift; sourceTree = "<group>"; };
+		6151BA212E32157600278871 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		615321912E070BD800E7418B /* WebSocketKit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WebSocketKit.xctestplan; sourceTree = "<group>"; };
 		615321CB2E07DA8000E7418B /* WebSocketKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebSocketKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		615321D52E07DA8000E7418B /* WebSocketKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebSocketKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,7 +201,7 @@
 		6191BCB82AEE7E920086AFDE /* example.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = example.xcconfig; sourceTree = "<group>"; };
 		6191BCB92AEE7E920086AFDE /* local.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = local.xcconfig; sourceTree = "<group>"; };
 		6191BCBC2AEE7F000086AFDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6191BCC12AEE7FAD0086AFDE /* AirDCApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirDCApp.swift; sourceTree = "<group>"; };
+		6191BCC12AEE7FAD0086AFDE /* OldAirDCApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldAirDCApp.swift; sourceTree = "<group>"; };
 		6191BCC22AEE7FAD0086AFDE /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6191BCCA2AEE7FF20086AFDE /* AirDCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AirDCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6191BCCC2AEE7FF20086AFDE /* AirDCKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirDCKit.h; sourceTree = "<group>"; };
@@ -350,8 +364,15 @@
 			children = (
 				6191BCB72AEE7E830086AFDE /* Configs */,
 				6191BC902AEE7DDF0086AFDE /* Preview Content */,
-				6191BCC12AEE7FAD0086AFDE /* AirDCApp.swift */,
+				6191BCC12AEE7FAD0086AFDE /* OldAirDCApp.swift */,
+				6151BA1D2E3213F700278871 /* AirDCApp.swift */,
+				6151BA1B2E32134D00278871 /* ChatView.swift */,
 				6191BCC22AEE7FAD0086AFDE /* ContentView.swift */,
+				6151BA172E3212B000278871 /* DownloadItem.swift */,
+				6151BA1F2E32145500278871 /* MainWindowView.swift */,
+				6151BA152E3212A100278871 /* User.swift */,
+				6151BA192E32132400278871 /* SidebarView.swift */,
+				6151BA212E32157600278871 /* TopBarView.swift */,
 				6191BC8E2AEE7DDF0086AFDE /* Assets.xcassets */,
 				6191BC932AEE7DDF0086AFDE /* AirDC.entitlements */,
 				6191BCBC2AEE7F000086AFDE /* Info.plist */,
@@ -851,8 +872,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6151BA1E2E3213FA00278871 /* AirDCApp.swift in Sources */,
+				6151BA222E32157A00278871 /* TopBarView.swift in Sources */,
+				6151BA182E3212B900278871 /* DownloadItem.swift in Sources */,
 				6191BCC42AEE7FAD0086AFDE /* ContentView.swift in Sources */,
-				6191BCC32AEE7FAD0086AFDE /* AirDCApp.swift in Sources */,
+				6151BA1A2E32132700278871 /* SidebarView.swift in Sources */,
+				6151BA202E32145900278871 /* MainWindowView.swift in Sources */,
+				6191BCC32AEE7FAD0086AFDE /* OldAirDCApp.swift in Sources */,
+				6151BA1C2E32135100278871 /* ChatView.swift in Sources */,
+				6151BA162E3212A700278871 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
