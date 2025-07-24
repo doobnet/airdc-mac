@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6110C9BA2B04FCB1003BE9A9 /* TestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6110C9B92B04FCB1003BE9A9 /* TestSuite.swift */; };
+		6151BA142E320F9C00278871 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA132E320F9700278871 /* Client.swift */; };
 		615321D62E07DA8000E7418B /* WebSocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615321CB2E07DA8000E7418B /* WebSocketKit.framework */; };
 		615321E02E07DA8000E7418B /* WebSocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615321CB2E07DA8000E7418B /* WebSocketKit.framework */; };
 		615321E12E07DA8000E7418B /* WebSocketKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 615321CB2E07DA8000E7418B /* WebSocketKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -170,6 +171,7 @@
 /* Begin PBXFileReference section */
 		6110C9B92B04FCB1003BE9A9 /* TestSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSuite.swift; sourceTree = "<group>"; };
 		6142359A2E145B0D005C78E2 /* TestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6151BA132E320F9700278871 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		615321912E070BD800E7418B /* WebSocketKit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WebSocketKit.xctestplan; sourceTree = "<group>"; };
 		615321CB2E07DA8000E7418B /* WebSocketKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebSocketKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		615321D52E07DA8000E7418B /* WebSocketKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebSocketKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,7 +186,7 @@
 		6191BCA82AEE7DDF0086AFDE /* AirDCUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirDCUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6191BCB82AEE7E920086AFDE /* example.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = example.xcconfig; sourceTree = "<group>"; };
 		6191BCB92AEE7E920086AFDE /* local.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = local.xcconfig; sourceTree = "<group>"; };
-		6191BCBC2AEE7F000086AFDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6191BCBC2AEE7F000086AFDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6191BCC12AEE7FAD0086AFDE /* AirDCApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirDCApp.swift; sourceTree = "<group>"; };
 		6191BCC22AEE7FAD0086AFDE /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6191BCCA2AEE7FF20086AFDE /* AirDCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AirDCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -346,13 +348,13 @@
 		6191BC892AEE7DDE0086AFDE /* AirDC */ = {
 			isa = PBXGroup;
 			children = (
-				6191BCBC2AEE7F000086AFDE /* Info.plist */,
 				6191BCB72AEE7E830086AFDE /* Configs */,
+				6191BC902AEE7DDF0086AFDE /* Preview Content */,
 				6191BCC12AEE7FAD0086AFDE /* AirDCApp.swift */,
 				6191BCC22AEE7FAD0086AFDE /* ContentView.swift */,
 				6191BC8E2AEE7DDF0086AFDE /* Assets.xcassets */,
 				6191BC932AEE7DDF0086AFDE /* AirDC.entitlements */,
-				6191BC902AEE7DDF0086AFDE /* Preview Content */,
+				6191BCBC2AEE7F000086AFDE /* Info.plist */,
 			);
 			path = AirDC;
 			sourceTree = "<group>";
@@ -396,6 +398,7 @@
 			children = (
 				6191BCCC2AEE7FF20086AFDE /* AirDCKit.h */,
 				6191BCCD2AEE7FF20086AFDE /* AirDCKit.docc */,
+				6151BA132E320F9700278871 /* Client.swift */,
 				6191BCEC2AEE818D0086AFDE /* Continuations.swift */,
 				6191BCEB2AEE818D0086AFDE /* URLSessionWebSocketConnection.swift */,
 				6191BCEA2AEE818D0086AFDE /* WebSocketConnection.swift */,
@@ -875,6 +878,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6191BCCE2AEE7FF20086AFDE /* AirDCKit.docc in Sources */,
+				6151BA142E320F9C00278871 /* Client.swift in Sources */,
 				6191BCEF2AEE818E0086AFDE /* WebSocketMessage.swift in Sources */,
 				6191BCF02AEE818E0086AFDE /* Continuations.swift in Sources */,
 				6191BCF12AEE818E0086AFDE /* WebSocketConnection.swift in Sources */,
