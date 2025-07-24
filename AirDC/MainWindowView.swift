@@ -16,7 +16,8 @@ struct MainWindowView: View {
       uploadSpeed: "100.00 Mbit/s",
       downloadSpeed: "100.00 Mbit/s",
       ipV4: "82.123.156.78",
-      files: 77
+      ipV6: "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+      files: "77"
     )
   ]
 
@@ -26,8 +27,10 @@ struct MainWindowView: View {
       size: "349.68 MiB",
       content: "1 folder, 10 files",
       status: "Waiting (92.2%)",
+      timeLeft: "1 minute",
       sources: "1/1 Online",
       priority: "High (auto)",
+      speed: "15.68 MiB/s",
       added: "a day ago",
       finished: "a day ago",
       user: "Foobar",
@@ -57,9 +60,8 @@ struct MainWindowView: View {
             TableColumn("Upload Speed", value: \.uploadSpeed)
             TableColumn("Download Speed", value: \.downloadSpeed)
             TableColumn("IP (v4)", value: \.ipV4)
-            TableColumn("Files") { peer in
-              Text("\(peer.files)")
-            }
+            TableColumn("IP (v6)", value: \.ipV6)
+            TableColumn("Files", value: \.files)
           }
           .frame(minHeight: 150)
         }
@@ -72,16 +74,19 @@ struct MainWindowView: View {
           TableColumn("Type/Content", value: \.content)
           TableColumn("Status", value: \.status)
           TableColumn("Sources", value: \.sources)
+          TableColumn("Time Left", value: \.timeLeft)
+          TableColumn("Speed", value: \.speed)
           TableColumn("Priority", value: \.priority)
           TableColumn("Added", value: \.added)
           TableColumn("Finished", value: \.finished)
-          TableColumn("User", value: \.user)
-          TableColumn("Segment", value: \.segment)
-          TableColumn("IP", value: \.ip)
         }
         .frame(minHeight: 120)
       }
       .padding()
     }
   }
+}
+
+#Preview {
+  MainWindowView()
 }

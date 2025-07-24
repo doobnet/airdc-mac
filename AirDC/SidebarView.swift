@@ -55,3 +55,8 @@ struct SidebarView: View {
     .listStyle(SidebarListStyle())
   }
 }
+
+#Preview {
+  @Previewable @State var selectedSidebarItem: SidebarItem? = nil
+  SidebarView(selection: $selectedSidebarItem)
+}

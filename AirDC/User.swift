@@ -9,5 +9,6 @@ struct User: Identifiable {
   var uploadSpeed: String
   var downloadSpeed: String
   var ipV4: String
-  var files: Int
+  var ipV6: String
+  var files: String
 }

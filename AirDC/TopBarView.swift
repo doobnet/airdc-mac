@@ -28,3 +28,7 @@ struct TopBarView: View {
     .padding(.bottom)
   }
 }
+
+#Preview {
+  TopBarView()
+}
