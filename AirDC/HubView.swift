@@ -1,5 +1,6 @@
-import SplitView
 import SwiftUI
+
+import SplitView
 
 struct HubView: View {
   @Binding var sidebarSelection: SidebarItem?
@@ -8,40 +9,46 @@ struct HubView: View {
     "Item 2": ["Item 2: Welcome to the hub!", "Item 2: Rules are strict here."]
   ]
 
-  @State private var chatViewVisible: Bool = true
-  @State private var usersViewVisible: Bool = true
-  @ObservedObject var hide = SideHolder()
+  @State private var chatViewCollapsed: Bool = false
+  @State private var usersViewCollapsed: Bool = false
 
   var body: some View {
-    HSplit {
-      ChatView(selectedItem: sidebarSelection, messages: $chatMessages)
-        .frame(minWidth: 100)
-    }
+    SplitView(axis: .horizontal) {
+        ChatView(selectedItem: sidebarSelection, messages: $chatMessages)
+          .frame(minWidth: 100)
+          .collapsable()
+          .collapsed($chatViewCollapsed)
 
-    right: {
-      UsersView().frame(minWidth: 50)
+        UsersView().frame(minWidth: 50)
+        .collapsable()
+        .collapsed($usersViewCollapsed)
     }
-    .hide(hide)
+    .animation(.default, value: chatViewCollapsed)
+    .animation(.default, value: usersViewCollapsed)
     .overlay(alignment: .bottomTrailing) {
       HStack {
         Button {
-          withAnimation {
-            hide.toggle(.primary)
+          chatViewCollapsed.toggle()
+
+          if usersViewCollapsed && chatViewCollapsed {
+            usersViewCollapsed.toggle()
           }
         } label: {
           Image(systemName: "square.leadingthird.inset.filled")
         }
-        .buttonStyle(.icon(isActive: !(hide.side?.isPrimary ?? false)))
+        .buttonStyle(.icon(isActive: !chatViewCollapsed))
 
         Button {
-          withAnimation {
-            hide.toggle(.secondary)
+          usersViewCollapsed.toggle()
+
+          if usersViewCollapsed && chatViewCollapsed {
+            chatViewCollapsed.toggle()
           }
         } label: {
           Image(systemName: "square.trailingthird.inset.filled")
         }
-        .buttonStyle(.icon(isActive: !(hide.side?.isSecondary ?? false)))
-      }
+        .buttonStyle(.icon(isActive: !usersViewCollapsed))
+      }.padding(4)
     }
   }
 }
