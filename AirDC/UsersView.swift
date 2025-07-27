@@ -27,7 +27,6 @@ struct UsersView: View {
       TableColumn("IP (v6)", value: \.ipV6)
       TableColumn("Files", value: \.files)
     }
-    .frame(minHeight: 150)
   }
 }
 

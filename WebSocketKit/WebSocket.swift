@@ -138,7 +138,7 @@ class WebSocket: AsyncSequence {
     stream.makeAsyncIterator()
   }
 
-  @discardableResult
+  @discardableResult @available(macOS 26.0, iOS 26.0, watchOS 26.0, tvOS 26.0, *)
   func send(_ message: String, operation: String = #function) async throws -> Self {
     let data = message.data(using: .utf8)!
     let metadata = NWProtocolWebSocket.Metadata(opcode: .text)
