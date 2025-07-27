@@ -18,7 +18,6 @@ struct MainView: View {
         Divider()
         QueueView()
       }
-      .padding()
     }
   }
 }

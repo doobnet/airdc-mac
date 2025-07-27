@@ -1,6 +1,15 @@
 {
-  "originHash" : "c89a17b9211ee2623f017cafbad14b35e6cb4b208d2c948f68393e076d637cd1",
+  "originHash" : "6dd3b90b1ce726038381a58821aca6fd55788dde692cfb3c67567ca5439f9b83",
   "pins" : [
+    {
+      "identity" : "splitview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stevengharris/SplitView",
+      "state" : {
+        "revision" : "7737a80740919c2fa94a6e64f870d37ef77b9b5f",
+        "version" : "3.5.3"
+      }
+    },
     {
       "identity" : "swift-mock",
       "kind" : "remoteSourceControl",
