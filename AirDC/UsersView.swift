@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct UsersView: View {
+  @State private var filter: String = ""
   @State private var users: [User] = [
     User(
       nick: "Item 2",
@@ -16,17 +17,37 @@ struct UsersView: View {
   ]
 
   var body: some View {
-    Table(users) {
-      TableColumn("Nick", value: \.nick)
-      TableColumn("Share Size", value: \.shareSize)
-      TableColumn("Description", value: \.description)
-      TableColumn("Tag", value: \.tag)
-      TableColumn("Upload Speed", value: \.uploadSpeed)
-      TableColumn("Download Speed", value: \.downloadSpeed)
-      TableColumn("IP (v4)", value: \.ipV4)
-      TableColumn("IP (v6)", value: \.ipV6)
-      TableColumn("Files", value: \.files)
-    }
+    VStack(spacing: 0) {
+      Table(users) {
+        TableColumn("Nick", value: \.nick)
+        TableColumn("Share Size", value: \.shareSize)
+        TableColumn("Description", value: \.description)
+        TableColumn("Tag", value: \.tag)
+        TableColumn("Upload Speed", value: \.uploadSpeed)
+        TableColumn("Download Speed", value: \.downloadSpeed)
+        TableColumn("IP (v4)", value: \.ipV4)
+        TableColumn("IP (v6)", value: \.ipV6)
+        TableColumn("Files", value: \.files)
+      }
+
+      Divider()
+
+      Group {
+        HStack {
+          Spacer()
+          Text("709 Users")
+            .font(.caption)
+          Divider()
+          Text("3.54 PiB (3.04 TiB/user)")
+            .font(.caption)
+        }
+        .padding(.horizontal, 5)
+        .padding(.vertical, 8)
+        .padding(.trailing, 51)
+        .frame(maxHeight: 27)
+      }.frame(maxHeight: 40)
+
+    }.background(.windowBackground)
   }
 }
 

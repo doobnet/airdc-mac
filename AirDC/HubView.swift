@@ -1,6 +1,5 @@
-import SwiftUI
-
 import SplitView
+import SwiftUI
 
 struct HubView: View {
   @Binding var sidebarSelection: SidebarItem?
@@ -14,41 +13,50 @@ struct HubView: View {
 
   var body: some View {
     SplitView(axis: .horizontal) {
-        ChatView(selectedItem: sidebarSelection, messages: $chatMessages)
-          .frame(minWidth: 100)
-          .collapsable()
-          .collapsed($chatViewCollapsed)
+      ChatView(selectedItem: sidebarSelection, messages: $chatMessages, otherViewCollapsed: usersViewCollapsed)
+        .frame(minWidth: 100)
+        .collapsable()
+        .collapsed($chatViewCollapsed)
 
-        UsersView().frame(minWidth: 50)
+      UsersView().frame(minWidth: 50)
         .collapsable()
         .collapsed($usersViewCollapsed)
     }
     .animation(.default, value: chatViewCollapsed)
     .animation(.default, value: usersViewCollapsed)
     .overlay(alignment: .bottomTrailing) {
-      HStack {
-        Button {
-          chatViewCollapsed.toggle()
+      Group {
+        HStack(spacing: 5) {
+          Divider()
 
-          if usersViewCollapsed && chatViewCollapsed {
-            usersViewCollapsed.toggle()
-          }
-        } label: {
-          Image(systemName: "square.leadingthird.inset.filled")
-        }
-        .buttonStyle(.icon(isActive: !chatViewCollapsed))
-
-        Button {
-          usersViewCollapsed.toggle()
-
-          if usersViewCollapsed && chatViewCollapsed {
+          Button {
             chatViewCollapsed.toggle()
+
+            if usersViewCollapsed && chatViewCollapsed {
+              usersViewCollapsed.toggle()
+            }
+          } label: {
+            Image(systemName: "square.leadingthird.inset.filled")
           }
-        } label: {
-          Image(systemName: "square.trailingthird.inset.filled")
+          .buttonStyle(.icon(isActive: !chatViewCollapsed))
+
+          Button {
+            usersViewCollapsed.toggle()
+
+            if usersViewCollapsed && chatViewCollapsed {
+              chatViewCollapsed.toggle()
+            }
+          } label: {
+            Image(systemName: "square.trailingthird.inset.filled")
+          }
+          .buttonStyle(.icon(isActive: !usersViewCollapsed))
         }
-        .buttonStyle(.icon(isActive: !usersViewCollapsed))
-      }.padding(4)
+        .buttonStyle(.icon(size: 24))
+        .padding(.horizontal, 5)
+        .padding(.vertical, 8)
+        .frame(maxHeight: 27)
+        .background(.windowBackground)
+      }.frame(maxHeight: 40)
     }
   }
 }
