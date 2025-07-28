@@ -3,6 +3,7 @@ import SwiftUI
 struct ChatView: View {
   var selectedItem: SidebarItem?
   @Binding var messages: [String: [String]]
+  let otherViewCollapsed: Bool
   @State private var messageText = ""
 
   var body: some View {
@@ -17,7 +18,7 @@ struct ChatView: View {
         }
         .padding()
       }
-      .background(Color(NSColor.textBackgroundColor))
+      .background(.windowBackground)
 
       Divider()
 
@@ -31,9 +32,11 @@ struct ChatView: View {
           sendMessage()
         }
       }
-      .padding(8)
+      .padding(.trailing, otherViewCollapsed ? 60 : 8)
+      .padding(.leading, 8)
+      .padding(.vertical, 8)
     }
-    .background(Color(NSColor.windowBackgroundColor))
+    .background(.windowBackground)
     .cornerRadius(4)
   }
 
@@ -42,4 +45,12 @@ struct ChatView: View {
     messages[key, default: []].append("You: \(messageText)")
     messageText = ""
   }
+}
+
+#Preview {
+  @Previewable @State  var chatMessages: [String: [String]] = [
+    "Item 2": ["Item 2: Welcome to the hub!", "Item 2: Rules are strict here."]
+  ]
+
+  ChatView(messages: $chatMessages, otherViewCollapsed: false)
 }
