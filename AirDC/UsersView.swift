@@ -29,24 +29,6 @@ struct UsersView: View {
         TableColumn("IP (v6)", value: \.ipV6)
         TableColumn("Files", value: \.files)
       }
-
-      Divider()
-
-      Group {
-        HStack {
-          Spacer()
-          Text("709 Users")
-            .font(.caption)
-          Divider()
-          Text("3.54 PiB (3.04 TiB/user)")
-            .font(.caption)
-        }
-        .padding(.horizontal, 5)
-        .padding(.vertical, 8)
-        .padding(.trailing, 51)
-        .frame(maxHeight: 27)
-      }.frame(maxHeight: 40)
-
     }.background(.windowBackground)
   }
 }

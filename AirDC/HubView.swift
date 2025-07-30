@@ -15,56 +15,32 @@ struct HubView: View {
     PaneView { pane in
       ChatView(selectedItem: sidebarSelection, messages: $chatMessages, otherViewCollapsed: usersViewCollapsed)
         .frame(minWidth: 100)
+
+      pane.bottomBar {
+        HStack {
+          TextField("Message", text: .constant(""))
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .onSubmit {
+              print("Send message")
+            }
+          Button("Send") {
+            print("Send message")
+          }
+        }
+      }
     } trailing: { pane in
       UsersView().frame(minWidth: 50)
 
-    }
-
-//    SplitView(axis: .horizontal) {
-//      ChatView(selectedItem: sidebarSelection, messages: $chatMessages, otherViewCollapsed: usersViewCollapsed)
-//        .frame(minWidth: 100)
-//        .collapsable()
-//        .collapsed($chatViewCollapsed)
-//
-//      UsersView().frame(minWidth: 50)
-//        .collapsable()
-//        .collapsed($usersViewCollapsed)
-//    }
-    .animation(.default, value: chatViewCollapsed)
-    .animation(.default, value: usersViewCollapsed)
-    .overlay(alignment: .bottomTrailing) {
-      Group {
-        HStack(spacing: 5) {
+      pane.bottomBar {
+        HStack {
+          Spacer()
+          Text("709 Users")
+            .font(.caption)
           Divider()
-
-          Button {
-            chatViewCollapsed.toggle()
-
-            if usersViewCollapsed && chatViewCollapsed {
-              usersViewCollapsed.toggle()
-            }
-          } label: {
-            Image(systemName: "square.leadingthird.inset.filled")
-          }
-          .buttonStyle(.icon(isActive: !chatViewCollapsed))
-
-          Button {
-            usersViewCollapsed.toggle()
-
-            if usersViewCollapsed && chatViewCollapsed {
-              chatViewCollapsed.toggle()
-            }
-          } label: {
-            Image(systemName: "square.trailingthird.inset.filled")
-          }
-          .buttonStyle(.icon(isActive: !usersViewCollapsed))
+          Text("3.54 PiB (3.04 TiB/user)")
+            .font(.caption)
         }
-        .buttonStyle(.icon(size: 24))
-        .padding(.horizontal, 5)
-        .padding(.vertical, 8)
-        .frame(maxHeight: 27)
-        .background(.windowBackground)
-      }.frame(maxHeight: 40)
+      }
     }
   }
 }
