@@ -12,16 +12,24 @@ struct HubView: View {
   @State private var usersViewCollapsed: Bool = false
 
   var body: some View {
-    SplitView(axis: .horizontal) {
+    PaneView { pane in
       ChatView(selectedItem: sidebarSelection, messages: $chatMessages, otherViewCollapsed: usersViewCollapsed)
         .frame(minWidth: 100)
-        .collapsable()
-        .collapsed($chatViewCollapsed)
-
+    } trailing: { pane in
       UsersView().frame(minWidth: 50)
-        .collapsable()
-        .collapsed($usersViewCollapsed)
+
     }
+
+//    SplitView(axis: .horizontal) {
+//      ChatView(selectedItem: sidebarSelection, messages: $chatMessages, otherViewCollapsed: usersViewCollapsed)
+//        .frame(minWidth: 100)
+//        .collapsable()
+//        .collapsed($chatViewCollapsed)
+//
+//      UsersView().frame(minWidth: 50)
+//        .collapsable()
+//        .collapsed($usersViewCollapsed)
+//    }
     .animation(.default, value: chatViewCollapsed)
     .animation(.default, value: usersViewCollapsed)
     .overlay(alignment: .bottomTrailing) {
