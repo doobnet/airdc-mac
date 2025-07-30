@@ -19,22 +19,6 @@ struct ChatView: View {
         .padding()
       }
       .background(.windowBackground)
-
-      Divider()
-
-      HStack {
-        TextField("Message", text: $messageText)
-          .textFieldStyle(RoundedBorderTextFieldStyle())
-          .onSubmit {
-            sendMessage()
-          }
-        Button("Send") {
-          sendMessage()
-        }
-      }
-      .padding(.trailing, otherViewCollapsed ? 60 : 8)
-      .padding(.leading, 8)
-      .padding(.vertical, 8)
     }
     .background(.windowBackground)
     .cornerRadius(4)

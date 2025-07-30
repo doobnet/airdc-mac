@@ -1,5 +1,12 @@
 import SwiftUI
 
+struct PaneBarHeightPreferenceKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = max(value, nextValue())
+    }
+}
+
 class Pane {
   var content: AnyView? = nil
 
@@ -34,15 +41,29 @@ struct PaneView<Leading: View, Trailing: View>: View {
   }
 
   var body: some View {
+    let maxBarHeight = max(leadingBarHeight, trailingBarHeight)
+
     SplitView(axis: .horizontal) {
       leading(paneLeading)
         .collapsable()
         .collapsed($leadingCollapsed)
         .safeAreaInset(edge: .bottom, spacing: 0) {
-          if let content = paneLeading.content {
-            content
-          } else {
-            EmptyView()
+          VStack(spacing: 0) {
+            Divider()
+            ZStack(alignment: .top) {
+              if let content = paneLeading.content {
+                content.padding(.trailing, trailingCollapsed ? 50 : 0)
+              } else {
+                EmptyView()
+              }
+            }
+            .background(GeometryReader { proxy in
+              EmptyView()
+                .preference(key: PaneBarHeightPreferenceKey.self, value: proxy.size.height)
+            })
+            .frame(height: maxBarHeight)
+            .onPreferenceChange(PaneBarHeightPreferenceKey.self) { leadingBarHeight = $0 }
+            .padding(8)
           }
         }
 
@@ -50,15 +71,28 @@ struct PaneView<Leading: View, Trailing: View>: View {
         .collapsable()
         .collapsed($trailingCollapsed)
         .safeAreaInset(edge: .bottom, spacing: 0) {
-          if let content = paneTrailing.content {
-            content
-          } else {
-            EmptyView()
+          VStack(spacing: 0) {
+            Divider()
+
+            ZStack(alignment: .top) {
+              if let content = paneTrailing.content {
+                content.padding(.trailing, 50)
+              } else {
+                EmptyView()
+              }
+            }
+            .background(GeometryReader { proxy in
+              Color.clear
+                .preference(key: PaneBarHeightPreferenceKey.self, value: proxy.size.height)
+            })
+            .frame(height: maxBarHeight)
+            .onPreferenceChange(PaneBarHeightPreferenceKey.self) { trailingBarHeight = $0 }
+            .padding(8)
           }
         }
     }
     .overlay(alignment: .bottomTrailing) {
-      Group {
+      VStack(spacing: 0) {
         HStack(spacing: 5) {
           Divider()
 
@@ -99,6 +133,8 @@ struct PaneView<Leading: View, Trailing: View>: View {
   private var paneTrailing = Pane()
   @State private var leadingCollapsed: Bool = false
   @State private var trailingCollapsed: Bool = false
+  @State private var leadingBarHeight: CGFloat = 0
+  @State private var trailingBarHeight: CGFloat = 0
 }
 
 #Preview {
@@ -124,7 +160,16 @@ struct PaneView<Leading: View, Trailing: View>: View {
     }.frame(minWidth: 200)
 
     pane.bottomBar {
-      Text("Users Online: \(users.count)")
+      HStack {
+        TextField("Message", text: .constant(""))
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+          .onSubmit {
+            print("sendMessage()")
+          }
+        Button("Send") {
+          print("sendMessage()")
+        }
+      }
     }
   } trailing: { pane in
     Table(users) {
@@ -134,7 +179,22 @@ struct PaneView<Leading: View, Trailing: View>: View {
     }.frame(minWidth: 200)
 
     pane.bottomBar {
-      Text("Foobar: \(users.count)")
+      VStack {
+        Text("Users Online: \(users.count)")
+      }.background(Color.red)
     }
   }
+}
+
+struct ContentView2: View {
+    var body: some View {
+        VStack {
+            Text("Main Content")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .safeAreaInset(edge: .bottom, alignment: .center) {
+            Color.blue
+                .frame(height: 40) // Set your desired height
+        }
+    }
 }
