@@ -1,29 +1,5 @@
 import SwiftUI
 
-struct PaneBarHeightPreferenceKey: PreferenceKey {
-    static var defaultValue: CGFloat = 0
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = max(value, nextValue())
-    }
-}
-
-class Pane {
-  var content: AnyView? = nil
-
-  func bottomBar<Content: View>(
-    @ViewBuilder content: @escaping () -> Content
-  ) -> some View {
-    self.content = AnyView(content())
-    return EmptyView()
-  }
-}
-
-fileprivate struct Model<Content: View> {
-  let content: Content
-  let pane: Pane = Pane()
-  @State var isCollapsed: Bool = false
-}
-
 struct PaneView<Leading: View, Trailing: View>: View {
   init(
     @ViewBuilder leading: @escaping (Pane) -> Leading,
@@ -57,12 +33,19 @@ struct PaneView<Leading: View, Trailing: View>: View {
                 EmptyView()
               }
             }
-            .background(GeometryReader { proxy in
-              EmptyView()
-                .preference(key: PaneBarHeightPreferenceKey.self, value: proxy.size.height)
-            })
+            .background(
+              GeometryReader { proxy in
+                EmptyView()
+                  .preference(
+                    key: PaneBarHeightPreferenceKey.self,
+                    value: proxy.size.height
+                  )
+              }
+            )
             .frame(height: maxBarHeight)
-            .onPreferenceChange(PaneBarHeightPreferenceKey.self) { leadingBarHeight = $0 }
+            .onPreferenceChange(PaneBarHeightPreferenceKey.self) {
+              leadingBarHeight = $0
+            }
             .padding(8)
           }
         }
@@ -81,49 +64,62 @@ struct PaneView<Leading: View, Trailing: View>: View {
                 EmptyView()
               }
             }
-            .background(GeometryReader { proxy in
-              Color.clear
-                .preference(key: PaneBarHeightPreferenceKey.self, value: proxy.size.height)
-            })
+            .background(
+              GeometryReader { proxy in
+                Color.clear
+                  .preference(
+                    key: PaneBarHeightPreferenceKey.self,
+                    value: proxy.size.height
+                  )
+              }
+            )
             .frame(height: maxBarHeight)
-            .onPreferenceChange(PaneBarHeightPreferenceKey.self) { trailingBarHeight = $0 }
+            .onPreferenceChange(PaneBarHeightPreferenceKey.self) {
+              trailingBarHeight = $0
+            }
             .padding(8)
           }
         }
     }
     .overlay(alignment: .bottomTrailing) {
-      VStack(spacing: 0) {
-        HStack(spacing: 5) {
-          Divider()
+      Group {
+        Group {
+          HStack(spacing: 5) {
+            Divider()
 
-          Button {
-            leadingCollapsed.toggle()
-
-            if trailingCollapsed && leadingCollapsed {
-              trailingCollapsed.toggle()
-            }
-          } label: {
-            Image(systemName: "square.leadingthird.inset.filled")
-          }
-          .buttonStyle(.icon(isActive: !leadingCollapsed))
-
-          Button {
-            trailingCollapsed.toggle()
-
-            if trailingCollapsed && leadingCollapsed {
+            Button {
               leadingCollapsed.toggle()
+
+              if trailingCollapsed && leadingCollapsed {
+                trailingCollapsed.toggle()
+              }
+            } label: {
+              Image(systemName: "square.leadingthird.inset.filled")
             }
-          } label: {
-            Image(systemName: "square.trailingthird.inset.filled")
+            .buttonStyle(.icon(isActive: !leadingCollapsed))
+
+            Button {
+              trailingCollapsed.toggle()
+
+              if trailingCollapsed && leadingCollapsed {
+                leadingCollapsed.toggle()
+              }
+            } label: {
+              Image(systemName: "square.trailingthird.inset.filled")
+            }
+            .buttonStyle(.icon(isActive: !trailingCollapsed))
           }
-          .buttonStyle(.icon(isActive: !trailingCollapsed))
+          .buttonStyle(.icon(size: 24))
+
+          .padding(.vertical, 8)
+          .frame(maxHeight: 27)
         }
-        .buttonStyle(.icon(size: 24))
-        .padding(.horizontal, 5)
+        .frame(height: maxBarHeight)
         .padding(.vertical, 8)
-        .frame(maxHeight: 27)
+        .padding(.trailing, 5)
         .background(.windowBackground)
       }
+      .padding(.leading, 5)
     }
   }
 
@@ -181,20 +177,26 @@ struct PaneView<Leading: View, Trailing: View>: View {
     pane.bottomBar {
       VStack {
         Text("Users Online: \(users.count)")
-      }.background(Color.red)
+          .font(.caption)
+      }
     }
   }
 }
 
-struct ContentView2: View {
-    var body: some View {
-        VStack {
-            Text("Main Content")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
-        .safeAreaInset(edge: .bottom, alignment: .center) {
-            Color.blue
-                .frame(height: 40) // Set your desired height
-        }
-    }
+class Pane {
+  var content: AnyView? = nil
+
+  func bottomBar<Content: View>(
+    @ViewBuilder content: @escaping () -> Content
+  ) -> some View {
+    self.content = AnyView(content())
+    return EmptyView()
+  }
+}
+
+fileprivate struct PaneBarHeightPreferenceKey: PreferenceKey {
+  static var defaultValue: CGFloat = 0
+  static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+    value = max(value, nextValue())
+  }
 }
