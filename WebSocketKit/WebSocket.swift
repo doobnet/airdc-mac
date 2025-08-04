@@ -11,7 +11,11 @@ class WebSocket: AsyncSequence {
     let maxRetries: Int
     let delay: Duration
 
-    init(enabled: Bool = false, maxRetries: Int = 5, delay: Duration = .seconds(10)) {
+    init(
+      enabled: Bool = false,
+      maxRetries: Int = 5,
+      delay: Duration = .seconds(10)
+    ) {
       self.enabled = enabled
       self.maxRetries = maxRetries
       self.delay = delay
@@ -34,13 +38,15 @@ class WebSocket: AsyncSequence {
   private let url: URL
   private let endpoint: NWEndpoint
   private var streamContinuation: InternalStream.Continuation?
-  private var receiveContinuation: CheckedContinuation<Data, Swift.Error>?
-  private var connectionContinuation: CheckedContinuation<Void, Swift.Error>?
-  private var connection: NWConnection?
+  private var connection: NetworkConnection<Network.WebSocket>?
   private let queue = DispatchQueue(label: "WebSocketQueue")
   private let autoReconnect: AutoReconnect
 
-  init(url: URL, logger: Logger = Logging.newLogger(), autoReconnect: AutoReconnect = AutoReconnect()) {
+  init(
+    url: URL,
+    logger: Logger = Logging.newLogger(),
+    autoReconnect: AutoReconnect = AutoReconnect()
+  ) {
     self.logger = logger
     self.url = url
     self.endpoint = NWEndpoint.url(url)
@@ -59,19 +65,12 @@ class WebSocket: AsyncSequence {
   func connect(timeout: TimeInterval = 60) async throws -> Self {
     logger.debug("connect")
 
-    let connection = NWConnection(
-      to: endpoint,
-      using: newConnectionParameters()
-    )
-    self.connection = connection
-    connection.stateUpdateHandler = { [weak self] state in
-      self?.stateDidChange(to: state)
+    self.connection = NetworkConnection(to: endpoint) {
+      Network.WebSocket {
+        TCP()
+      }.autoReplyPing(true)
     }
-
-    try await withCheckedThrowingContinuation { continuation in
-      self.connectionContinuation = continuation
-      connection.start(queue: queue)
-    }
+    .onStateUpdate { [weak self] in self?.stateDidChange(to: $1) }
 
     return self
   }
@@ -83,16 +82,12 @@ class WebSocket: AsyncSequence {
   private func disconnect(throwing error: Swift.Error) {
     logger.debug("disconnect")
 
-    if state.isConnected {
-      connection?.cancel()
-    } else {
-      connection?.forceCancel()
-    }
+    //    if state.isConnected {
+    //      connection2?.cancel()
+    //    } else {
+    //      connection?.forceCancel()
+    //    }
 
-    receiveContinuation?.resume(throwing: error)
-    receiveContinuation = nil
-    connectionContinuation?.resume(throwing: error)
-    connectionContinuation = nil
     streamContinuation?.finish(throwing: error)
     streamContinuation = nil
     connection = nil
@@ -104,33 +99,23 @@ class WebSocket: AsyncSequence {
     }
   }
 
-  private func receiveWihtoutRetry(operation: String = #function) async throws -> Data {
+  private func receiveWihtoutRetry(operation: String = #function) async throws
+    -> Data
+  {
     logger.debug("\(operation) -> receive")
 
-    guard let connection = connection, state.isConnected else {
+    guard let connection = connection else {
       throw Error.notConnected
     }
 
-    let logger = self.logger
-    defer { receiveContinuation = nil }
+    let (content, metadata) = try await connection.receive()
 
-    return try await withCheckedThrowingContinuation { continuation in
-      self.receiveContinuation = continuation
+    logger.debug(
+      "Received message. content: \(String(describing: content)), isComplete: \(metadata.isComplete)"
+    )
 
-      connection.receiveMessage(completion: {
-        (content, context, isComplete, error) in
-        logger.debug(
-          "Received message. content: \(String(describing: content)), isComplete: \(isComplete), error: \(String(describing: error))"
-        )
+    return content
 
-        if let error = error {
-          continuation.resume(throwing: error)
-          return
-        }
-
-        content.map { continuation.resume(returning: $0) }
-      })
-    }
   }
 
   @available(macOS 14, iOS 17.0, watchOS 10.0, tvOS 17.0, *)
@@ -138,65 +123,38 @@ class WebSocket: AsyncSequence {
     stream.makeAsyncIterator()
   }
 
-  @discardableResult @available(macOS 26.0, iOS 26.0, watchOS 26.0, tvOS 26.0, *)
-  func send(_ message: String, operation: String = #function) async throws -> Self {
-    let data = message.data(using: .utf8)!
-    let metadata = NWProtocolWebSocket.Metadata(opcode: .text)
-    let context = NWConnection.ContentContext(
-      identifier: "textContext",
-      metadata: [metadata]
-    )
+  @discardableResult
+  @available(macOS 26.0, iOS 26.0, watchOS 26.0, tvOS 26.0, *)
+  func send(_ message: String, operation: String = #function) async throws
+    -> Self
+  {
+    guard let connection = connection else {
+      throw Error.notConnected
+    }
 
     try await withRetry {
-      try await send(data, context: context, operation: operation)
+      try await connection.send(message)
     }
+
+    logger.debug("Message sent successfully: \(message)")
 
     return self
   }
 
   @discardableResult
-  func send(_ message: Data, operation: String = #function) async throws -> Self {
-    let metadata = NWProtocolWebSocket.Metadata(opcode: .binary)
-    let context = NWConnection.ContentContext(
-      identifier: "binaryContext",
-      metadata: [metadata]
-    )
-
-    try await withRetry {
-      try await send(message, context: context, operation: operation)
-    }
-
-    return self
-  }
-
-  private func send(
-    _ message: Data,
-    context: NWConnection.ContentContext,
-    operation: String = #function
-  ) async throws {
-    logger.debug("\(operation) -> send")
-
-    guard let connection = connection, state.isConnected else {
+  func send(_ message: Data, operation: String = #function) async throws -> Self
+  {
+    guard let connection = connection else {
       throw Error.notConnected
     }
 
-    let logger = self.logger
-
-    try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Swift.Error>) in
-      connection.send(
-        content: message,
-        contentContext: context,
-        completion: .contentProcessed { error in
-          if let error = error {
-            logger.error("Send error: \(error)")
-            continuation.resume(throwing: error)
-          } else {
-            logger.debug("Message sent successfully: \(message)")
-            continuation.resume()
-          }
-        }
-      )
+    try await withRetry {
+      try await connection.send(message)
     }
+
+    logger.debug("Message sent successfully: \(message)")
+
+    return self
   }
 
   private lazy var stream: InternalStream = {
@@ -253,16 +211,20 @@ class WebSocket: AsyncSequence {
     switch state {
     case .ready:
       logger.debug("Connection ready")
-      connectionContinuation?.resume()
-      connectionContinuation = nil
     case .failed(let error):
       logger.error("Connection failed: \(error)")
       disconnect(throwing: error)
     case .cancelled:
       logger.debug("Connection cancelled")
       disconnect()
+    case .preparing:
+      logger.debug("Connection preparing...")
+    case .setup:
+      logger.debug("Connection setup...")
+    case .waiting(let error):
+      logger.debug("Connection waiting: \(error)")
     default:
-      break
+      logger.debug("Connection state changed: ...")
     }
 
     stateUpdateHandler(state)
