@@ -15,16 +15,19 @@ final class WebSocketTests {
     }
   }
 
+  var server: WebSocketServer!
+
   func newWebSocket(
-    stateUpdateHandler: @escaping WebSocket.StateUpdateHandler = { _ in }
+    stateUpdateHandler: @escaping WebSocket.StateUpdateHandler = { _ in },
+    autoReconnect: WebSocket.AutoReconnect = WebSocket.AutoReconnect()
   ) async throws -> WebSocket {
-    let server = try await WebSocketServer(
+    server = try await WebSocketServer(
       tls: false,
       requiredInterfaceType: .loopback
     ).start()
 
     let url = buildURL(scheme: "ws", host: "localhost", port: server.port!)
-    let webSocket = WebSocket(url: url)
+    let webSocket = WebSocket(url: url, autoReconnect: autoReconnect)
     webSocket.stateUpdateHandler = stateUpdateHandler
 
     return try await webSocket.connect()
@@ -58,7 +61,7 @@ final class WebSocketTests {
   func stateUpdateHandler() async throws {
     let state = State()
 
-    let _ = try await newWebSocket { newState in
+    let webSocket = try await newWebSocket { newState in
       switch newState {
       case .preparing:
         Task {
@@ -69,31 +72,24 @@ final class WebSocketTests {
       }
     }
 
+    try await webSocket.send("first message")
+
     #expect(await state.isHandled)
   }
 
   @Test("automatically reconnect on failure")
   func autoReconnect() async throws {
-    let server = try await WebSocketServer(
-      tls: false,
-      requiredInterfaceType: .loopback
-    ).start()
-
-    let url = buildURL(scheme: "ws", host: "localhost", port: server.port!)
-    let autoReconnect = WebSocket.AutoReconnect(
-      enabled: true,
-      delay: .milliseconds(1)
+    let webSocket = try await newWebSocket(
+      autoReconnect: .init(enabled: false, delay: .milliseconds(1))
     )
-    let webSocket = WebSocket(url: url, autoReconnect: autoReconnect)
-    try await webSocket.connect()
+
     await server.stop()
     try await server.start()
 
     let result = try await webSocket
-      .send("first message") // for some reason there's no error reported for this send
-      .send("second message")
+      .send("first message")
       .receive()
 
-    #expect(String(data: result, encoding: .utf8)! == "second message")
+    #expect(String(data: result, encoding: .utf8)! == "first message")
   }
 }

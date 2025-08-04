@@ -61,14 +61,22 @@ class WebSocket: AsyncSequence {
     connection?.state ?? .setup
   }
 
+  private var messageProtocol: Network.WebSocket {
+    let messageProtocol = if url.scheme == "wss" {
+      Network.WebSocket { TLS() }
+    } else {
+      Network.WebSocket { TCP() }
+    }
+
+    return messageProtocol.autoReplyPing(true)
+  }
+
   @discardableResult
   func connect(timeout: TimeInterval = 60) async throws -> Self {
     logger.debug("connect")
 
     self.connection = NetworkConnection(to: endpoint) {
-      Network.WebSocket {
-        TCP()
-      }.autoReplyPing(true)
+      messageProtocol
     }
     .onStateUpdate { [weak self] in self?.stateDidChange(to: $1) }
 
@@ -81,12 +89,6 @@ class WebSocket: AsyncSequence {
 
   private func disconnect(throwing error: Swift.Error) {
     logger.debug("disconnect")
-
-    //    if state.isConnected {
-    //      connection2?.cancel()
-    //    } else {
-    //      connection?.forceCancel()
-    //    }
 
     streamContinuation?.finish(throwing: error)
     streamContinuation = nil
