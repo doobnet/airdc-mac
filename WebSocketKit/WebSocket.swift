@@ -39,7 +39,7 @@ class WebSocket: AsyncSequence {
   private let url: URL
   private let endpoint: NWEndpoint
   private var streamContinuation: InternalStream.Continuation?
-  private var connection: NetworkConnection<Network.WebSocket>?
+  private var connection: NetworkConnection<Network.WebSocket>
   private let queue = DispatchQueue(label: "WebSocketQueue")
   private let autoReconnect: AutoReconnect
 
@@ -52,6 +52,12 @@ class WebSocket: AsyncSequence {
     self.url = url
     self.endpoint = NWEndpoint.url(url)
     self.autoReconnect = autoReconnect
+
+    connection = NetworkConnection(to: endpoint) {
+      newMessageProtocol(url: url)
+    }
+
+    connection.onStateUpdate { [weak self] in self?.stateDidChange(to: $1) }
   }
 
   deinit {
@@ -59,29 +65,7 @@ class WebSocket: AsyncSequence {
   }
 
   var state: State {
-    connection?.state ?? .setup
-  }
-
-  private var messageProtocol: Network.WebSocket {
-    let messageProtocol = if url.scheme == "wss" {
-      Network.WebSocket { TLS() }
-    } else {
-      Network.WebSocket { TCP() }
-    }
-
-    return messageProtocol.autoReplyPing(true)
-  }
-
-  @discardableResult
-  func connect(timeout: TimeInterval = 60) async throws -> Self {
-    logger.debug("connect")
-
-    self.connection = NetworkConnection(to: endpoint) {
-      messageProtocol
-    }
-    .onStateUpdate { [weak self] in self?.stateDidChange(to: $1) }
-
-    return self
+    connection.state
   }
 
   func disconnect() {
@@ -93,7 +77,6 @@ class WebSocket: AsyncSequence {
 
     streamContinuation?.finish(throwing: error)
     streamContinuation = nil
-    connection = nil
   }
 
   func receive(operation: String = #function) async throws -> Data {
@@ -106,10 +89,6 @@ class WebSocket: AsyncSequence {
     -> Data
   {
     logger.debug("\(operation) -> receive")
-
-    guard let connection = connection else {
-      throw Error.notConnected
-    }
 
     let (content, metadata) = try await connection.receive()
 
@@ -131,10 +110,6 @@ class WebSocket: AsyncSequence {
   func send(_ message: String, operation: String = #function) async throws
     -> Self
   {
-    guard let connection = connection else {
-      throw Error.notConnected
-    }
-
     try await withRetry {
       try await connection.send(message)
     }
@@ -147,10 +122,6 @@ class WebSocket: AsyncSequence {
   @discardableResult
   func send(_ message: Data, operation: String = #function) async throws -> Self
   {
-    guard let connection = connection else {
-      throw Error.notConnected
-    }
-
     try await withRetry {
       try await connection.send(message)
     }
@@ -204,7 +175,7 @@ class WebSocket: AsyncSequence {
       }
 
       try? await Task.sleep(for: autoReconnect.delay)
-      try await connect()
+      connection = newConnection(url: url)
     }
 
     throw lastError!
@@ -232,8 +203,25 @@ class WebSocket: AsyncSequence {
 
     stateUpdateHandler(state)
   }
+
+  private func newConnection(url: URL) -> NetworkConnection<Network.WebSocket> {
+    NetworkConnection(to: endpoint) {
+      newMessageProtocol(url: url)
+    }
+    .onStateUpdate { [weak self] in self?.stateDidChange(to: $1) }
+  }
 }
 
 extension WebSocket.State {
   var isConnected: Bool { self == .ready }
+}
+
+private func newMessageProtocol(url: URL) -> Network.WebSocket {
+  let messageProtocol = if url.scheme == "wss" {
+    Network.WebSocket { TLS() }
+  } else {
+    Network.WebSocket { TCP() }
+  }
+
+  return messageProtocol.autoReplyPing(true)
 }
