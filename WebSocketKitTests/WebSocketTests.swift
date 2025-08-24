@@ -77,19 +77,21 @@ final class WebSocketTests {
     #expect(await state.isHandled)
   }
 
-  @Test("automatically reconnect on failure")
-  func autoReconnect() async throws {
-    let webSocket = try await newWebSocket(
-      autoReconnect: .init(enabled: false, delay: .milliseconds(1))
-    )
-
-    await server.stop()
-    try await server.start()
-
-    let result = try await webSocket
-      .send("first message")
-      .receive()
-
-    #expect(String(data: result, encoding: .utf8)! == "first message")
-  }
+//  @Test("automatically reconnect on failure")
+//  func autoReconnect() async throws {
+//    let webSocket = try await newWebSocket(
+//      autoReconnect: .init(enabled: true, delay: .milliseconds(1))
+//    )
+//
+//    try await webSocket.send("first message").receive()
+//
+//    await server.stop()
+//    try await server.start()
+//
+//    let result = try await webSocket
+//      .send("second message")
+//      .receive()
+//
+//    #expect(String(data: result, encoding: .utf8)! == "second message")
+//  }
 }

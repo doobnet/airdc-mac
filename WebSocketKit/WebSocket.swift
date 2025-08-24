@@ -24,7 +24,8 @@ class WebSocket: AsyncSequence {
 
   typealias AsyncIterator = InternalStream.Iterator
   typealias Element = InternalStream.Element
-  typealias State = NWConnection.State
+  typealias Connection = NetworkConnection<Network.WebSocket>
+  typealias State = Connection.State
   typealias StateUpdateHandler = @Sendable (_ state: State) -> Void
 
   enum Error: Swift.Error {
@@ -209,7 +210,7 @@ class WebSocket: AsyncSequence {
     throw lastError!
   }
 
-  private func stateDidChange(to state: NWConnection.State) {
+  private func stateDidChange(to state: State) {
     switch state {
     case .ready:
       logger.debug("Connection ready")

@@ -228,6 +228,8 @@
 		61A965472AF2E8F9008C2E5B /* WebSocketConnectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketConnectionTests.swift; sourceTree = "<group>"; };
 		61DC93962B0B7B4400A21373 /* WebSocketSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketSequence.swift; sourceTree = "<group>"; };
 		61DC93982B0B907E00A21373 /* WebSocketSequenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketSequenceTests.swift; sourceTree = "<group>"; };
+		61F59B782E5B459D00AB39AD /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Network.framework; sourceTree = DEVELOPER_DIR; };
+		61F59B7A2E5B45CF00AB39AD /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = System/Library/Frameworks/Network.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -328,6 +330,8 @@
 		6110C9B62B03A83C003BE9A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				61F59B7A2E5B45CF00AB39AD /* Network.framework */,
+				61F59B782E5B459D00AB39AD /* Network.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
