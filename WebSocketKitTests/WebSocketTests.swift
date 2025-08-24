@@ -30,7 +30,7 @@ final class WebSocketTests {
     let webSocket = WebSocket(url: url, autoReconnect: autoReconnect)
     webSocket.stateUpdateHandler = stateUpdateHandler
 
-    return try await webSocket.connect()
+    return webSocket
   }
 
   @Test("end to end test")
