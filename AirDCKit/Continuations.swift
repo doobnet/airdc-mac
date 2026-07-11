@@ -1,48 +1,61 @@
 import Foundation
-
-import SwiftMock
+import OSLog
 import UtilityKit
 
 typealias Continuation = CheckedContinuation<Foundation.Data, Error>
 
-@Mock protocol Continuations {
-    typealias ID = Int
+protocol Continuations {
+  typealias ID = Int
 
-    func append(_ continuation: Continuation) -> ID
-    func resumeContinuation(withId id: ID, returning data: Data) -> Bool
-    func resumeContinuation(withId id: ID, throwing error: Error) -> Bool
+  func append(_ continuation: Continuation) -> ID
+  func resumeContinuation(withId id: ID, returning data: Data) -> Bool
+  func resumeContinuation(withId id: ID, throwing error: Error) -> Bool
 }
 
 class DefaultContinuations: Continuations {
-    private var continuations: [ID: Continuation] = [:]
-    private let maxId = ID(Int32.max)
-    private let logger = Logging.newLogger()
+  private var continuations: [ID: Continuation] = [:]
+  private let maxId = ID(Int32.max)
+  private let logger = Logging.newLogger()
 
-    func append(_ continuation: Continuation) -> ID {
-        let maxTries = 10
+  func resumeAll(with data: Data) {
+    for continuation in continuations.values {
+      continuation.resume(returning: data)
+    }
+  }
 
-        for _ in 0 ..< maxTries {
-            let id = Int.random(in: 0 ..< maxId)
-            guard continuations[id] == nil else { continue }
+  func append(_ continuation: Continuation) -> ID {
+    let maxTries = 10
 
-            continuations[id] = continuation
-            return id
-        }
+    for _ in 0..<maxTries {
+      let id = Int.random(in: 0..<maxId)
+      guard continuations[id] == nil else { continue }
 
-        fatalError("Failed to generate unsued continuation ID after \(maxTries) tries")
+      continuations[id] = continuation
+      return id
     }
 
-    func resumeContinuation(withId id: ID, returning data: Data) -> Bool {
-        guard let continuation = continuations[id] else { return false }
-        logger.debug("resuming continuation with id: \(id)")
-        continuation.resume(returning: data)
-        return true
-    }
+    fatalError(
+      "Failed to generate unsued continuation ID after \(maxTries) tries"
+    )
+  }
 
-    func resumeContinuation(withId id: ID, throwing error: Error) -> Bool {
-        guard let continuation = continuations[id] else { return false }
-        logger.debug("throwing continuation with id: \(id)")
-        continuation.resume(throwing: error)
-        return true
+  @discardableResult
+  func resumeContinuation(withId id: ID, returning data: Data) -> Bool {
+    guard let continuation = continuations.removeValue(forKey: id) else {
+      return false
     }
+    logger.debug("resuming continuation with id: \(id)")
+    continuation.resume(returning: data)
+    return true
+  }
+
+  @discardableResult
+  func resumeContinuation(withId id: ID, throwing error: Error) -> Bool {
+    guard let continuation = continuations.removeValue(forKey: id) else {
+      return false
+    }
+    logger.debug("throwing continuation with id: \(id)")
+    continuation.resume(throwing: error)
+    return true
+  }
 }

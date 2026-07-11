@@ -3,15 +3,15 @@ import Network
 import OSLog
 import UtilityKit
 
-typealias InternalStream = AsyncThrowingStream<Data, Error>
+public typealias InternalStream = AsyncThrowingStream<Data, Error>
 
-class WebSocket: AsyncSequence {
-  struct AutoReconnect {
+public class WebSocket: AsyncSequence {
+  public struct AutoReconnect {
     let enabled: Bool
     let maxRetries: Int
     let delay: Duration
 
-    init(
+    public init(
       enabled: Bool = false,
       maxRetries: Int = 5,
       delay: Duration = .seconds(10)
@@ -22,8 +22,8 @@ class WebSocket: AsyncSequence {
     }
   }
 
-  typealias AsyncIterator = InternalStream.Iterator
-  typealias Element = InternalStream.Element
+  public typealias AsyncIterator = InternalStream.Iterator
+  public typealias Element = InternalStream.Element
   typealias Connection = NetworkConnection<Network.WebSocket>
   typealias State = Connection.State
   typealias StateUpdateHandler = @Sendable (_ state: State) -> Void
@@ -43,7 +43,7 @@ class WebSocket: AsyncSequence {
   private let queue = DispatchQueue(label: "WebSocketQueue")
   private let autoReconnect: AutoReconnect
 
-  init(
+  public init(
     url: URL,
     logger: Logger = Logging.newLogger(),
     autoReconnect: AutoReconnect = AutoReconnect()
@@ -101,13 +101,13 @@ class WebSocket: AsyncSequence {
   }
 
   @available(macOS 14, iOS 17.0, watchOS 10.0, tvOS 17.0, *)
-  func makeAsyncIterator() -> AsyncIterator {
+  public func makeAsyncIterator() -> AsyncIterator {
     stream.makeAsyncIterator()
   }
 
   @discardableResult
   @available(macOS 26.0, iOS 26.0, watchOS 26.0, tvOS 26.0, *)
-  func send(_ message: String, operation: String = #function) async throws
+  public func send(_ message: String, operation: String = #function) async throws
     -> Self
   {
     try await withRetry {
@@ -120,7 +120,7 @@ class WebSocket: AsyncSequence {
   }
 
   @discardableResult
-  func send(_ message: Data, operation: String = #function) async throws -> Self
+  public func send(_ message: Data, operation: String = #function) async throws -> Self
   {
     try await withRetry {
       try await connection.send(message)

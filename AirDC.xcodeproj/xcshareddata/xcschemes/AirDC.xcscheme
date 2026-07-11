@@ -61,7 +61,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6191BCD22AEE7FF20086AFDE"
+               BlueprintIdentifier = "619C8AD72E63504C001AAEE2"
                BuildableName = "AirDCKitTests.xctest"
                BlueprintName = "AirDCKitTests"
                ReferencedContainer = "container:AirDC.xcodeproj">
@@ -72,7 +72,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "61993A262DFC45CC00461938"
+               BlueprintIdentifier = "615321D42E07DA8000E7418B"
                BuildableName = "WebSocketKitTests.xctest"
                BlueprintName = "WebSocketKitTests"
                ReferencedContainer = "container:AirDC.xcodeproj">
@@ -86,6 +86,28 @@
                BlueprintIdentifier = "61993A7A2DFC48F100461938"
                BuildableName = "UtilityKitTests.xctest"
                BlueprintName = "UtilityKitTests"
+               ReferencedContainer = "container:AirDC.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "617D7BAD2E63435800AFA7A4"
+               BuildableName = "AirDCKit2Tests.xctest"
+               BlueprintName = "AirDCKit2Tests"
+               ReferencedContainer = "container:AirDC.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "619C8AF92E6350B3001AAEE2"
+               BuildableName = "FooBarTests.xctest"
+               BlueprintName = "FooBarTests"
                ReferencedContainer = "container:AirDC.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6191BCC92AEE7FF20086AFDE"
+               BlueprintIdentifier = "619C8ACD2E63504C001AAEE2"
                BuildableName = "AirDCKit.framework"
                BlueprintName = "AirDCKit"
                ReferencedContainer = "container:AirDC.xcodeproj">
@@ -54,7 +54,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6191BCC92AEE7FF20086AFDE"
+            BlueprintIdentifier = "619C8ACD2E63504C001AAEE2"
             BuildableName = "AirDCKit.framework"
             BlueprintName = "AirDCKit"
             ReferencedContainer = "container:AirDC.xcodeproj">

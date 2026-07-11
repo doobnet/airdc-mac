@@ -15,7 +15,7 @@
     {
       "target" : {
         "containerPath" : "container:AirDC.xcodeproj",
-        "identifier" : "61993A262DFC45CC00461938",
+        "identifier" : "615321D42E07DA8000E7418B",
         "name" : "WebSocketKitTests"
       }
     }
