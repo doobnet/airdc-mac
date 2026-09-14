@@ -11,7 +11,7 @@ struct AuthorizeMessage: Codable {
 struct AirDCConnectionTests {
   let url = URL(string: "wss://nas:5601/api/v1")!
 
-  @Test("unauthorizedSend")
+  @Test("unauthorizedSend", .disabled("requires a live AirDC++ server"))
   func unauthorizedSend() async throws {
     let connection = AirDCConnection(url: url)
     try connection.connect()

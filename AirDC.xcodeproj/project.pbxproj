@@ -3,1229 +3,797 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 110;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6113A14A2E3253CE0004E90B /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6113A1492E3253CB0004E90B /* UsersView.swift */; };
-		6113A14D2E3255630004E90B /* HubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6113A14C2E3255610004E90B /* HubView.swift */; };
-		611842B12E32510400605092 /* QueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611842B02E3250FC00605092 /* QueueView.swift */; };
-		613795E62E33AFFF009952B6 /* IconButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613795E52E33AFFA009952B6 /* IconButtonStyle.swift */; };
-		613795EF2E3601F5009952B6 /* SplitView in Frameworks */ = {isa = PBXBuildFile; productRef = 613795EE2E3601F5009952B6 /* SplitView */; };
-		6151BA162E3212A700278871 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA152E3212A100278871 /* User.swift */; };
-		6151BA182E3212B900278871 /* DownloadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA172E3212B000278871 /* DownloadItem.swift */; };
-		6151BA1A2E32132700278871 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA192E32132400278871 /* SidebarView.swift */; };
-		6151BA1C2E32135100278871 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA1B2E32134D00278871 /* ChatView.swift */; };
-		6151BA1E2E3213FA00278871 /* AirDCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA1D2E3213F700278871 /* AirDCApp.swift */; };
-		6151BA202E32145900278871 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA1F2E32145500278871 /* MainView.swift */; };
-		6151BA222E32157A00278871 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6151BA212E32157600278871 /* TopBarView.swift */; };
-		615321D62E07DA8000E7418B /* WebSocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615321CB2E07DA8000E7418B /* WebSocketKit.framework */; };
-		615321E02E07DA8000E7418B /* WebSocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615321CB2E07DA8000E7418B /* WebSocketKit.framework */; };
-		615321E12E07DA8000E7418B /* WebSocketKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 615321CB2E07DA8000E7418B /* WebSocketKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		615321F32E07DBBF00E7418B /* SwiftMock in Frameworks */ = {isa = PBXBuildFile; productRef = 615321F22E07DBBF00E7418B /* SwiftMock */; };
-		615321F52E07DBCB00E7418B /* SwiftMockConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = 615321F42E07DBCB00E7418B /* SwiftMockConfiguration */; };
-		6191BC8F2AEE7DDF0086AFDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6191BC8E2AEE7DDF0086AFDE /* Assets.xcassets */; };
-		6191BC922AEE7DDF0086AFDE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6191BC912AEE7DDF0086AFDE /* Preview Assets.xcassets */; };
-		6191BC9D2AEE7DDF0086AFDE /* AirDCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BC9C2AEE7DDF0086AFDE /* AirDCTests.swift */; };
-		6191BCA72AEE7DDF0086AFDE /* AirDCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCA62AEE7DDF0086AFDE /* AirDCUITests.swift */; };
-		6191BCA92AEE7DDF0086AFDE /* AirDCUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCA82AEE7DDF0086AFDE /* AirDCUITestsLaunchTests.swift */; };
-		6191BCBA2AEE7E920086AFDE /* example.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6191BCB82AEE7E920086AFDE /* example.xcconfig */; };
-		6191BCBB2AEE7E920086AFDE /* local.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6191BCB92AEE7E920086AFDE /* local.xcconfig */; };
-		6191BCC32AEE7FAD0086AFDE /* OldAirDCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCC12AEE7FAD0086AFDE /* OldAirDCApp.swift */; };
-		6191BCC42AEE7FAD0086AFDE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6191BCC22AEE7FAD0086AFDE /* ContentView.swift */; };
-		61993A112DFC1F0000461938 /* SwiftMockConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = 61993A102DFC1F0000461938 /* SwiftMockConfiguration */; };
-		61993A7C2DFC48F100461938 /* UtilityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61993A712DFC48F100461938 /* UtilityKit.framework */; };
-		61993A862DFC48F100461938 /* UtilityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61993A712DFC48F100461938 /* UtilityKit.framework */; };
-		61993A872DFC48F100461938 /* UtilityKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61993A712DFC48F100461938 /* UtilityKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		619C8AD92E63504C001AAEE2 /* AirDCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 619C8ACE2E63504C001AAEE2 /* AirDCKit.framework */; };
-		619C8AE32E63504C001AAEE2 /* AirDCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 619C8ACE2E63504C001AAEE2 /* AirDCKit.framework */; };
-		619C8AE42E63504C001AAEE2 /* AirDCKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 619C8ACE2E63504C001AAEE2 /* AirDCKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		619C8B172E636A54001AAEE2 /* WebSocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615321CB2E07DA8000E7418B /* WebSocketKit.framework */; };
-		619C8B182E636A54001AAEE2 /* WebSocketKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 615321CB2E07DA8000E7418B /* WebSocketKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		612D0EE6305707AF00B487A9 /* UtilityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D0EDB305707AF00B487A9 /* UtilityKit.framework */; };
+		612D0EF0305707AF00B487A9 /* UtilityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D0EDB305707AF00B487A9 /* UtilityKit.framework */; };
+		612D0EF1305707AF00B487A9 /* UtilityKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 612D0EDB305707AF00B487A9 /* UtilityKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		612D0F0B305707C700B487A9 /* WebSocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D0F00305707C700B487A9 /* WebSocketKit.framework */; };
+		612D0F15305707C700B487A9 /* WebSocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D0F00305707C700B487A9 /* WebSocketKit.framework */; };
+		612D0F16305707C700B487A9 /* WebSocketKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 612D0F00305707C700B487A9 /* WebSocketKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		612D0F33305707D800B487A9 /* AirDCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D0F28305707D800B487A9 /* AirDCKit.framework */; };
+		612D0F3D305707D800B487A9 /* AirDCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D0F28305707D800B487A9 /* AirDCKit.framework */; };
+		612D0F3E305707D800B487A9 /* AirDCKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 612D0F28305707D800B487A9 /* AirDCKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		612D0F5530570A2600B487A9 /* SplitView in Frameworks */ = {isa = PBXBuildFile; productRef = 612D0F5430570A2600B487A9 /* SplitView */; };
+		612D0FBF30570C1000B487A9 /* SwiftMockConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = 612D0FBE30570C1000B487A9 /* SwiftMockConfiguration */; };
+		612D0FC230570C3400B487A9 /* SwiftMockConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = 612D0FC130570C3400B487A9 /* SwiftMockConfiguration */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		614235A62E145B1E005C78E2 /* PBXContainerItemProxy */ = {
+		612D0E733057071700B487A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 614235992E145B0D005C78E2;
-			remoteInfo = TestHost;
+			remoteGlobalIDString = 612D0E643057071500B487A9;
+			remoteInfo = AirDC;
 		};
-		615321D72E07DA8000E7418B /* PBXContainerItemProxy */ = {
+		612D0E7D3057071700B487A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 615321CA2E07DA8000E7418B;
+			remoteGlobalIDString = 612D0E643057071500B487A9;
+			remoteInfo = AirDC;
+		};
+		612D0EE7305707AF00B487A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 612D0EDA305707AF00B487A9;
+			remoteInfo = UtilityKit;
+		};
+		612D0EE9305707AF00B487A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 612D0E643057071500B487A9;
+			remoteInfo = AirDC;
+		};
+		612D0EEE305707AF00B487A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 612D0EDA305707AF00B487A9;
+			remoteInfo = UtilityKit;
+		};
+		612D0F0C305707C700B487A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 612D0EFF305707C700B487A9;
 			remoteInfo = WebSocketKit;
 		};
-		615321D92E07DA8000E7418B /* PBXContainerItemProxy */ = {
+		612D0F0E305707C700B487A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6191BC862AEE7DDE0086AFDE;
+			remoteGlobalIDString = 612D0E643057071500B487A9;
 			remoteInfo = AirDC;
 		};
-		615321DE2E07DA8000E7418B /* PBXContainerItemProxy */ = {
+		612D0F13305707C700B487A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 615321CA2E07DA8000E7418B;
+			remoteGlobalIDString = 612D0EFF305707C700B487A9;
 			remoteInfo = WebSocketKit;
 		};
-		615321F62E07DC2300E7418B /* PBXContainerItemProxy */ = {
+		612D0F34305707D800B487A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 61993A702DFC48F100461938;
-			remoteInfo = UtilityKit;
-		};
-		617813912EBA0B860091AD3E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 614235992E145B0D005C78E2;
-			remoteInfo = TestHost;
-		};
-		6191BC992AEE7DDF0086AFDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6191BC862AEE7DDE0086AFDE;
-			remoteInfo = AirDC;
-		};
-		6191BCA32AEE7DDF0086AFDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6191BC862AEE7DDE0086AFDE;
-			remoteInfo = AirDC;
-		};
-		61993A7D2DFC48F100461938 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 61993A702DFC48F100461938;
-			remoteInfo = UtilityKit;
-		};
-		61993A7F2DFC48F100461938 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6191BC862AEE7DDE0086AFDE;
-			remoteInfo = AirDC;
-		};
-		61993A842DFC48F100461938 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 61993A702DFC48F100461938;
-			remoteInfo = UtilityKit;
-		};
-		619C8ADA2E63504C001AAEE2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 619C8ACD2E63504C001AAEE2;
+			remoteGlobalIDString = 612D0F27305707D800B487A9;
 			remoteInfo = AirDCKit;
 		};
-		619C8ADC2E63504C001AAEE2 /* PBXContainerItemProxy */ = {
+		612D0F36305707D800B487A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6191BC862AEE7DDE0086AFDE;
+			remoteGlobalIDString = 612D0E643057071500B487A9;
 			remoteInfo = AirDC;
 		};
-		619C8AE12E63504C001AAEE2 /* PBXContainerItemProxy */ = {
+		612D0F3B305707D800B487A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 619C8ACD2E63504C001AAEE2;
+			remoteGlobalIDString = 612D0F27305707D800B487A9;
 			remoteInfo = AirDCKit;
 		};
-		619C8B192E636A54001AAEE2 /* PBXContainerItemProxy */ = {
+		612D0FD33058590F00B487A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 615321CA2E07DA8000E7418B;
-			remoteInfo = WebSocketKit;
+			remoteGlobalIDString = 612D0FC630584B9700B487A9;
+			remoteInfo = TestHost;
+		};
+		612D0FD53058591300B487A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 612D0FC630584B9700B487A9;
+			remoteInfo = TestHost;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6191BCE42AEE7FF20086AFDE /* Embed Frameworks */ = {
+		612D0EF2305707AF00B487A9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolder = Frameworks;
 			files = (
-				619C8AE42E63504C001AAEE2 /* AirDCKit.framework in Embed Frameworks */,
-				61993A872DFC48F100461938 /* UtilityKit.framework in Embed Frameworks */,
-				615321E12E07DA8000E7418B /* WebSocketKit.framework in Embed Frameworks */,
+				612D0F3E305707D800B487A9 /* AirDCKit.framework in Embed Frameworks */,
+				612D0EF1305707AF00B487A9 /* UtilityKit.framework in Embed Frameworks */,
+				612D0F16305707C700B487A9 /* WebSocketKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		619C8B1B2E636A54001AAEE2 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				619C8B182E636A54001AAEE2 /* WebSocketKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6113A1492E3253CB0004E90B /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
-		6113A14C2E3255610004E90B /* HubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubView.swift; sourceTree = "<group>"; };
-		611842B02E3250FC00605092 /* QueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueView.swift; sourceTree = "<group>"; };
-		613795E52E33AFFA009952B6 /* IconButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonStyle.swift; sourceTree = "<group>"; };
-		6142359A2E145B0D005C78E2 /* TestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6151BA152E3212A100278871 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		6151BA172E3212B000278871 /* DownloadItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadItem.swift; sourceTree = "<group>"; };
-		6151BA192E32132400278871 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
-		6151BA1B2E32134D00278871 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		6151BA1D2E3213F700278871 /* AirDCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirDCApp.swift; sourceTree = "<group>"; };
-		6151BA1F2E32145500278871 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		6151BA212E32157600278871 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
-		615321912E070BD800E7418B /* WebSocketKit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WebSocketKit.xctestplan; sourceTree = "<group>"; };
-		615321CB2E07DA8000E7418B /* WebSocketKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebSocketKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		615321D52E07DA8000E7418B /* WebSocketKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebSocketKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6191BC872AEE7DDE0086AFDE /* AirDC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirDC.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6191BC8E2AEE7DDF0086AFDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6191BC912AEE7DDF0086AFDE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6191BC932AEE7DDF0086AFDE /* AirDC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirDC.entitlements; sourceTree = "<group>"; };
-		6191BC982AEE7DDF0086AFDE /* AirDCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirDCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6191BC9C2AEE7DDF0086AFDE /* AirDCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirDCTests.swift; sourceTree = "<group>"; };
-		6191BCA22AEE7DDF0086AFDE /* AirDCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirDCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6191BCA62AEE7DDF0086AFDE /* AirDCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirDCUITests.swift; sourceTree = "<group>"; };
-		6191BCA82AEE7DDF0086AFDE /* AirDCUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirDCUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		6191BCB82AEE7E920086AFDE /* example.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = example.xcconfig; sourceTree = "<group>"; };
-		6191BCB92AEE7E920086AFDE /* local.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = local.xcconfig; sourceTree = "<group>"; };
-		6191BCBC2AEE7F000086AFDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6191BCC12AEE7FAD0086AFDE /* OldAirDCApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldAirDCApp.swift; sourceTree = "<group>"; };
-		6191BCC22AEE7FAD0086AFDE /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		6191BCE92AEE81170086AFDE /* AirDC.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AirDC.xctestplan; sourceTree = "<group>"; };
-		61993A712DFC48F100461938 /* UtilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UtilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		61993A7B2DFC48F100461938 /* UtilityKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtilityKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		619C8ACE2E63504C001AAEE2 /* AirDCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AirDCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		619C8AD82E63504C001AAEE2 /* AirDCKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirDCKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		619C8B0F2E6352A9001AAEE2 /* AirDCKit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AirDCKit.xctestplan; sourceTree = "<group>"; };
-		61F59B782E5B459D00AB39AD /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Network.framework; sourceTree = DEVELOPER_DIR; };
-		61F59B7A2E5B45CF00AB39AD /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = System/Library/Frameworks/Network.framework; sourceTree = SDKROOT; };
+		612D0E653057071500B487A9 /* AirDC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirDC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		612D0E723057071700B487A9 /* AirDCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirDCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		612D0E7C3057071700B487A9 /* AirDCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirDCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		612D0EDB305707AF00B487A9 /* UtilityKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UtilityKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		612D0EE5305707AF00B487A9 /* UtilityKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtilityKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		612D0F00305707C700B487A9 /* WebSocketKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebSocketKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		612D0F0A305707C700B487A9 /* WebSocketKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebSocketKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		612D0F28305707D800B487A9 /* AirDCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AirDCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		612D0F32305707D800B487A9 /* AirDCKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirDCKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		612D0FC730584B9700B487A9 /* TestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		613795E72E33B2C1009952B6 /* Components */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Components; sourceTree = "<group>"; };
-		6142359B2E145B0D005C78E2 /* TestHost */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TestHost; sourceTree = "<group>"; };
-		615321CC2E07DA8000E7418B /* WebSocketKit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = WebSocketKit; sourceTree = "<group>"; };
-		615321DB2E07DA8000E7418B /* WebSocketKitTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = WebSocketKitTests; sourceTree = "<group>"; };
-		61993A722DFC48F100461938 /* UtilityKit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UtilityKit; sourceTree = "<group>"; };
-		61993A812DFC48F100461938 /* UtilityKitTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UtilityKitTests; sourceTree = "<group>"; };
-		619C8ACF2E63504C001AAEE2 /* AirDCKit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AirDCKit; sourceTree = "<group>"; };
-		619C8ADE2E63504C001AAEE2 /* AirDCKitTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AirDCKitTests; sourceTree = "<group>"; };
+		612D0E673057071500B487A9 /* AirDC */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AirDC;
+			sourceTree = "<group>";
+		};
+		612D0E753057071700B487A9 /* AirDCTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AirDCTests;
+			sourceTree = "<group>";
+		};
+		612D0E7F3057071700B487A9 /* AirDCUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AirDCUITests;
+			sourceTree = "<group>";
+		};
+		612D0EDC305707AF00B487A9 /* UtilityKit */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = UtilityKit;
+			sourceTree = "<group>";
+		};
+		612D0EEB305707AF00B487A9 /* UtilityKitTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = UtilityKitTests;
+			sourceTree = "<group>";
+		};
+		612D0F01305707C700B487A9 /* WebSocketKit */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = WebSocketKit;
+			sourceTree = "<group>";
+		};
+		612D0F10305707C700B487A9 /* WebSocketKitTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = WebSocketKitTests;
+			sourceTree = "<group>";
+		};
+		612D0F29305707D800B487A9 /* AirDCKit */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AirDCKit;
+			sourceTree = "<group>";
+		};
+		612D0F38305707D800B487A9 /* AirDCKitTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AirDCKitTests;
+			sourceTree = "<group>";
+		};
+		612D0FC830584B9700B487A9 /* TestHost */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TestHost;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		614235972E145B0D005C78E2 /* Frameworks */ = {
+		612D0E623057071500B487A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
+				612D0F5530570A2600B487A9 /* SplitView in Frameworks */,
+				612D0F3D305707D800B487A9 /* AirDCKit.framework in Frameworks */,
+				612D0EF0305707AF00B487A9 /* UtilityKit.framework in Frameworks */,
+				612D0F15305707C700B487A9 /* WebSocketKit.framework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		615321C82E07DA8000E7418B /* Frameworks */ = {
+		612D0E6F3057071700B487A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				615321F32E07DBBF00E7418B /* SwiftMock in Frameworks */,
+				612D0FBF30570C1000B487A9 /* SwiftMockConfiguration in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		615321D22E07DA8000E7418B /* Frameworks */ = {
+		612D0E793057071700B487A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				615321D62E07DA8000E7418B /* WebSocketKit.framework in Frameworks */,
-				615321F52E07DBCB00E7418B /* SwiftMockConfiguration in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6191BC842AEE7DDE0086AFDE /* Frameworks */ = {
+		612D0ED8305707AF00B487A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				613795EF2E3601F5009952B6 /* SplitView in Frameworks */,
-				619C8AE32E63504C001AAEE2 /* AirDCKit.framework in Frameworks */,
-				61993A862DFC48F100461938 /* UtilityKit.framework in Frameworks */,
-				615321E02E07DA8000E7418B /* WebSocketKit.framework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6191BC952AEE7DDF0086AFDE /* Frameworks */ = {
+		612D0EE2305707AF00B487A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				61993A112DFC1F0000461938 /* SwiftMockConfiguration in Frameworks */,
+				612D0EE6305707AF00B487A9 /* UtilityKit.framework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6191BC9F2AEE7DDF0086AFDE /* Frameworks */ = {
+		612D0EFD305707C700B487A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		61993A6E2DFC48F100461938 /* Frameworks */ = {
+		612D0F07305707C700B487A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
+				612D0F0B305707C700B487A9 /* WebSocketKit.framework in Frameworks */,
+				612D0FC230570C3400B487A9 /* SwiftMockConfiguration in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		61993A782DFC48F100461938 /* Frameworks */ = {
+		612D0F25305707D800B487A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				61993A7C2DFC48F100461938 /* UtilityKit.framework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		619C8ACB2E63504C001AAEE2 /* Frameworks */ = {
+		612D0F2F305707D800B487A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				619C8B172E636A54001AAEE2 /* WebSocketKit.framework in Frameworks */,
+				612D0F33305707D800B487A9 /* AirDCKit.framework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		619C8AD52E63504C001AAEE2 /* Frameworks */ = {
+		612D0FC430584B9700B487A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				619C8AD92E63504C001AAEE2 /* AirDCKit.framework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6110C9B62B03A83C003BE9A9 /* Frameworks */ = {
+		612D0E5C3057071500B487A9 = {
 			isa = PBXGroup;
 			children = (
-				61F59B7A2E5B45CF00AB39AD /* Network.framework */,
-				61F59B782E5B459D00AB39AD /* Network.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6191BC7E2AEE7DDE0086AFDE = {
-			isa = PBXGroup;
-			children = (
-				615321912E070BD800E7418B /* WebSocketKit.xctestplan */,
-				6191BCE92AEE81170086AFDE /* AirDC.xctestplan */,
-				619C8B0F2E6352A9001AAEE2 /* AirDCKit.xctestplan */,
-				6191BC892AEE7DDE0086AFDE /* AirDC */,
-				6191BC9B2AEE7DDF0086AFDE /* AirDCTests */,
-				6191BCA52AEE7DDF0086AFDE /* AirDCUITests */,
-				61993A722DFC48F100461938 /* UtilityKit */,
-				61993A812DFC48F100461938 /* UtilityKitTests */,
-				615321CC2E07DA8000E7418B /* WebSocketKit */,
-				615321DB2E07DA8000E7418B /* WebSocketKitTests */,
-				6142359B2E145B0D005C78E2 /* TestHost */,
-				619C8ACF2E63504C001AAEE2 /* AirDCKit */,
-				619C8ADE2E63504C001AAEE2 /* AirDCKitTests */,
-				6191BC882AEE7DDE0086AFDE /* Products */,
-				6110C9B62B03A83C003BE9A9 /* Frameworks */,
+				612D0E673057071500B487A9 /* AirDC */,
+				612D0E753057071700B487A9 /* AirDCTests */,
+				612D0E7F3057071700B487A9 /* AirDCUITests */,
+				612D0EDC305707AF00B487A9 /* UtilityKit */,
+				612D0EEB305707AF00B487A9 /* UtilityKitTests */,
+				612D0F01305707C700B487A9 /* WebSocketKit */,
+				612D0F10305707C700B487A9 /* WebSocketKitTests */,
+				612D0F29305707D800B487A9 /* AirDCKit */,
+				612D0F38305707D800B487A9 /* AirDCKitTests */,
+				612D0FC830584B9700B487A9 /* TestHost */,
+				612D0FC030570C3400B487A9 /* Frameworks */,
+				612D0E663057071500B487A9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		6191BC882AEE7DDE0086AFDE /* Products */ = {
+		612D0E663057071500B487A9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6191BC872AEE7DDE0086AFDE /* AirDC.app */,
-				6191BC982AEE7DDF0086AFDE /* AirDCTests.xctest */,
-				6191BCA22AEE7DDF0086AFDE /* AirDCUITests.xctest */,
-				61993A712DFC48F100461938 /* UtilityKit.framework */,
-				61993A7B2DFC48F100461938 /* UtilityKitTests.xctest */,
-				615321CB2E07DA8000E7418B /* WebSocketKit.framework */,
-				615321D52E07DA8000E7418B /* WebSocketKitTests.xctest */,
-				6142359A2E145B0D005C78E2 /* TestHost.app */,
-				619C8ACE2E63504C001AAEE2 /* AirDCKit.framework */,
-				619C8AD82E63504C001AAEE2 /* AirDCKitTests.xctest */,
+				612D0E653057071500B487A9 /* AirDC.app */,
+				612D0E723057071700B487A9 /* AirDCTests.xctest */,
+				612D0E7C3057071700B487A9 /* AirDCUITests.xctest */,
+				612D0EDB305707AF00B487A9 /* UtilityKit.framework */,
+				612D0EE5305707AF00B487A9 /* UtilityKitTests.xctest */,
+				612D0F00305707C700B487A9 /* WebSocketKit.framework */,
+				612D0F0A305707C700B487A9 /* WebSocketKitTests.xctest */,
+				612D0F28305707D800B487A9 /* AirDCKit.framework */,
+				612D0F32305707D800B487A9 /* AirDCKitTests.xctest */,
+				612D0FC730584B9700B487A9 /* TestHost.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6191BC892AEE7DDE0086AFDE /* AirDC */ = {
+		612D0FC030570C3400B487A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				613795E72E33B2C1009952B6 /* Components */,
-				6191BCB72AEE7E830086AFDE /* Configs */,
-				6191BC902AEE7DDF0086AFDE /* Preview Content */,
-				6191BCC12AEE7FAD0086AFDE /* OldAirDCApp.swift */,
-				6151BA1D2E3213F700278871 /* AirDCApp.swift */,
-				6151BA1B2E32134D00278871 /* ChatView.swift */,
-				6191BCC22AEE7FAD0086AFDE /* ContentView.swift */,
-				6151BA172E3212B000278871 /* DownloadItem.swift */,
-				6113A14C2E3255610004E90B /* HubView.swift */,
-				613795E52E33AFFA009952B6 /* IconButtonStyle.swift */,
-				6151BA1F2E32145500278871 /* MainView.swift */,
-				611842B02E3250FC00605092 /* QueueView.swift */,
-				6151BA152E3212A100278871 /* User.swift */,
-				6113A1492E3253CB0004E90B /* UsersView.swift */,
-				6151BA192E32132400278871 /* SidebarView.swift */,
-				6151BA212E32157600278871 /* TopBarView.swift */,
-				6191BC8E2AEE7DDF0086AFDE /* Assets.xcassets */,
-				6191BC932AEE7DDF0086AFDE /* AirDC.entitlements */,
-				6191BCBC2AEE7F000086AFDE /* Info.plist */,
 			);
-			path = AirDC;
-			sourceTree = "<group>";
-		};
-		6191BC902AEE7DDF0086AFDE /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				6191BC912AEE7DDF0086AFDE /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		6191BC9B2AEE7DDF0086AFDE /* AirDCTests */ = {
-			isa = PBXGroup;
-			children = (
-				6191BC9C2AEE7DDF0086AFDE /* AirDCTests.swift */,
-			);
-			path = AirDCTests;
-			sourceTree = "<group>";
-		};
-		6191BCA52AEE7DDF0086AFDE /* AirDCUITests */ = {
-			isa = PBXGroup;
-			children = (
-				6191BCA62AEE7DDF0086AFDE /* AirDCUITests.swift */,
-				6191BCA82AEE7DDF0086AFDE /* AirDCUITestsLaunchTests.swift */,
-			);
-			path = AirDCUITests;
-			sourceTree = "<group>";
-		};
-		6191BCB72AEE7E830086AFDE /* Configs */ = {
-			isa = PBXGroup;
-			children = (
-				6191BCB82AEE7E920086AFDE /* example.xcconfig */,
-				6191BCB92AEE7E920086AFDE /* local.xcconfig */,
-			);
-			path = Configs;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		615321C62E07DA8000E7418B /* Headers */ = {
+		612D0ED6305707AF00B487A9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		61993A6C2DFC48F100461938 /* Headers */ = {
+		612D0EFB305707C700B487A9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		619C8AC92E63504C001AAEE2 /* Headers */ = {
+		612D0F23305707D800B487A9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		614235992E145B0D005C78E2 /* TestHost */ = {
+		612D0E643057071500B487A9 /* AirDC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 614235A32E145B0F005C78E2 /* Build configuration list for PBXNativeTarget "TestHost" */;
+			buildConfigurationList = 612D0E843057071700B487A9 /* Build configuration list for PBXNativeTarget "AirDC" */;
 			buildPhases = (
-				614235962E145B0D005C78E2 /* Sources */,
-				614235972E145B0D005C78E2 /* Frameworks */,
-				614235982E145B0D005C78E2 /* Resources */,
+				612D0E613057071500B487A9 /* Sources */,
+				612D0E623057071500B487A9 /* Frameworks */,
+				612D0E633057071500B487A9 /* Resources */,
+				612D0EF2305707AF00B487A9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				612D0EEF305707AF00B487A9 /* PBXTargetDependency */,
+				612D0F14305707C700B487A9 /* PBXTargetDependency */,
+				612D0F3C305707D800B487A9 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				6142359B2E145B0D005C78E2 /* TestHost */,
-			);
-			name = TestHost;
-			packageProductDependencies = (
-			);
-			productName = TestHost;
-			productReference = 6142359A2E145B0D005C78E2 /* TestHost.app */;
-			productType = "com.apple.product-type.application";
-		};
-		615321CA2E07DA8000E7418B /* WebSocketKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 615321E22E07DA8000E7418B /* Build configuration list for PBXNativeTarget "WebSocketKit" */;
-			buildPhases = (
-				615321C62E07DA8000E7418B /* Headers */,
-				615321C72E07DA8000E7418B /* Sources */,
-				615321C82E07DA8000E7418B /* Frameworks */,
-				615321C92E07DA8000E7418B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				615321F72E07DC2300E7418B /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				615321CC2E07DA8000E7418B /* WebSocketKit */,
-			);
-			name = WebSocketKit;
-			packageProductDependencies = (
-				615321F22E07DBBF00E7418B /* SwiftMock */,
-			);
-			productName = WebSocketKit;
-			productReference = 615321CB2E07DA8000E7418B /* WebSocketKit.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		615321D42E07DA8000E7418B /* WebSocketKitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 615321E52E07DA8000E7418B /* Build configuration list for PBXNativeTarget "WebSocketKitTests" */;
-			buildPhases = (
-				615321D12E07DA8000E7418B /* Sources */,
-				615321D22E07DA8000E7418B /* Frameworks */,
-				615321D32E07DA8000E7418B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				615321D82E07DA8000E7418B /* PBXTargetDependency */,
-				615321DA2E07DA8000E7418B /* PBXTargetDependency */,
-				614235A72E145B1E005C78E2 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				615321DB2E07DA8000E7418B /* WebSocketKitTests */,
-			);
-			name = WebSocketKitTests;
-			packageProductDependencies = (
-				615321F42E07DBCB00E7418B /* SwiftMockConfiguration */,
-			);
-			productName = WebSocketKitTests;
-			productReference = 615321D52E07DA8000E7418B /* WebSocketKitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		6191BC862AEE7DDE0086AFDE /* AirDC */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6191BCAC2AEE7DDF0086AFDE /* Build configuration list for PBXNativeTarget "AirDC" */;
-			buildPhases = (
-				6191BC832AEE7DDE0086AFDE /* Sources */,
-				6191BC842AEE7DDE0086AFDE /* Frameworks */,
-				6191BC852AEE7DDE0086AFDE /* Resources */,
-				6191BCE42AEE7FF20086AFDE /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				61993A852DFC48F100461938 /* PBXTargetDependency */,
-				615321DF2E07DA8000E7418B /* PBXTargetDependency */,
-				619C8AE22E63504C001AAEE2 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				613795E72E33B2C1009952B6 /* Components */,
+				612D0E673057071500B487A9 /* AirDC */,
 			);
 			name = AirDC;
+			packageProductDependencies = (
+				612D0F5430570A2600B487A9 /* SplitView */,
+			);
 			productName = AirDC;
-			productReference = 6191BC872AEE7DDE0086AFDE /* AirDC.app */;
+			productReference = 612D0E653057071500B487A9 /* AirDC.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6191BC972AEE7DDF0086AFDE /* AirDCTests */ = {
+		612D0E713057071700B487A9 /* AirDCTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6191BCAF2AEE7DDF0086AFDE /* Build configuration list for PBXNativeTarget "AirDCTests" */;
+			buildConfigurationList = 612D0E873057071700B487A9 /* Build configuration list for PBXNativeTarget "AirDCTests" */;
 			buildPhases = (
-				6191BC942AEE7DDF0086AFDE /* Sources */,
-				6191BC952AEE7DDF0086AFDE /* Frameworks */,
-				6191BC962AEE7DDF0086AFDE /* Resources */,
+				612D0E6E3057071700B487A9 /* Sources */,
+				612D0E6F3057071700B487A9 /* Frameworks */,
+				612D0E703057071700B487A9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6191BC9A2AEE7DDF0086AFDE /* PBXTargetDependency */,
+				612D0E743057071700B487A9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				612D0E753057071700B487A9 /* AirDCTests */,
 			);
 			name = AirDCTests;
+			packageProductDependencies = (
+				612D0FBE30570C1000B487A9 /* SwiftMockConfiguration */,
+			);
 			productName = AirDCTests;
-			productReference = 6191BC982AEE7DDF0086AFDE /* AirDCTests.xctest */;
+			productReference = 612D0E723057071700B487A9 /* AirDCTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6191BCA12AEE7DDF0086AFDE /* AirDCUITests */ = {
+		612D0E7B3057071700B487A9 /* AirDCUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6191BCB22AEE7DDF0086AFDE /* Build configuration list for PBXNativeTarget "AirDCUITests" */;
+			buildConfigurationList = 612D0E8A3057071700B487A9 /* Build configuration list for PBXNativeTarget "AirDCUITests" */;
 			buildPhases = (
-				6191BC9E2AEE7DDF0086AFDE /* Sources */,
-				6191BC9F2AEE7DDF0086AFDE /* Frameworks */,
-				6191BCA02AEE7DDF0086AFDE /* Resources */,
+				612D0E783057071700B487A9 /* Sources */,
+				612D0E793057071700B487A9 /* Frameworks */,
+				612D0E7A3057071700B487A9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6191BCA42AEE7DDF0086AFDE /* PBXTargetDependency */,
+				612D0E7E3057071700B487A9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				612D0E7F3057071700B487A9 /* AirDCUITests */,
 			);
 			name = AirDCUITests;
 			productName = AirDCUITests;
-			productReference = 6191BCA22AEE7DDF0086AFDE /* AirDCUITests.xctest */;
+			productReference = 612D0E7C3057071700B487A9 /* AirDCUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		61993A702DFC48F100461938 /* UtilityKit */ = {
+		612D0EDA305707AF00B487A9 /* UtilityKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 61993A882DFC48F100461938 /* Build configuration list for PBXNativeTarget "UtilityKit" */;
+			buildConfigurationList = 612D0EF7305707AF00B487A9 /* Build configuration list for PBXNativeTarget "UtilityKit" */;
 			buildPhases = (
-				61993A6C2DFC48F100461938 /* Headers */,
-				61993A6D2DFC48F100461938 /* Sources */,
-				61993A6E2DFC48F100461938 /* Frameworks */,
-				61993A6F2DFC48F100461938 /* Resources */,
+				612D0ED6305707AF00B487A9 /* Headers */,
+				612D0ED7305707AF00B487A9 /* Sources */,
+				612D0ED8305707AF00B487A9 /* Frameworks */,
+				612D0ED9305707AF00B487A9 /* Resources */,
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			fileSystemSynchronizedGroups = (
-				61993A722DFC48F100461938 /* UtilityKit */,
+				612D0EDC305707AF00B487A9 /* UtilityKit */,
 			);
 			name = UtilityKit;
-			packageProductDependencies = (
-			);
 			productName = UtilityKit;
-			productReference = 61993A712DFC48F100461938 /* UtilityKit.framework */;
+			productReference = 612D0EDB305707AF00B487A9 /* UtilityKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		61993A7A2DFC48F100461938 /* UtilityKitTests */ = {
+		612D0EE4305707AF00B487A9 /* UtilityKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 61993A8B2DFC48F100461938 /* Build configuration list for PBXNativeTarget "UtilityKitTests" */;
+			buildConfigurationList = 612D0EF8305707AF00B487A9 /* Build configuration list for PBXNativeTarget "UtilityKitTests" */;
 			buildPhases = (
-				61993A772DFC48F100461938 /* Sources */,
-				61993A782DFC48F100461938 /* Frameworks */,
-				61993A792DFC48F100461938 /* Resources */,
+				612D0EE1305707AF00B487A9 /* Sources */,
+				612D0EE2305707AF00B487A9 /* Frameworks */,
+				612D0EE3305707AF00B487A9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				61993A7E2DFC48F100461938 /* PBXTargetDependency */,
-				61993A802DFC48F100461938 /* PBXTargetDependency */,
+				612D0EE8305707AF00B487A9 /* PBXTargetDependency */,
+				612D0EEA305707AF00B487A9 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				61993A812DFC48F100461938 /* UtilityKitTests */,
+				612D0EEB305707AF00B487A9 /* UtilityKitTests */,
 			);
 			name = UtilityKitTests;
-			packageProductDependencies = (
-			);
 			productName = UtilityKitTests;
-			productReference = 61993A7B2DFC48F100461938 /* UtilityKitTests.xctest */;
+			productReference = 612D0EE5305707AF00B487A9 /* UtilityKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		619C8ACD2E63504C001AAEE2 /* AirDCKit */ = {
+		612D0EFF305707C700B487A9 /* WebSocketKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 619C8AE52E63504C001AAEE2 /* Build configuration list for PBXNativeTarget "AirDCKit" */;
+			buildConfigurationList = 612D0F17305707C700B487A9 /* Build configuration list for PBXNativeTarget "WebSocketKit" */;
 			buildPhases = (
-				619C8AC92E63504C001AAEE2 /* Headers */,
-				619C8ACA2E63504C001AAEE2 /* Sources */,
-				619C8ACB2E63504C001AAEE2 /* Frameworks */,
-				619C8ACC2E63504C001AAEE2 /* Resources */,
-				619C8B1B2E636A54001AAEE2 /* Embed Frameworks */,
+				612D0EFB305707C700B487A9 /* Headers */,
+				612D0EFC305707C700B487A9 /* Sources */,
+				612D0EFD305707C700B487A9 /* Frameworks */,
+				612D0EFE305707C700B487A9 /* Resources */,
 			);
 			buildRules = (
 			);
-			dependencies = (
-				619C8B1A2E636A54001AAEE2 /* PBXTargetDependency */,
-			);
 			fileSystemSynchronizedGroups = (
-				619C8ACF2E63504C001AAEE2 /* AirDCKit */,
+				612D0F01305707C700B487A9 /* WebSocketKit */,
 			);
-			name = AirDCKit;
-			packageProductDependencies = (
-			);
-			productName = AirDCKit;
-			productReference = 619C8ACE2E63504C001AAEE2 /* AirDCKit.framework */;
+			name = WebSocketKit;
+			productName = WebSocketKit;
+			productReference = 612D0F00305707C700B487A9 /* WebSocketKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		619C8AD72E63504C001AAEE2 /* AirDCKitTests */ = {
+		612D0F09305707C700B487A9 /* WebSocketKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 619C8AE82E63504C001AAEE2 /* Build configuration list for PBXNativeTarget "AirDCKitTests" */;
+			buildConfigurationList = 612D0F1A305707C700B487A9 /* Build configuration list for PBXNativeTarget "WebSocketKitTests" */;
 			buildPhases = (
-				619C8AD42E63504C001AAEE2 /* Sources */,
-				619C8AD52E63504C001AAEE2 /* Frameworks */,
-				619C8AD62E63504C001AAEE2 /* Resources */,
+				612D0F06305707C700B487A9 /* Sources */,
+				612D0F07305707C700B487A9 /* Frameworks */,
+				612D0F08305707C700B487A9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				619C8ADB2E63504C001AAEE2 /* PBXTargetDependency */,
-				619C8ADD2E63504C001AAEE2 /* PBXTargetDependency */,
-				617813922EBA0B860091AD3E /* PBXTargetDependency */,
+				612D0F0D305707C700B487A9 /* PBXTargetDependency */,
+				612D0F0F305707C700B487A9 /* PBXTargetDependency */,
+				612D0FD43058590F00B487A9 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				619C8ADE2E63504C001AAEE2 /* AirDCKitTests */,
+				612D0F10305707C700B487A9 /* WebSocketKitTests */,
+			);
+			name = WebSocketKitTests;
+			packageProductDependencies = (
+				612D0FC130570C3400B487A9 /* SwiftMockConfiguration */,
+			);
+			productName = WebSocketKitTests;
+			productReference = 612D0F0A305707C700B487A9 /* WebSocketKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		612D0F27305707D800B487A9 /* AirDCKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 612D0F3F305707D800B487A9 /* Build configuration list for PBXNativeTarget "AirDCKit" */;
+			buildPhases = (
+				612D0F23305707D800B487A9 /* Headers */,
+				612D0F24305707D800B487A9 /* Sources */,
+				612D0F25305707D800B487A9 /* Frameworks */,
+				612D0F26305707D800B487A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				612D0F29305707D800B487A9 /* AirDCKit */,
+			);
+			name = AirDCKit;
+			productName = AirDCKit;
+			productReference = 612D0F28305707D800B487A9 /* AirDCKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		612D0F31305707D800B487A9 /* AirDCKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 612D0F42305707D800B487A9 /* Build configuration list for PBXNativeTarget "AirDCKitTests" */;
+			buildPhases = (
+				612D0F2E305707D800B487A9 /* Sources */,
+				612D0F2F305707D800B487A9 /* Frameworks */,
+				612D0F30305707D800B487A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				612D0F35305707D800B487A9 /* PBXTargetDependency */,
+				612D0F37305707D800B487A9 /* PBXTargetDependency */,
+				612D0FD63058591300B487A9 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				612D0F38305707D800B487A9 /* AirDCKitTests */,
 			);
 			name = AirDCKitTests;
-			packageProductDependencies = (
-			);
 			productName = AirDCKitTests;
-			productReference = 619C8AD82E63504C001AAEE2 /* AirDCKitTests.xctest */;
+			productReference = 612D0F32305707D800B487A9 /* AirDCKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		612D0FC630584B9700B487A9 /* TestHost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 612D0FCF30584B9900B487A9 /* Build configuration list for PBXNativeTarget "TestHost" */;
+			buildPhases = (
+				612D0FC330584B9700B487A9 /* Sources */,
+				612D0FC430584B9700B487A9 /* Frameworks */,
+				612D0FC530584B9700B487A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				612D0FC830584B9700B487A9 /* TestHost */,
+			);
+			name = TestHost;
+			productName = TestHost;
+			productReference = 612D0FC730584B9700B487A9 /* TestHost.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6191BC7F2AEE7DDE0086AFDE /* Project object */ = {
+		612D0E5D3057071500B487A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 1500;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
-					614235992E145B0D005C78E2 = {
-						CreatedOnToolsVersion = 16.4;
+					612D0E643057071500B487A9 = {
+						CreatedOnToolsVersion = 27.0;
 					};
-					615321CA2E07DA8000E7418B = {
-						CreatedOnToolsVersion = 16.4;
+					612D0E713057071700B487A9 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 612D0E643057071500B487A9;
 					};
-					615321D42E07DA8000E7418B = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 614235992E145B0D005C78E2;
+					612D0E7B3057071700B487A9 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 612D0E643057071500B487A9;
 					};
-					6191BC862AEE7DDE0086AFDE = {
-						CreatedOnToolsVersion = 15.0.1;
-						LastSwiftMigration = 1500;
+					612D0EDA305707AF00B487A9 = {
+						CreatedOnToolsVersion = 27.0;
 					};
-					6191BC972AEE7DDF0086AFDE = {
-						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = 6191BC862AEE7DDE0086AFDE;
+					612D0EE4305707AF00B487A9 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 612D0E643057071500B487A9;
 					};
-					6191BCA12AEE7DDF0086AFDE = {
-						CreatedOnToolsVersion = 15.0.1;
-						TestTargetID = 6191BC862AEE7DDE0086AFDE;
+					612D0EFF305707C700B487A9 = {
+						CreatedOnToolsVersion = 27.0;
 					};
-					61993A702DFC48F100461938 = {
-						CreatedOnToolsVersion = 16.4;
+					612D0F09305707C700B487A9 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 612D0FC630584B9700B487A9;
 					};
-					61993A7A2DFC48F100461938 = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 6191BC862AEE7DDE0086AFDE;
+					612D0F27305707D800B487A9 = {
+						CreatedOnToolsVersion = 27.0;
 					};
-					619C8ACD2E63504C001AAEE2 = {
-						CreatedOnToolsVersion = 26.0;
+					612D0F31305707D800B487A9 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 612D0FC630584B9700B487A9;
 					};
-					619C8AD72E63504C001AAEE2 = {
-						CreatedOnToolsVersion = 26.0;
-						TestTargetID = 614235992E145B0D005C78E2;
+					612D0FC630584B9700B487A9 = {
+						CreatedOnToolsVersion = 27.0;
 					};
 				};
 			};
-			buildConfigurationList = 6191BC822AEE7DDE0086AFDE /* Build configuration list for PBXProject "AirDC" */;
-			compatibilityVersion = "Xcode 14.0";
+			buildConfigurationList = 612D0E603057071500B487A9 /* Build configuration list for PBXProject "AirDC" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 6191BC7E2AEE7DDE0086AFDE;
+			mainGroup = 612D0E5C3057071500B487A9;
+			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				61993A0D2DFC1F0000461938 /* XCRemoteSwiftPackageReference "swift-mock" */,
-				613795ED2E3601F5009952B6 /* XCRemoteSwiftPackageReference "SplitView" */,
+				612D0F5330570A2600B487A9 /* XCRemoteSwiftPackageReference "SplitView" */,
+				612D0FBD30570C1000B487A9 /* XCRemoteSwiftPackageReference "swift-mock" */,
 			);
-			productRefGroup = 6191BC882AEE7DDE0086AFDE /* Products */;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 612D0E663057071500B487A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6191BC862AEE7DDE0086AFDE /* AirDC */,
-				6191BC972AEE7DDF0086AFDE /* AirDCTests */,
-				6191BCA12AEE7DDF0086AFDE /* AirDCUITests */,
-				61993A702DFC48F100461938 /* UtilityKit */,
-				61993A7A2DFC48F100461938 /* UtilityKitTests */,
-				615321CA2E07DA8000E7418B /* WebSocketKit */,
-				615321D42E07DA8000E7418B /* WebSocketKitTests */,
-				614235992E145B0D005C78E2 /* TestHost */,
-				619C8ACD2E63504C001AAEE2 /* AirDCKit */,
-				619C8AD72E63504C001AAEE2 /* AirDCKitTests */,
+				612D0E643057071500B487A9 /* AirDC */,
+				612D0E713057071700B487A9 /* AirDCTests */,
+				612D0E7B3057071700B487A9 /* AirDCUITests */,
+				612D0EDA305707AF00B487A9 /* UtilityKit */,
+				612D0EE4305707AF00B487A9 /* UtilityKitTests */,
+				612D0EFF305707C700B487A9 /* WebSocketKit */,
+				612D0F09305707C700B487A9 /* WebSocketKitTests */,
+				612D0F27305707D800B487A9 /* AirDCKit */,
+				612D0F31305707D800B487A9 /* AirDCKitTests */,
+				612D0FC630584B9700B487A9 /* TestHost */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		614235982E145B0D005C78E2 /* Resources */ = {
+		612D0E633057071500B487A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		615321C92E07DA8000E7418B /* Resources */ = {
+		612D0E703057071700B487A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		615321D32E07DA8000E7418B /* Resources */ = {
+		612D0E7A3057071700B487A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6191BC852AEE7DDE0086AFDE /* Resources */ = {
+		612D0ED9305707AF00B487A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				6191BCBB2AEE7E920086AFDE /* local.xcconfig in Resources */,
-				6191BC922AEE7DDF0086AFDE /* Preview Assets.xcassets in Resources */,
-				6191BC8F2AEE7DDF0086AFDE /* Assets.xcassets in Resources */,
-				6191BCBA2AEE7E920086AFDE /* example.xcconfig in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6191BC962AEE7DDF0086AFDE /* Resources */ = {
+		612D0EE3305707AF00B487A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6191BCA02AEE7DDF0086AFDE /* Resources */ = {
+		612D0EFE305707C700B487A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		61993A6F2DFC48F100461938 /* Resources */ = {
+		612D0F08305707C700B487A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		61993A792DFC48F100461938 /* Resources */ = {
+		612D0F26305707D800B487A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		619C8ACC2E63504C001AAEE2 /* Resources */ = {
+		612D0F30305707D800B487A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		619C8AD62E63504C001AAEE2 /* Resources */ = {
+		612D0FC530584B9700B487A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		614235962E145B0D005C78E2 /* Sources */ = {
+		612D0E613057071500B487A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		615321C72E07DA8000E7418B /* Sources */ = {
+		612D0E6E3057071700B487A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		615321D12E07DA8000E7418B /* Sources */ = {
+		612D0E783057071700B487A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6191BC832AEE7DDE0086AFDE /* Sources */ = {
+		612D0ED7305707AF00B487A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				6151BA1E2E3213FA00278871 /* AirDCApp.swift in Sources */,
-				6151BA222E32157A00278871 /* TopBarView.swift in Sources */,
-				613795E62E33AFFF009952B6 /* IconButtonStyle.swift in Sources */,
-				6113A14D2E3255630004E90B /* HubView.swift in Sources */,
-				6151BA182E3212B900278871 /* DownloadItem.swift in Sources */,
-				6191BCC42AEE7FAD0086AFDE /* ContentView.swift in Sources */,
-				6151BA1A2E32132700278871 /* SidebarView.swift in Sources */,
-				6151BA202E32145900278871 /* MainView.swift in Sources */,
-				6191BCC32AEE7FAD0086AFDE /* OldAirDCApp.swift in Sources */,
-				6151BA1C2E32135100278871 /* ChatView.swift in Sources */,
-				611842B12E32510400605092 /* QueueView.swift in Sources */,
-				6113A14A2E3253CE0004E90B /* UsersView.swift in Sources */,
-				6151BA162E3212A700278871 /* User.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6191BC942AEE7DDF0086AFDE /* Sources */ = {
+		612D0EE1305707AF00B487A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				6191BC9D2AEE7DDF0086AFDE /* AirDCTests.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6191BC9E2AEE7DDF0086AFDE /* Sources */ = {
+		612D0EFC305707C700B487A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				6191BCA92AEE7DDF0086AFDE /* AirDCUITestsLaunchTests.swift in Sources */,
-				6191BCA72AEE7DDF0086AFDE /* AirDCUITests.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		61993A6D2DFC48F100461938 /* Sources */ = {
+		612D0F06305707C700B487A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		61993A772DFC48F100461938 /* Sources */ = {
+		612D0F24305707D800B487A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		619C8ACA2E63504C001AAEE2 /* Sources */ = {
+		612D0F2E305707D800B487A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
-		619C8AD42E63504C001AAEE2 /* Sources */ = {
+		612D0FC330584B9700B487A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		614235A72E145B1E005C78E2 /* PBXTargetDependency */ = {
+		612D0E743057071700B487A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 614235992E145B0D005C78E2 /* TestHost */;
-			targetProxy = 614235A62E145B1E005C78E2 /* PBXContainerItemProxy */;
+			target = 612D0E643057071500B487A9 /* AirDC */;
+			targetProxy = 612D0E733057071700B487A9 /* PBXContainerItemProxy */;
 		};
-		615321D82E07DA8000E7418B /* PBXTargetDependency */ = {
+		612D0E7E3057071700B487A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 615321CA2E07DA8000E7418B /* WebSocketKit */;
-			targetProxy = 615321D72E07DA8000E7418B /* PBXContainerItemProxy */;
+			target = 612D0E643057071500B487A9 /* AirDC */;
+			targetProxy = 612D0E7D3057071700B487A9 /* PBXContainerItemProxy */;
 		};
-		615321DA2E07DA8000E7418B /* PBXTargetDependency */ = {
+		612D0EE8305707AF00B487A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6191BC862AEE7DDE0086AFDE /* AirDC */;
-			targetProxy = 615321D92E07DA8000E7418B /* PBXContainerItemProxy */;
+			target = 612D0EDA305707AF00B487A9 /* UtilityKit */;
+			targetProxy = 612D0EE7305707AF00B487A9 /* PBXContainerItemProxy */;
 		};
-		615321DF2E07DA8000E7418B /* PBXTargetDependency */ = {
+		612D0EEA305707AF00B487A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 615321CA2E07DA8000E7418B /* WebSocketKit */;
-			targetProxy = 615321DE2E07DA8000E7418B /* PBXContainerItemProxy */;
+			target = 612D0E643057071500B487A9 /* AirDC */;
+			targetProxy = 612D0EE9305707AF00B487A9 /* PBXContainerItemProxy */;
 		};
-		615321F72E07DC2300E7418B /* PBXTargetDependency */ = {
+		612D0EEF305707AF00B487A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 61993A702DFC48F100461938 /* UtilityKit */;
-			targetProxy = 615321F62E07DC2300E7418B /* PBXContainerItemProxy */;
+			target = 612D0EDA305707AF00B487A9 /* UtilityKit */;
+			targetProxy = 612D0EEE305707AF00B487A9 /* PBXContainerItemProxy */;
 		};
-		617813922EBA0B860091AD3E /* PBXTargetDependency */ = {
+		612D0F0D305707C700B487A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 614235992E145B0D005C78E2 /* TestHost */;
-			targetProxy = 617813912EBA0B860091AD3E /* PBXContainerItemProxy */;
+			target = 612D0EFF305707C700B487A9 /* WebSocketKit */;
+			targetProxy = 612D0F0C305707C700B487A9 /* PBXContainerItemProxy */;
 		};
-		6191BC9A2AEE7DDF0086AFDE /* PBXTargetDependency */ = {
+		612D0F0F305707C700B487A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6191BC862AEE7DDE0086AFDE /* AirDC */;
-			targetProxy = 6191BC992AEE7DDF0086AFDE /* PBXContainerItemProxy */;
+			target = 612D0E643057071500B487A9 /* AirDC */;
+			targetProxy = 612D0F0E305707C700B487A9 /* PBXContainerItemProxy */;
 		};
-		6191BCA42AEE7DDF0086AFDE /* PBXTargetDependency */ = {
+		612D0F14305707C700B487A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6191BC862AEE7DDE0086AFDE /* AirDC */;
-			targetProxy = 6191BCA32AEE7DDF0086AFDE /* PBXContainerItemProxy */;
+			target = 612D0EFF305707C700B487A9 /* WebSocketKit */;
+			targetProxy = 612D0F13305707C700B487A9 /* PBXContainerItemProxy */;
 		};
-		61993A7E2DFC48F100461938 /* PBXTargetDependency */ = {
+		612D0F35305707D800B487A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 61993A702DFC48F100461938 /* UtilityKit */;
-			targetProxy = 61993A7D2DFC48F100461938 /* PBXContainerItemProxy */;
+			target = 612D0F27305707D800B487A9 /* AirDCKit */;
+			targetProxy = 612D0F34305707D800B487A9 /* PBXContainerItemProxy */;
 		};
-		61993A802DFC48F100461938 /* PBXTargetDependency */ = {
+		612D0F37305707D800B487A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6191BC862AEE7DDE0086AFDE /* AirDC */;
-			targetProxy = 61993A7F2DFC48F100461938 /* PBXContainerItemProxy */;
+			target = 612D0E643057071500B487A9 /* AirDC */;
+			targetProxy = 612D0F36305707D800B487A9 /* PBXContainerItemProxy */;
 		};
-		61993A852DFC48F100461938 /* PBXTargetDependency */ = {
+		612D0F3C305707D800B487A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 61993A702DFC48F100461938 /* UtilityKit */;
-			targetProxy = 61993A842DFC48F100461938 /* PBXContainerItemProxy */;
+			target = 612D0F27305707D800B487A9 /* AirDCKit */;
+			targetProxy = 612D0F3B305707D800B487A9 /* PBXContainerItemProxy */;
 		};
-		619C8ADB2E63504C001AAEE2 /* PBXTargetDependency */ = {
+		612D0FD43058590F00B487A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 619C8ACD2E63504C001AAEE2 /* AirDCKit */;
-			targetProxy = 619C8ADA2E63504C001AAEE2 /* PBXContainerItemProxy */;
+			target = 612D0FC630584B9700B487A9 /* TestHost */;
+			targetProxy = 612D0FD33058590F00B487A9 /* PBXContainerItemProxy */;
 		};
-		619C8ADD2E63504C001AAEE2 /* PBXTargetDependency */ = {
+		612D0FD63058591300B487A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6191BC862AEE7DDE0086AFDE /* AirDC */;
-			targetProxy = 619C8ADC2E63504C001AAEE2 /* PBXContainerItemProxy */;
-		};
-		619C8AE22E63504C001AAEE2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 619C8ACD2E63504C001AAEE2 /* AirDCKit */;
-			targetProxy = 619C8AE12E63504C001AAEE2 /* PBXContainerItemProxy */;
-		};
-		619C8B1A2E636A54001AAEE2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 615321CA2E07DA8000E7418B /* WebSocketKit */;
-			targetProxy = 619C8B192E636A54001AAEE2 /* PBXContainerItemProxy */;
+			target = 612D0FC630584B9700B487A9 /* TestHost */;
+			targetProxy = 612D0FD53058591300B487A9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		614235A42E145B0F005C78E2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TestHost/TestHost.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.TestHost;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = macosx26.0;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
-			};
-			name = Debug;
-		};
-		614235A52E145B0F005C78E2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TestHost/TestHost.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.TestHost;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = macosx26.0;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
-			};
-			name = Release;
-		};
-		615321E32E07DA8000E7418B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.WebSocketKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx26.0;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_MODULE = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
-			};
-			name = Debug;
-		};
-		615321E42E07DA8000E7418B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.WebSocketKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx26.0;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_MODULE = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
-			};
-			name = Release;
-		};
-		615321E62E07DA8000E7418B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.WebSocketKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx26.0;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestHost";
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
-			};
-			name = Debug;
-		};
-		615321E72E07DA8000E7418B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.WebSocketKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx26.0;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestHost";
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
-			};
-			name = Release;
-		};
-		6191BCAA2AEE7DDF0086AFDE /* Debug */ = {
+		612D0E823057071700B487A9 /* Debug configuration for PBXProject "AirDC" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1260,6 +828,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1277,23 +846,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx26.0;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Debug;
 		};
-		6191BCAB2AEE7DDF0086AFDE /* Release */ = {
+		612D0E833057071700B487A9 /* Release configuration for PBXProject "AirDC" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1328,6 +890,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1339,173 +902,219 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = macosx26.0;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_VERSION = 6.0;
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Release;
 		};
-		6191BCAD2AEE7DDF0086AFDE /* Debug */ = {
+		612D0E853057071700B487A9 /* Debug configuration for PBXNativeTarget "AirDC" */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6191BCB92AEE7E920086AFDE /* local.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AirDC/AirDC.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AirDC/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AirDC/Info.plist;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.AirDC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 27.0;
 			};
 			name = Debug;
 		};
-		6191BCAE2AEE7DDF0086AFDE /* Release */ = {
+		612D0E863057071700B487A9 /* Release configuration for PBXNativeTarget "AirDC" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AirDC/AirDC.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"AirDC/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AirDC/Info.plist;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.AirDC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 27.0;
 			};
 			name = Release;
 		};
-		6191BCB02AEE7DDF0086AFDE /* Debug */ = {
+		612D0E883057071700B487A9 /* Debug configuration for PBXNativeTarget "AirDCTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDCTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.AirDCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirDC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirDC";
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 27.0;
 			};
 			name = Debug;
 		};
-		6191BCB12AEE7DDF0086AFDE /* Release */ = {
+		612D0E893057071700B487A9 /* Release configuration for PBXNativeTarget "AirDCTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDCTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.AirDCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirDC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirDC";
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 27.0;
 			};
 			name = Release;
 		};
-		6191BCB32AEE7DDF0086AFDE /* Debug */ = {
+		612D0E8B3057071700B487A9 /* Debug configuration for PBXNativeTarget "AirDCUITests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDCUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.AirDCUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TEST_TARGET_NAME = AirDC;
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 27.0;
 			};
 			name = Debug;
 		};
-		6191BCB42AEE7DDF0086AFDE /* Release */ = {
+		612D0E8C3057071700B487A9 /* Release configuration for PBXNativeTarget "AirDCUITests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDCUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.AirDCUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TEST_TARGET_NAME = AirDC;
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 27.0;
 			};
 			name = Release;
 		};
-		61993A892DFC48F100461938 /* Debug */ = {
+		612D0EF3305707AF00B487A9 /* Debug configuration for PBXNativeTarget "UtilityKit" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1515,7 +1124,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
@@ -1524,157 +1133,13 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.UtilityKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.UtilityKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx26.0;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_MODULE = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
-			};
-			name = Debug;
-		};
-		61993A8A2DFC48F100461938 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.UtilityKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx26.0;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_MODULE = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
-			};
-			name = Release;
-		};
-		61993A8C2DFC48F100461938 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.UtilityKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx26.0;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirDC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirDC";
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
-			};
-			name = Debug;
-		};
-		61993A8D2DFC48F100461938 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.UtilityKitTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx26.0;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirDC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirDC";
-				TVOS_DEPLOYMENT_TARGET = 26.0;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-				XROS_DEPLOYMENT_TARGET = 26.0;
-			};
-			name = Release;
-		};
-		619C8AE62E63504C001AAEE2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDCKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1688,18 +1153,16 @@
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 27.0;
 			};
 			name = Debug;
 		};
-		619C8AE72E63504C001AAEE2 /* Release */ = {
+		612D0EF4305707AF00B487A9 /* Release configuration for PBXNativeTarget "UtilityKit" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1709,7 +1172,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
@@ -1718,12 +1181,13 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDCKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.UtilityKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1737,21 +1201,22 @@
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 27.0;
 			};
 			name = Release;
 		};
-		619C8AE92E63504C001AAEE2 /* Debug */ = {
+		612D0EF5305707AF00B487A9 /* Debug configuration for PBXNativeTarget "UtilityKitTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDCKitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.UtilityKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
@@ -1761,22 +1226,145 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestHost";
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirDC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirDC";
+				XROS_DEPLOYMENT_TARGET = 27.0;
 			};
 			name = Debug;
 		};
-		619C8AEA2E63504C001AAEE2 /* Release */ = {
+		612D0EF6305707AF00B487A9 /* Release configuration for PBXNativeTarget "UtilityKitTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDCKitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.UtilityKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirDC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirDC";
+				XROS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Release;
+		};
+		612D0F18305707C700B487A9 /* Debug configuration for PBXNativeTarget "WebSocketKit" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.WebSocketKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				XROS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Debug;
+		};
+		612D0F19305707C700B487A9 /* Release configuration for PBXNativeTarget "WebSocketKit" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.WebSocketKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				XROS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Release;
+		};
+		612D0F1B305707C700B487A9 /* Debug configuration for PBXNativeTarget "WebSocketKitTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.WebSocketKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
@@ -1787,116 +1375,367 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestHost";
-				XROS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Debug;
+		};
+		612D0F1C305707C700B487A9 /* Release configuration for PBXNativeTarget "WebSocketKitTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.WebSocketKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestHost";
+				XROS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Release;
+		};
+		612D0F40305707D800B487A9 /* Debug configuration for PBXNativeTarget "AirDCKit" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.AirDCKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				XROS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Debug;
+		};
+		612D0F41305707D800B487A9 /* Release configuration for PBXNativeTarget "AirDCKit" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.AirDCKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				XROS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Release;
+		};
+		612D0F43305707D800B487A9 /* Debug configuration for PBXNativeTarget "AirDCKitTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.AirDCKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestHost";
+				XROS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Debug;
+		};
+		612D0F44305707D800B487A9 /* Release configuration for PBXNativeTarget "AirDCKitTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.AirDCKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TestHost";
+				XROS_DEPLOYMENT_TARGET = 27.0;
+			};
+			name = Release;
+		};
+		612D0FD030584B9900B487A9 /* Debug configuration for PBXNativeTarget "TestHost" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.TestHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		612D0FD130584B9900B487A9 /* Release configuration for PBXNativeTarget "TestHost" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DGM3Z2TJ7K;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.TestHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		614235A32E145B0F005C78E2 /* Build configuration list for PBXNativeTarget "TestHost" */ = {
+		612D0E603057071500B487A9 /* Build configuration list for PBXProject "AirDC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				614235A42E145B0F005C78E2 /* Debug */,
-				614235A52E145B0F005C78E2 /* Release */,
+				612D0E823057071700B487A9 /* Debug configuration for PBXProject "AirDC" */,
+				612D0E833057071700B487A9 /* Release configuration for PBXProject "AirDC" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		615321E22E07DA8000E7418B /* Build configuration list for PBXNativeTarget "WebSocketKit" */ = {
+		612D0E843057071700B487A9 /* Build configuration list for PBXNativeTarget "AirDC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				615321E32E07DA8000E7418B /* Debug */,
-				615321E42E07DA8000E7418B /* Release */,
+				612D0E853057071700B487A9 /* Debug configuration for PBXNativeTarget "AirDC" */,
+				612D0E863057071700B487A9 /* Release configuration for PBXNativeTarget "AirDC" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		615321E52E07DA8000E7418B /* Build configuration list for PBXNativeTarget "WebSocketKitTests" */ = {
+		612D0E873057071700B487A9 /* Build configuration list for PBXNativeTarget "AirDCTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				615321E62E07DA8000E7418B /* Debug */,
-				615321E72E07DA8000E7418B /* Release */,
+				612D0E883057071700B487A9 /* Debug configuration for PBXNativeTarget "AirDCTests" */,
+				612D0E893057071700B487A9 /* Release configuration for PBXNativeTarget "AirDCTests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6191BC822AEE7DDE0086AFDE /* Build configuration list for PBXProject "AirDC" */ = {
+		612D0E8A3057071700B487A9 /* Build configuration list for PBXNativeTarget "AirDCUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6191BCAA2AEE7DDF0086AFDE /* Debug */,
-				6191BCAB2AEE7DDF0086AFDE /* Release */,
+				612D0E8B3057071700B487A9 /* Debug configuration for PBXNativeTarget "AirDCUITests" */,
+				612D0E8C3057071700B487A9 /* Release configuration for PBXNativeTarget "AirDCUITests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6191BCAC2AEE7DDF0086AFDE /* Build configuration list for PBXNativeTarget "AirDC" */ = {
+		612D0EF7305707AF00B487A9 /* Build configuration list for PBXNativeTarget "UtilityKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6191BCAD2AEE7DDF0086AFDE /* Debug */,
-				6191BCAE2AEE7DDF0086AFDE /* Release */,
+				612D0EF3305707AF00B487A9 /* Debug configuration for PBXNativeTarget "UtilityKit" */,
+				612D0EF4305707AF00B487A9 /* Release configuration for PBXNativeTarget "UtilityKit" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6191BCAF2AEE7DDF0086AFDE /* Build configuration list for PBXNativeTarget "AirDCTests" */ = {
+		612D0EF8305707AF00B487A9 /* Build configuration list for PBXNativeTarget "UtilityKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6191BCB02AEE7DDF0086AFDE /* Debug */,
-				6191BCB12AEE7DDF0086AFDE /* Release */,
+				612D0EF5305707AF00B487A9 /* Debug configuration for PBXNativeTarget "UtilityKitTests" */,
+				612D0EF6305707AF00B487A9 /* Release configuration for PBXNativeTarget "UtilityKitTests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6191BCB22AEE7DDF0086AFDE /* Build configuration list for PBXNativeTarget "AirDCUITests" */ = {
+		612D0F17305707C700B487A9 /* Build configuration list for PBXNativeTarget "WebSocketKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6191BCB32AEE7DDF0086AFDE /* Debug */,
-				6191BCB42AEE7DDF0086AFDE /* Release */,
+				612D0F18305707C700B487A9 /* Debug configuration for PBXNativeTarget "WebSocketKit" */,
+				612D0F19305707C700B487A9 /* Release configuration for PBXNativeTarget "WebSocketKit" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		61993A882DFC48F100461938 /* Build configuration list for PBXNativeTarget "UtilityKit" */ = {
+		612D0F1A305707C700B487A9 /* Build configuration list for PBXNativeTarget "WebSocketKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				61993A892DFC48F100461938 /* Debug */,
-				61993A8A2DFC48F100461938 /* Release */,
+				612D0F1B305707C700B487A9 /* Debug configuration for PBXNativeTarget "WebSocketKitTests" */,
+				612D0F1C305707C700B487A9 /* Release configuration for PBXNativeTarget "WebSocketKitTests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		61993A8B2DFC48F100461938 /* Build configuration list for PBXNativeTarget "UtilityKitTests" */ = {
+		612D0F3F305707D800B487A9 /* Build configuration list for PBXNativeTarget "AirDCKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				61993A8C2DFC48F100461938 /* Debug */,
-				61993A8D2DFC48F100461938 /* Release */,
+				612D0F40305707D800B487A9 /* Debug configuration for PBXNativeTarget "AirDCKit" */,
+				612D0F41305707D800B487A9 /* Release configuration for PBXNativeTarget "AirDCKit" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		619C8AE52E63504C001AAEE2 /* Build configuration list for PBXNativeTarget "AirDCKit" */ = {
+		612D0F42305707D800B487A9 /* Build configuration list for PBXNativeTarget "AirDCKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				619C8AE62E63504C001AAEE2 /* Debug */,
-				619C8AE72E63504C001AAEE2 /* Release */,
+				612D0F43305707D800B487A9 /* Debug configuration for PBXNativeTarget "AirDCKitTests" */,
+				612D0F44305707D800B487A9 /* Release configuration for PBXNativeTarget "AirDCKitTests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		619C8AE82E63504C001AAEE2 /* Build configuration list for PBXNativeTarget "AirDCKitTests" */ = {
+		612D0FCF30584B9900B487A9 /* Build configuration list for PBXNativeTarget "TestHost" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				619C8AE92E63504C001AAEE2 /* Debug */,
-				619C8AEA2E63504C001AAEE2 /* Release */,
+				612D0FD030584B9900B487A9 /* Debug configuration for PBXNativeTarget "TestHost" */,
+				612D0FD130584B9900B487A9 /* Release configuration for PBXNativeTarget "TestHost" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		613795ED2E3601F5009952B6 /* XCRemoteSwiftPackageReference "SplitView" */ = {
+		612D0F5330570A2600B487A9 /* XCRemoteSwiftPackageReference "SplitView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stevengharris/SplitView";
 			requirement = {
@@ -1904,38 +1743,34 @@
 				minimumVersion = 3.5.3;
 			};
 		};
-		61993A0D2DFC1F0000461938 /* XCRemoteSwiftPackageReference "swift-mock" */ = {
+		612D0FBD30570C1000B487A9 /* XCRemoteSwiftPackageReference "swift-mock" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MetalheadSanya/swift-mock";
 			requirement = {
-				kind = upToNextMinorVersion;
+				kind = upToNextMajorVersion;
 				minimumVersion = 0.8.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		613795EE2E3601F5009952B6 /* SplitView */ = {
+		612D0F5430570A2600B487A9 /* SplitView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 613795ED2E3601F5009952B6 /* XCRemoteSwiftPackageReference "SplitView" */;
+			package = 612D0F5330570A2600B487A9 /* XCRemoteSwiftPackageReference "SplitView" */;
 			productName = SplitView;
 		};
-		615321F22E07DBBF00E7418B /* SwiftMock */ = {
+		612D0FBE30570C1000B487A9 /* SwiftMockConfiguration */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 61993A0D2DFC1F0000461938 /* XCRemoteSwiftPackageReference "swift-mock" */;
-			productName = SwiftMock;
-		};
-		615321F42E07DBCB00E7418B /* SwiftMockConfiguration */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 61993A0D2DFC1F0000461938 /* XCRemoteSwiftPackageReference "swift-mock" */;
+			package = 612D0FBD30570C1000B487A9 /* XCRemoteSwiftPackageReference "swift-mock" */;
 			productName = SwiftMockConfiguration;
 		};
-		61993A102DFC1F0000461938 /* SwiftMockConfiguration */ = {
+		612D0FC130570C3400B487A9 /* SwiftMockConfiguration */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 61993A0D2DFC1F0000461938 /* XCRemoteSwiftPackageReference "swift-mock" */;
+			package = 612D0FBD30570C1000B487A9 /* XCRemoteSwiftPackageReference "swift-mock" */;
 			productName = SwiftMockConfiguration;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 6191BC7F2AEE7DDE0086AFDE /* Project object */;
+	rootObject = 612D0E5D3057071500B487A9 /* Project object */;
+	validationLevel = 1;
 }

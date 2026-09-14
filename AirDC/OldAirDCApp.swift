@@ -1,4 +1,5 @@
 import AirDCKit
+import Combine
 import SwiftUI
 
 enum Method: String, Codable {
