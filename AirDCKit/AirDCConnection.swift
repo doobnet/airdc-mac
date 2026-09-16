@@ -2,18 +2,32 @@ import Foundation
 import UtilityKit
 import WebSocketKit
 
-class AirDCConnection {
-  private let webSocket: WebSocket
-  private let continuations: Continuations = DefaultContinuations()
+public final class AirDCConnection {
+  /// The HTTP-style verb an AirDC++ API request is issued with.
+  public enum Method: String, Codable {
+    case post = "POST"
+    case get = "GET"
+  }
 
-  init(url: URL) {
-    webSocket = WebSocket(url: url)
+  private let webSocket: WebSocketKit.WebSocket
+  private let continuations: Continuations
+
+  public convenience init(url: URL) {
+    self.init(webSocket: WebSocketKit.WebSocket(url: url))
+  }
+
+  init(
+    webSocket: WebSocketKit.WebSocket,
+    continuations: Continuations = DefaultContinuations()
+  ) {
+    self.webSocket = webSocket
+    self.continuations = continuations
   }
 
   public func unauthorizedSend(
     _ content: Data,
     to path: String,
-    using method: Message.Method,
+    using method: Method,
     operation: String = #function
   ) async throws -> Data {
     return try await withCheckedThrowingContinuation { continuation in
@@ -51,12 +65,8 @@ class AirDCConnection {
 }
 
 extension AirDCConnection {
+  /// The wire envelope AirDC++ wraps every request and response in.
   struct Message: Codable {
-    enum Method: String, Codable {
-      case post = "POST"
-      case get = "GET"
-    }
-
     let method: Method
     let path: String
     let callbackId: Int

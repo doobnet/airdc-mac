@@ -21,8 +21,7 @@ struct AirDCConnectionTests {
     let result = try await connection.unauthorizedSend(
       data,
       to: "/session/authorize",
-      using:
-        AirDCConnection.Message.Method.post
+      using: .post
     )
 
     print(result)
