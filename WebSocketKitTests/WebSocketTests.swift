@@ -2,6 +2,8 @@ import Foundation
 import Testing
 import UtilityKit
 
+internal import Network
+
 @testable import WebSocketKit
 
 final class WebSocketTests {
@@ -18,16 +20,17 @@ final class WebSocketTests {
   var server: WebSocketServer!
 
   func newWebSocket(
-    stateUpdateHandler: @escaping WebSocket.StateUpdateHandler = { _ in },
-    autoReconnect: WebSocket.AutoReconnect = WebSocket.AutoReconnect()
-  ) async throws -> WebSocket {
+    stateUpdateHandler: @escaping WebSocketKit.WebSocket.StateUpdateHandler = { _ in },
+    autoReconnect: WebSocketKit.WebSocket.AutoReconnect = WebSocketKit.WebSocket
+      .AutoReconnect()
+  ) async throws -> WebSocketKit.WebSocket {
     server = try await WebSocketServer(
       tls: false,
       requiredInterfaceType: .loopback
     ).start()
 
     let url = buildURL(scheme: "ws", host: "localhost", port: server.port!)
-    let webSocket = WebSocket(url: url, autoReconnect: autoReconnect)
+    let webSocket = WebSocketKit.WebSocket(url: url, autoReconnect: autoReconnect)
     webSocket.stateUpdateHandler = stateUpdateHandler
 
     return webSocket

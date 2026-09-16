@@ -1,5 +1,5 @@
-@testable import AirDCKit
 import Foundation
+import UtilityKit
 import XCTest
 
 class UtilitiesTests: XCTestCase {
@@ -11,7 +11,7 @@ class UtilitiesTests: XCTestCase {
 
   func testBuildURLWithCustomScheme() {
     let expected = URL(string: "ws://foo:1234/bar/abc")!
-    let result = buildURL(host: "foo", port: 1234, path: "/bar/abc", scheme: "ws")
+    let result = buildURL(scheme: "ws", host: "foo", port: 1234, path: "/bar/abc")
     XCTAssertEqual(result, expected)
   }
 }
