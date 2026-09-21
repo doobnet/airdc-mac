@@ -15,11 +15,9 @@ struct AirDCConnectionTests {
   func unauthorizedSend() async throws {
     let connection = AirDCConnection(url: url)
     try connection.connect()
-    let data = try JSONEncoder().encode(
-      AuthorizeMessage(username: "foo", password: "bar")
-    )
+
     let result = try await connection.unauthorizedSend(
-      data,
+      AuthorizeMessage(username: "foo", password: "bar"),
       to: "/session/authorize",
       using: .post
     )

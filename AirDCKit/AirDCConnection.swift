@@ -1,4 +1,5 @@
 import Foundation
+import OSLog
 import UtilityKit
 import WebSocketKit
 
@@ -9,8 +10,17 @@ public final class AirDCConnection {
     case get = "GET"
   }
 
+  /// A request that reached the server and came back rejected.
+  public enum Error: Swift.Error {
+    case clientError(code: Int, message: String)
+    case serverError(code: Int, message: String)
+  }
+
   private let webSocket: WebSocketKit.WebSocket
   private let continuations: Continuations
+  private let logger: Logger
+  private let encoder = JSONEncoder()
+  private let decoder = JSONDecoder()
 
   public convenience init(url: URL) {
     self.init(webSocket: WebSocketKit.WebSocket(url: url))
@@ -18,34 +28,47 @@ public final class AirDCConnection {
 
   init(
     webSocket: WebSocketKit.WebSocket,
-    continuations: Continuations = DefaultContinuations()
+    continuations: Continuations = DefaultContinuations(),
+    logger: Logger = Logging.newLogger()
   ) {
     self.webSocket = webSocket
     self.continuations = continuations
+    self.logger = logger
   }
 
-  public func unauthorizedSend(
-    _ content: Data,
+  /// Sends `payload` without an authorization token and waits for the reply
+  /// that carries the matching callback ID.
+  ///
+  /// - Returns: The raw reply envelope. Decode it as
+  ///   ``AirDCConnection/Response`` for the endpoint's payload type.
+  public func unauthorizedSend<Payload: Encodable>(
+    _ payload: Payload,
     to path: String,
     using method: Method,
     operation: String = #function
   ) async throws -> Data {
-    return try await withCheckedThrowingContinuation { continuation in
+    try await withCheckedThrowingContinuation { continuation in
       let id = continuations.append(continuation)
+      logger.debug("\(operation) -> \(method.rawValue) \(path), id: \(id)")
 
-      let message = Message(
-        method: method,
-        path: path,
-        callbackId: id,
-        data: content
+      send(
+        Request(method: method, path: path, callbackId: id, data: payload),
+        waitingOn: id
       )
+    }
+  }
 
-      Task {
-        do {
-          try await webSocket.send(JSONEncoder().encode(message))
-        } catch {
-          continuation.resume(throwing: error)
-        }
+  /// Encodes and delivers `request`, handing a send failure back to the
+  /// caller waiting on `id` rather than losing it.
+  private func send<Payload: Encodable>(
+    _ request: Request<Payload>,
+    waitingOn id: Continuations.ID
+  ) {
+    Task {
+      do {
+        try await webSocket.send(encoder.encode(request))
+      } catch {
+        continuations.resumeContinuation(withId: id, throwing: error)
       }
     }
   }
@@ -53,30 +76,31 @@ public final class AirDCConnection {
   public func connect() throws {
     Task {
       for try await data in webSocket {
-        let message = try JSONDecoder().decode(Message.self, from: data)
-
-        continuations.resumeContinuation(
-          withId: message.callbackId,
-          returning: message.data
-        )
+        route(data)
       }
     }
   }
-}
 
-extension AirDCConnection {
-  /// The wire envelope AirDC++ wraps every request and response in.
-  struct Message: Codable {
-    let method: Method
-    let path: String
-    let callbackId: Int
-    let data: Data
+  /// Hands a reply to whichever caller is waiting on its callback ID.
+  ///
+  /// A reply that cannot be decoded is logged and dropped rather than thrown,
+  /// so one malformed message does not tear down the connection and strand
+  /// every pending request.
+  private func route(_ data: Data) {
+    guard
+      let header = try? decoder.decode(ResponseHeader.self, from: data)
+    else {
+      logger.error("Discarding undecodable reply of \(data.count) bytes")
+      return
+    }
 
-    enum CodingKeys: String, CodingKey {
-      case method
-      case path
-      case callbackId = "callback_id"
-      case data
+    let resumed = continuations.resumeContinuation(
+      withId: header.callbackId,
+      with: header.result(carrying: data).mapError { $0 as Swift.Error }
+    )
+
+    if !resumed {
+      logger.debug("Reply not initiated by client, id: \(header.callbackId)")
     }
   }
 }
