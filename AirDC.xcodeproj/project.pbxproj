@@ -19,6 +19,9 @@
 		612D0F5530570A2600B487A9 /* SplitView in Frameworks */ = {isa = PBXBuildFile; productRef = 612D0F5430570A2600B487A9 /* SplitView */; };
 		612D0FBF30570C1000B487A9 /* SwiftMockConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = 612D0FBE30570C1000B487A9 /* SwiftMockConfiguration */; };
 		612D0FC230570C3400B487A9 /* SwiftMockConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = 612D0FC130570C3400B487A9 /* SwiftMockConfiguration */; };
+		7C4B16B2DB1224E97E9072D4 /* UtilityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D0EDB305707AF00B487A9 /* UtilityKit.framework */; };
+		651401BB10DC661304EE7813 /* UtilityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D0EDB305707AF00B487A9 /* UtilityKit.framework */; };
+		171C3AB070D142E0DAC7D88C /* WebSocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D0F00305707C700B487A9 /* WebSocketKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +115,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 612D0FC630584B9700B487A9;
 			remoteInfo = TestHost;
+		};
+		50CB18F63EC36782789CC9AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 612D0EDA305707AF00B487A9;
+			remoteInfo = UtilityKit;
+		};
+		E1B151CCD7EC4EA1158B9A7E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 612D0EDA305707AF00B487A9;
+			remoteInfo = UtilityKit;
+		};
+		588E366B2585203C836DEEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 612D0E5D3057071500B487A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 612D0EFF305707C700B487A9;
+			remoteInfo = WebSocketKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -245,6 +269,7 @@
 		612D0EFD305707C700B487A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				7C4B16B2DB1224E97E9072D4 /* UtilityKit.framework in Frameworks */,
 			);
 		};
 		612D0F07305707C700B487A9 /* Frameworks */ = {
@@ -257,6 +282,8 @@
 		612D0F25305707D800B487A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				651401BB10DC661304EE7813 /* UtilityKit.framework in Frameworks */,
+				171C3AB070D142E0DAC7D88C /* WebSocketKit.framework in Frameworks */,
 			);
 		};
 		612D0F2F305707D800B487A9 /* Frameworks */ = {
@@ -460,6 +487,9 @@
 			);
 			buildRules = (
 			);
+			dependencies = (
+				C29AADF938C8316CA89DC613 /* PBXTargetDependency */,
+			);
 			fileSystemSynchronizedGroups = (
 				612D0F01305707C700B487A9 /* WebSocketKit */,
 			);
@@ -504,6 +534,10 @@
 				612D0F26305707D800B487A9 /* Resources */,
 			);
 			buildRules = (
+			);
+			dependencies = (
+				DBD0652B2B841CFB0CD2B2C6 /* PBXTargetDependency */,
+				8791C3EC9DA799C98BAA86DC /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				612D0F29305707D800B487A9 /* AirDCKit */,
@@ -804,6 +838,21 @@
 			isa = PBXTargetDependency;
 			target = 612D0FC630584B9700B487A9 /* TestHost */;
 			targetProxy = 612D0FD53058591300B487A9 /* PBXContainerItemProxy */;
+		};
+		C29AADF938C8316CA89DC613 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 612D0EDA305707AF00B487A9 /* UtilityKit */;
+			targetProxy = 50CB18F63EC36782789CC9AA /* PBXContainerItemProxy */;
+		};
+		DBD0652B2B841CFB0CD2B2C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 612D0EDA305707AF00B487A9 /* UtilityKit */;
+			targetProxy = E1B151CCD7EC4EA1158B9A7E /* PBXContainerItemProxy */;
+		};
+		8791C3EC9DA799C98BAA86DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 612D0EFF305707C700B487A9 /* WebSocketKit */;
+			targetProxy = 588E366B2585203C836DEEC5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
