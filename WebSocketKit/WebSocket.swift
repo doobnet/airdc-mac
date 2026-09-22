@@ -42,19 +42,22 @@ public class WebSocket: AsyncSequence {
   private var connection: NetworkConnection<Network.WebSocket>
   private let queue = DispatchQueue(label: "WebSocketQueue")
   private let autoReconnect: AutoReconnect
+  private let certificateValidation: CertificateValidation
 
   public init(
     url: URL,
     logger: Logger = Logging.newLogger(),
-    autoReconnect: AutoReconnect = AutoReconnect()
+    autoReconnect: AutoReconnect = AutoReconnect(),
+    certificateValidation: CertificateValidation = .system
   ) {
     self.logger = logger
     self.url = url
     self.endpoint = NWEndpoint.url(url)
     self.autoReconnect = autoReconnect
+    self.certificateValidation = certificateValidation
 
     connection = NetworkConnection(to: endpoint) {
-      newMessageProtocol(url: url)
+      newMessageProtocol(url: url, validating: certificateValidation)
     }
 
     connection.onStateUpdate { [weak self] in self?.stateDidChange(to: $1) }
@@ -206,7 +209,7 @@ public class WebSocket: AsyncSequence {
 
   private func newConnection(url: URL) -> NetworkConnection<Network.WebSocket> {
     NetworkConnection(to: endpoint) {
-      newMessageProtocol(url: url)
+      newMessageProtocol(url: url, validating: certificateValidation)
     }
     .onStateUpdate { [weak self] in self?.stateDidChange(to: $1) }
   }
@@ -216,9 +219,12 @@ extension WebSocket.State {
   var isConnected: Bool { self == .ready }
 }
 
-private func newMessageProtocol(url: URL) -> Network.WebSocket {
+private func newMessageProtocol(
+  url: URL,
+  validating certificateValidation: WebSocket.CertificateValidation
+) -> Network.WebSocket {
   let messageProtocol = if url.scheme == "wss" {
-    Network.WebSocket { TLS() }
+    Network.WebSocket { certificateValidation.tls }
   } else {
     Network.WebSocket { TCP() }
   }
