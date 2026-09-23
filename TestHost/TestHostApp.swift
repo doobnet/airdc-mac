@@ -1,9 +1,3 @@
-//
-//  TestHostApp.swift
-//  TestHost
-//
-//
-
 import SwiftUI
 
 @main

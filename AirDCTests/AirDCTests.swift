@@ -1,9 +1,3 @@
-//
-//  AirDCTests.swift
-//  AirDCTests
-//
-//
-
 import XCTest
 @testable import AirDC
 

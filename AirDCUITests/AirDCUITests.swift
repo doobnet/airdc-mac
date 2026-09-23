@@ -1,9 +1,3 @@
-//
-//  AirDCUITests.swift
-//  AirDCUITests
-//
-//
-
 import XCTest
 
 final class AirDCUITests: XCTestCase {

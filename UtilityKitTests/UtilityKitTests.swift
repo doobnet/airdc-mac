@@ -1,9 +1,3 @@
-//
-//  UtilityKitTests.swift
-//  UtilityKitTests
-//
-//
-
 import Testing
 @testable import UtilityKit
 

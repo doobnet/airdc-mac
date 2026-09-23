@@ -1,9 +1,3 @@
-//
-//  ContentView.swift
-//  TestHost
-//
-//
-
 import SwiftUI
 
 struct ContentView: View {
