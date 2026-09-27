@@ -20,6 +20,18 @@ _Avoid_: Web client
 A Direct Connect server that users join to chat and to find peers to exchange files with.
 _Avoid_: Server, DC server
 
+**Daemon address**:
+The base URL the Daemon serves its Web UI on (e.g. `https://nas:5601`); the App reaches the Daemon's API from it. May be plain `http` — the Daemon can be local.
+_Avoid_: Host, endpoint, server URL
+
 **Connection**:
-An authenticated session between the App and its Daemon.
-_Avoid_: Client, socket
+An authenticated link between the App and its Daemon.
+_Avoid_: Client, socket, session
+
+**Session**:
+Something the Daemon holds open for the user and the App lets them switch between: a connected Hub, a private conversation with one user, a browsed file list, or a search.
+_Avoid_: Tab, instance, conversation, window
+
+**Event**:
+An information, warning or error message the Daemon reports about itself, such as a Hub disconnecting or a disk filling up.
+_Avoid_: Log message, system log, notification
