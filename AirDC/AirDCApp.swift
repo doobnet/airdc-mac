@@ -3,8 +3,7 @@ import SwiftUI
 @main
 struct AirDCApp: App {
   var body: some Scene {
-    WindowGroup {
-      MainView()
-    }
+    // PROTOTYPE — throwaway branch `prototype/hub-session`.
+    HubSessionPrototype()
   }
 }
