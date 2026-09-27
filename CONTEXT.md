@@ -35,3 +35,11 @@ _Avoid_: Tab, instance, conversation, window
 **Event**:
 An information, warning or error message the Daemon reports about itself, such as a Hub disconnecting or a disk filling up.
 _Avoid_: Log message, system log, notification
+
+**Queue**:
+The Daemon's list of Bundles waiting to be, or being, downloaded.
+_Avoid_: Downloads, download list, transfers
+
+**Bundle**:
+A file or directory the user queued, tracked as one item however many files it holds; files queued later under the same directory merge into it.
+_Avoid_: Download, queue item, job
