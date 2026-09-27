@@ -164,6 +164,7 @@
 		612D0F28305707D800B487A9 /* AirDCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AirDCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		612D0F32305707D800B487A9 /* AirDCKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirDCKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		612D0FC730584B9700B487A9 /* TestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2E0000000000000000000A2 /* EndToEndProofTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EndToEndProofTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -232,6 +233,11 @@
 			path = TestHost;
 			sourceTree = "<group>";
 		};
+		E2E0000000000000000000A3 /* EndToEndProofTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EndToEndProofTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +303,11 @@
 			files = (
 			);
 		};
+		E2E0000000000000000000A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -313,6 +324,7 @@
 				612D0F29305707D800B487A9 /* AirDCKit */,
 				612D0F38305707D800B487A9 /* AirDCKitTests */,
 				612D0FC830584B9700B487A9 /* TestHost */,
+				E2E0000000000000000000A3 /* EndToEndProofTests */,
 				612D0FC030570C3400B487A9 /* Frameworks */,
 				612D0E663057071500B487A9 /* Products */,
 			);
@@ -331,6 +343,7 @@
 				612D0F28305707D800B487A9 /* AirDCKit.framework */,
 				612D0F32305707D800B487A9 /* AirDCKitTests.xctest */,
 				612D0FC730584B9700B487A9 /* TestHost.app */,
+				E2E0000000000000000000A2 /* EndToEndProofTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -588,6 +601,24 @@
 			productReference = 612D0FC730584B9700B487A9 /* TestHost.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E2E0000000000000000000A1 /* EndToEndProofTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2E0000000000000000000A7 /* Build configuration list for PBXNativeTarget "EndToEndProofTests" */;
+			buildPhases = (
+				E2E0000000000000000000A4 /* Sources */,
+				E2E0000000000000000000A5 /* Frameworks */,
+				E2E0000000000000000000A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				E2E0000000000000000000A3 /* EndToEndProofTests */,
+			);
+			name = EndToEndProofTests;
+			productName = EndToEndProofTests;
+			productReference = E2E0000000000000000000A2 /* EndToEndProofTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -633,6 +664,9 @@
 					612D0FC630584B9700B487A9 = {
 						CreatedOnToolsVersion = 27.0;
 					};
+					E2E0000000000000000000A1 = {
+						CreatedOnToolsVersion = 27.0;
+					};
 				};
 			};
 			buildConfigurationList = 612D0E603057071500B487A9 /* Build configuration list for PBXProject "AirDC" */;
@@ -663,6 +697,7 @@
 				612D0F27305707D800B487A9 /* AirDCKit */,
 				612D0F31305707D800B487A9 /* AirDCKitTests */,
 				612D0FC630584B9700B487A9 /* TestHost */,
+				E2E0000000000000000000A1 /* EndToEndProofTests */,
 			);
 		};
 /* End PBXProject section */
@@ -718,6 +753,11 @@
 			files = (
 			);
 		};
+		E2E0000000000000000000A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -767,6 +807,11 @@
 			);
 		};
 		612D0FC330584B9700B487A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		E2E0000000000000000000A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
 			);
@@ -1711,6 +1756,42 @@
 			};
 			name = Release;
 		};
+		E2E0000000000000000000A8 /* Debug configuration for PBXNativeTarget "EndToEndProofTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.EndToEndProofTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		E2E0000000000000000000A9 /* Release configuration for PBXNativeTarget "EndToEndProofTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.doobnet.AirDC.EndToEndProofTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1799,6 +1880,14 @@
 			buildConfigurations = (
 				612D0FD030584B9900B487A9 /* Debug configuration for PBXNativeTarget "TestHost" */,
 				612D0FD130584B9900B487A9 /* Release configuration for PBXNativeTarget "TestHost" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		E2E0000000000000000000A7 /* Build configuration list for PBXNativeTarget "EndToEndProofTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2E0000000000000000000A8 /* Debug configuration for PBXNativeTarget "EndToEndProofTests" */,
+				E2E0000000000000000000A9 /* Release configuration for PBXNativeTarget "EndToEndProofTests" */,
 			);
 			defaultConfigurationName = Release;
 		};

@@ -1,0 +1,30 @@
+#!/bin/sh
+# Throwaway stand-in for the planned luadch-builder `bin/luadch` launcher.
+# Usage: luadch <instance-dir> <adc-port>
+# Creates a per-instance directory (shared code symlinked, fresh cfg/ and log/)
+# configured for tests, then execs the hub in it.
+set -e
+INSTANCE="$1"
+PORT="$2"
+HOME_DIR="${LUADCH_HOME:-$HOME/development/doobnet/luadch-builder/scratchpad/run1}"
+TEMPLATE="$HOME_DIR/../src/examples/cfg"
+
+mkdir -p "$INSTANCE/cfg" "$INSTANCE/log"
+for d in core scripts lib lang certs luadch liblua.so; do
+  ln -sfn "$HOME_DIR/$d" "$INSTANCE/$d"
+done
+cp "$TEMPLATE/user.tbl" "$INSTANCE/cfg/user.tbl"
+sed -e "s/^    tcp_ports = { [0-9]* }/    tcp_ports = { $PORT }/" \
+    -e 's/^    ssl_ports = { [0-9]* }/    ssl_ports = { }/' \
+    -e 's/^    tcp_ports_ipv6 = { [0-9]* }/    tcp_ports_ipv6 = { }/' \
+    -e 's/^    ssl_ports_ipv6 = { [0-9]* }/    ssl_ports_ipv6 = { }/' \
+    -e 's/^    use_ssl = true/    use_ssl = false/' \
+    -e 's/^    reg_only = true/    reg_only = false/' \
+    -e 's/^    hub_hostaddress = "[^"]*"/    hub_hostaddress = "127.0.0.1"/' \
+    -e 's/^    usr_nick_prefix_activate = true/    usr_nick_prefix_activate = false/' \
+    -e 's/^    usr_desc_prefix_activate = true/    usr_desc_prefix_activate = false/' \
+    -e 's/^    etc_trafficmanager_activate = true/    etc_trafficmanager_activate = false/' \
+    "$TEMPLATE/cfg.tbl" > "$INSTANCE/cfg/cfg.tbl"
+
+cd "$INSTANCE"
+exec ./luadch
