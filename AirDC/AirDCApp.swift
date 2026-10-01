@@ -3,7 +3,7 @@ import SwiftUI
 @main
 struct AirDCApp: App {
   var body: some Scene {
-    // PROTOTYPE — throwaway branch `prototype/hub-session`.
+    // PROTOTYPE — throwaway branch `prototype/queue-pane`.
     HubSessionPrototype()
   }
 }

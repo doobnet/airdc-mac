@@ -1,5 +1,10 @@
-// PROTOTYPE — throwaway. Lives on the `prototype/hub-session` branch only.
+// PROTOTYPE — throwaway. Lives on the `prototype/queue-pane` branch only.
 //
+// On this branch the hub Session prototype is only the host: the floating
+// bar and the Prototype menu switch the queue pane variants instead
+// (see QueuePane/QueuePaneVariants.swift).
+//
+// Originally:
 // Question: What does a hub Session look like?
 // Three layouts of a hub Session inside the window model settled earlier
 // (sidebar, toolbar activity field, Queue pane, bottom bar), switchable from
@@ -18,14 +23,15 @@ import SwiftUI
 
 struct HubSessionPrototype: Scene {
   @State private var state = HubPrototypeState()
+  @State private var lab = QueueLab()
 
   var body: some Scene {
     Window("AirDC", id: "main") {
-      MainWindow().environment(state)
+      MainWindow().environment(state).environment(lab)
     }
-    .defaultSize(width: 1300, height: 820)
+    .defaultSize(width: 1300, height: 900)
     .restorationBehavior(.disabled)
-    .commands { PrototypeCommands(state: state) }
+    .commands { PrototypeCommands(state: state, lab: lab) }
   }
 }
 
@@ -35,7 +41,7 @@ enum Snapshot {
   static func takeIfRequested() {
     guard let path = UserDefaults.standard.string(forKey: "snapshot") else { return }
     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-      guard let window = NSApp.windows.first(where: \.isVisible), let view = window.contentView?.superview,
+      guard let window = NSApp.windows.filter(\.isVisible).max(by: { $0.frame.width < $1.frame.width }), let view = window.contentView?.superview,
         let rep = view.bitmapImageRepForCachingDisplay(in: view.bounds)
       else { return }
       view.cacheDisplay(in: view.bounds, to: rep)
@@ -49,6 +55,7 @@ enum Snapshot {
 
 struct MainWindow: View {
   @Environment(HubPrototypeState.self) private var state
+  @Environment(QueueLab.self) private var lab
   @State private var searchText = ""
 
   var body: some View {
@@ -57,16 +64,16 @@ struct MainWindow: View {
       Sidebar().navigationSplitViewColumnWidth(min: 180, ideal: 220)
     } detail: {
       VStack(spacing: 0) {
-        if state.queueVisible {
+        if lab.paneVisible {
           VSplitView {
-            detail.frame(minHeight: 280)
-            QueuePane()
+            detail.frame(minHeight: 280).overlay(alignment: .bottom) { QueuePrototypeBar() }
+            QueuePaneView()
           }
         } else {
-          detail
+          detail.overlay(alignment: .bottom) { QueuePrototypeBar() }
         }
         Divider()
-        BottomBar()
+        QueueBottomBar(showsPauseAll: lab.variant == .inspector)
       }
     }
     .navigationTitle(state.selection?.title ?? "AirDC")
@@ -75,7 +82,6 @@ struct MainWindow: View {
       ToolbarItem(placement: .principal) { ActivityField() }
     }
     .searchable(text: $searchText, placement: .toolbar, prompt: "Search Files")
-    .overlay(alignment: .bottom) { PrototypeBar() }
     .onAppear { Snapshot.takeIfRequested() }
   }
 
@@ -160,47 +166,6 @@ struct Sidebar: View {
   }
 }
 
-struct QueuePane: View {
-  var body: some View {
-    Table(of: QueueRow.self) {
-      TableColumn("Name", value: \.name)
-      TableColumn("Size", value: \.size)
-      TableColumn("Status", value: \.status)
-      TableColumn("Sources", value: \.sources)
-      TableColumn("Speed", value: \.speed)
-    } rows: {
-      TableRow(QueueRow(name: "Kent - Isola (1997)", size: "349.68 MiB", status: "Running (92.2%)", sources: "1/1 online", speed: "15.7 MiB/s"))
-      TableRow(QueueRow(name: "debian-14-netinst.iso", size: "700 MiB", status: "Waiting (12.0%)", sources: "3/7 online", speed: ""))
-    }
-    .frame(minHeight: 110, maxHeight: 200)
-  }
-
-  struct QueueRow: Identifiable {
-    var id: String { name }
-    let name, size, status, sources, speed: String
-  }
-}
-
-struct BottomBar: View {
-  @Environment(HubPrototypeState.self) private var state
-
-  var body: some View {
-    HStack {
-      Text("↓ 15.7 MiB/s  ↑ 1 KiB/s  ·  Queue 2 Bundles, 1.02 GiB").monospacedDigit()
-      Spacer()
-      Button(state.queueVisible ? "Hide Queue" : "Show Queue", systemImage: "rectangle.bottomthird.inset.filled") {
-        state.queueVisible.toggle()
-      }
-      .labelStyle(.iconOnly)
-      .buttonStyle(.borderless)
-    }
-    .font(.caption)
-    .foregroundStyle(.secondary)
-    .padding(.horizontal, 10)
-    .padding(.vertical, 4)
-  }
-}
-
 struct ActivityField: View {
   @Environment(HubPrototypeState.self) private var state
 
@@ -219,12 +184,13 @@ struct ActivityField: View {
 
 struct PrototypeCommands: Commands {
   let state: HubPrototypeState
+  let lab: QueueLab
 
   var body: some Commands {
     CommandGroup(after: .toolbar) {
       Button(state.usersVisible ? "Hide Users" : "Show Users") { state.usersVisible.toggle() }
         .keyboardShortcut("u", modifiers: [.command, .option])
-      Button(state.queueVisible ? "Hide Queue" : "Show Queue") { state.queueVisible.toggle() }
+      Button(lab.paneVisible ? "Hide Queue" : "Show Queue") { lab.paneVisible.toggle() }
         .keyboardShortcut("l", modifiers: [.command, .option])
     }
     CommandGroup(after: .textEditing) {
@@ -241,52 +207,7 @@ struct PrototypeCommands: Commands {
       Divider()
       Button("Disconnect") { state.connectState = .disconnected }.disabled(!state.permissions.hubsEdit)
     }
-    CommandMenu("Prototype") {
-      ForEach(HubVariant.allCases, id: \.self) { candidate in
-        Toggle(candidate.label, isOn: .init(get: { state.variant == candidate }, set: { _ in state.variant = candidate }))
-      }
-      Divider()
-      Button("Previous Variant") { state.shift(by: -1) }.keyboardShortcut(.leftArrow, modifiers: [.command, .control])
-      Button("Next Variant") { state.shift(by: 1) }.keyboardShortcut(.rightArrow, modifiers: [.command, .control])
-    }
+    QueueCommands(lab: lab)
   }
 }
 
-// MARK: - Floating prototype bar
-
-struct PrototypeBar: View {
-  @Environment(HubPrototypeState.self) private var state
-
-  var body: some View {
-    @Bindable var state = state
-    HStack(spacing: 14) {
-      Button { state.shift(by: -1) } label: { Image(systemName: "chevron.left") }
-      Text(state.variant.label).font(.callout.weight(.semibold))
-      Button { state.shift(by: 1) } label: { Image(systemName: "chevron.right") }
-      Divider().frame(height: 14).overlay(.white.opacity(0.4))
-      Menu("State: \(state.connectState.label)") {
-        Picker("Connect State", selection: $state.connectState) {
-          ForEach(ConnectState.allCases, id: \.self) { Text($0.label).tag($0) }
-        }
-        .pickerStyle(.inline)
-      }
-      .fixedSize()
-      Menu("Permissions") {
-        Toggle("hubs_view", isOn: $state.permissions.hubsView)
-        Toggle("hubs_edit", isOn: $state.permissions.hubsEdit)
-        Toggle("hubs_send", isOn: $state.permissions.hubsSend)
-        Toggle("settings_edit (ignore, grant slot)", isOn: $state.permissions.settingsEdit)
-      }
-      .fixedSize()
-    }
-    .buttonStyle(.plain)
-    .menuStyle(.button)
-    .foregroundStyle(.white)
-    .tint(.white)
-    .padding(.horizontal, 16)
-    .padding(.vertical, 8)
-    .background(.black.opacity(0.85), in: Capsule())
-    .shadow(radius: 8)
-    .padding(.bottom, 34)
-  }
-}
