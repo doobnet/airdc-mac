@@ -51,7 +51,7 @@ struct QueuePrototypeBar: View {
     VStack(spacing: 4) {
       HStack(spacing: 14) {
         Button { lab.shift(by: -1) } label: { Image(systemName: "chevron.left") }
-        Text(lab.variant.label).font(.callout.weight(.semibold))
+        Text(lab.variant.label).font(.callout.weight(.semibold)).lineLimit(1).truncationMode(.tail).help(lab.variant.label)
         Button { lab.shift(by: 1) } label: { Image(systemName: "chevron.right") }
         Divider().frame(height: 14).overlay(.white.opacity(0.4))
         Menu("Pause sends…") {
@@ -80,7 +80,7 @@ struct QueuePrototypeBar: View {
         }
         .fixedSize()
       }
-      Text(lab.lastAction).font(.caption.monospaced()).opacity(0.75).lineLimit(1)
+      Text(lab.lastAction).font(.caption.monospaced()).opacity(0.75).lineLimit(1).truncationMode(.middle)
     }
     .buttonStyle(.plain)
     .menuStyle(.button)
@@ -88,6 +88,7 @@ struct QueuePrototypeBar: View {
     .tint(.white)
     .padding(.horizontal, 16)
     .padding(.vertical, 8)
+    .frame(maxWidth: 760)
     .background(.black.opacity(0.85), in: RoundedRectangle(cornerRadius: 18))
     .shadow(radius: 8)
     .padding(.bottom, 56)

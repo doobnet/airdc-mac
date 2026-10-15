@@ -27,13 +27,13 @@ struct QueuePaneView: View {
   var body: some View {
     Group {
       if !lab.permissions.queueView {
-        ContentUnavailableView(
-          "Queue Unavailable", systemImage: "lock",
-          description: Text("Your web user on the Daemon doesn't have permission to view the queue."))
+        PanePlaceholder(
+          title: "Queue Unavailable", systemImage: "lock",
+          message: "Your web user on the Daemon doesn't have permission to view the queue.")
       } else if lab.bundles.isEmpty {
-        ContentUnavailableView(
-          "No Downloads", systemImage: "arrow.down.circle",
-          description: Text("Download files from a search, a file list or a magnet link in chat."))
+        PanePlaceholder(
+          title: "No Downloads", systemImage: "arrow.down.circle",
+          message: "Download files from a search, a file list or a magnet link in chat.")
       } else {
         switch lab.variant {
         case .outline: OutlineQueueView(style: .priorityPopup)
@@ -51,6 +51,24 @@ struct QueuePaneView: View {
         lab.tick()
       }
     }
+  }
+}
+
+/// A placeholder sized for a short pane: ContentUnavailableView's large
+/// layout overflows a pane of modest height.
+struct PanePlaceholder: View {
+  let title: String
+  let systemImage: String
+  let message: String
+
+  var body: some View {
+    VStack(spacing: 4) {
+      Label(title, systemImage: systemImage).font(.headline)
+      Text(message).font(.callout).multilineTextAlignment(.center)
+    }
+    .foregroundStyle(.secondary)
+    .padding()
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
   }
 }
 
