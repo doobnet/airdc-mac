@@ -11,6 +11,17 @@ struct QueueCommands: Commands {
 
   var body: some Commands {
     CommandMenu("Queue") {
+      let selected = lab.selectedActiveBundles
+      if !selected.isEmpty, selected.allSatisfy(\.priority.isPaused) {
+        Button("Resume") { lab.resume(selected.map(\.id)) }.disabled(!lab.permissions.queueEdit)
+      } else {
+        Button("Pause") { lab.pause(selected.map(\.id)) }.disabled(!lab.permissions.queueEdit || selected.isEmpty)
+      }
+      Menu("Priority") {
+        if selected.count == 1 { RunningPriorityItems(bundle: selected[0]).environment(lab) }
+      }
+      .disabled(!lab.permissions.queueEdit || selected.count != 1)
+      Divider()
       Button("Pause All Downloads") { lab.pauseAll() }
         .keyboardShortcut("p", modifiers: [.command, .option])
         .disabled(!lab.permissions.queueEdit || lab.allPaused)

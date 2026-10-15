@@ -15,13 +15,15 @@ import Foundation
 import Observation
 
 enum QueueVariant: String, CaseIterable {
-  case outline, downloads, inspector
+  case outline, downloads, inspector, nativeOutline, outlineButtons
 
   var label: String {
     switch self {
     case .outline: "A — Outline: columns, priority is the control"
     case .downloads: "B — Downloads list: rows with pause buttons"
     case .inspector: "C — Outline + Bundle inspector"
+    case .nativeOutline: "D — Outline: Pause and Priority are commands"
+    case .outlineButtons: "E — D + a pause button on each row"
     }
   }
 }
@@ -203,6 +205,19 @@ final class QueueLab {
   var allPaused: Bool { bundles.filter { !$0.isFinished }.allSatisfy(\.priority.isPaused) }
 
   func bundle(_ id: Int) -> QueueBundle? { bundles.first { $0.id == id } }
+
+  /// The selected Bundles that aren't finished — what Pause, Resume and Priority act on.
+  var selectedActiveBundles: [QueueBundle] {
+    bundles.filter { selection.contains(QueueRowID.bundle($0.id)) && !$0.isFinished }
+  }
+
+  /// A queued file and the Bundle it belongs to.
+  func file(_ id: Int) -> (file: QueueFile, bundleID: Int)? {
+    for (bundleID, list) in files {
+      if let file = list.first(where: { $0.id == id }) { return (file, bundleID) }
+    }
+    return nil
+  }
 
   // MARK: Expansion — files are only reachable per Bundle, paged.
 
@@ -400,6 +415,10 @@ nonisolated enum QueueRowID {
 
   static func bundleID(_ rowID: String) -> Int? {
     rowID.hasPrefix("b") ? Int(rowID.dropFirst()) : nil
+  }
+
+  static func fileID(_ rowID: String) -> Int? {
+    rowID.hasPrefix("f") ? Int(rowID.dropFirst()) : nil
   }
 }
 

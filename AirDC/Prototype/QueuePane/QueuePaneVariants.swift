@@ -10,11 +10,16 @@
 //       button on each row, priority only in the context menu
 //   C — Outline + inspector: a compact outline, the selected Bundle's
 //       priority, pause, sources and actions in an inspector beside it
+//   D — A's outline made Mac-native: Pause/Resume and Priority are
+//       commands on the selection (context menu, Queue menu); the Priority
+//       column is plain text; paused rows are dimmed
+//   E — D plus a pause/resume button beside each Bundle's progress bar
 //
 // Every variant: Bundle rows expand to their files (fetched on expansion),
 // Remove confirms with "Also delete finished files", and the Queue menu has
 // Pause All / Resume All / Remove Completed.
 
+import AppKit
 import SwiftUI
 
 // MARK: - Shared row model for the outline variants
@@ -153,9 +158,16 @@ struct FilePriorityMenu: View {
   }
 }
 
-// MARK: - A: Outline, priority is the control
+// MARK: - A, D, E: Outline
+
+/// How the outline lets people pause: A's priority popup in the cell, D's
+/// commands on the selection, or E's commands plus a button on each row.
+enum OutlineStyle {
+  case priorityPopup, commands, commandsWithButton
+}
 
 struct OutlineQueueView: View {
+  let style: OutlineStyle
   @Environment(QueueLab.self) private var lab
   @State private var sortOrder = [KeyPathComparator(\QueueRow.added, order: .reverse)]
   @SceneStorage("queueOutlineColumns") private var columns = TableColumnCustomization<QueueRow>()
@@ -163,19 +175,22 @@ struct OutlineQueueView: View {
   var body: some View {
     @Bindable var lab = lab
     Table(of: QueueRow.self, selection: $lab.selection, sortOrder: $sortOrder, columnCustomization: $columns) {
-      TableColumn("Name", value: \.name) { QueueNameCell(row: $0) }
+      TableColumn("Name", value: \.name) { QueueNameCell(row: $0).foregroundStyle(dims($0) ? .secondary : .primary) }
         .width(min: 160, ideal: 280)
         .customizationID("name")
         .disabledCustomizationBehavior(.visibility)
       TableColumn("Size", value: \.size) { Text(QueueFormat.bytes($0.size)).monospacedDigit() }
         .width(min: 60, ideal: 80)
         .customizationID("size")
-      TableColumn("Progress", value: \.progress) { QueueProgressCell(row: $0) }
+      TableColumn("Progress", value: \.progress) { row in
+        HStack(spacing: 6) {
+          QueueProgressCell(row: row)
+          if style == .commandsWithButton { PauseButton(row: row) }
+        }
+      }
         .width(min: 90, ideal: 140)
         .customizationID("progress")
-      TableColumn("Status", value: \.status) { row in
-        Text(row.status).foregroundStyle(row.bundle?.status == .downloadError ? .red : .primary)
-      }
+      TableColumn("Status", value: \.status) { statusCell($0) }
       .width(min: 70, ideal: 110)
       .customizationID("status")
       TableColumn("Speed", value: \.speed) { Text(QueueFormat.speed($0.speed)).monospacedDigit() }
@@ -216,13 +231,36 @@ struct OutlineQueueView: View {
       }
     }
     .contextMenu(forSelectionType: String.self) { ids in
-      BundleContextMenu(ids: Set(ids.compactMap(QueueRowID.bundleID)), pauseIsPriority: true)
+      let bundleIDs = Set(ids.compactMap(QueueRowID.bundleID))
+      if bundleIDs.isEmpty, style != .priorityPopup {
+        FileContextMenu(fileIDs: Set(ids.compactMap(QueueRowID.fileID)))
+      } else {
+        BundleContextMenu(ids: bundleIDs, pauseIsPriority: style == .priorityPopup)
+      }
     }
     .onDeleteCommand { RemoveConfirmation.run(lab.bundles.filter { lab.selection.contains(QueueRowID.bundle($0.id)) }, lab: lab) }
   }
 
+  /// D and E dim paused Bundles instead of putting a control in the row.
+  private func dims(_ row: QueueRow) -> Bool {
+    guard style != .priorityPopup, let bundle = row.bundle else { return false }
+    return bundle.priority.isPaused && !bundle.isFinished
+  }
+
+  @ViewBuilder private func statusCell(_ row: QueueRow) -> some View {
+    HStack(spacing: 4) {
+      if dims(row) { Image(systemName: "pause.fill").font(.caption2) }
+      Text(row.status)
+    }
+    .foregroundStyle(row.bundle?.status == .downloadError ? .red : dims(row) ? .secondary : .primary)
+  }
+
   @ViewBuilder private func priorityCell(_ row: QueueRow) -> some View {
     switch row.kind {
+    case .bundle(let bundle) where style != .priorityPopup:
+      Text(bundle.priorityText).foregroundStyle(dims(row) ? .secondary : .primary)
+    case .file(let file, _) where style != .priorityPopup:
+      Text(file.autoPriority ? "\(file.priority.label) (auto)" : file.priority.label).foregroundStyle(.secondary)
     case .bundle(let bundle) where !bundle.isFinished:
       Menu(bundle.priorityText) { PriorityMenuItems(bundle: bundle) }
         .menuStyle(.borderlessButton)
@@ -238,6 +276,52 @@ struct OutlineQueueView: View {
 
   private func expansion(of id: Int) -> Binding<Bool> {
     .init(get: { lab.expanded.contains(id) }, set: { lab.setExpanded(id, $0) })
+  }
+}
+
+/// E: Safari-style pause/resume beside a Bundle's progress bar.
+struct PauseButton: View {
+  let row: QueueRow
+  @Environment(QueueLab.self) private var lab
+
+  var body: some View {
+    if let bundle = row.bundle, !bundle.isFinished {
+      Button(bundle.priority.isPaused ? "Resume" : "Pause", systemImage: bundle.priority.isPaused ? "play.circle.fill" : "pause.circle.fill") {
+        lab.togglePause(bundle.id)
+      }
+      .labelStyle(.iconOnly)
+      .buttonStyle(.borderless)
+      .foregroundStyle(.secondary)
+      .disabled(!lab.permissions.queueEdit)
+      .help(bundle.priority.isPaused ? "Resume" : "Pause")
+    } else {
+      Color.clear.frame(width: 16)
+    }
+  }
+}
+
+/// D and E: file rows set their priority from the context menu.
+struct FileContextMenu: View {
+  let fileIDs: Set<Int>
+  @Environment(QueueLab.self) private var lab
+
+  var body: some View {
+    if fileIDs.count == 1, let id = fileIDs.first, let (file, bundleID) = lab.file(id), !file.isFinished {
+      Menu("Priority") {
+        Toggle("Auto", isOn: .init(get: { file.autoPriority }, set: { _ in lab.setFilePriority(.normal, auto: true, file: id, in: bundleID) }))
+        Divider()
+        ForEach(QueuePriority.allCases.reversed(), id: \.self) { priority in
+          Toggle(priority.label, isOn: .init(
+            get: { !file.autoPriority && file.priority == priority },
+            set: { _ in lab.setFilePriority(priority, auto: false, file: id, in: bundleID) }))
+        }
+      }
+      .disabled(!lab.permissions.queueEdit)
+    }
+    Button("Copy Name") {
+      let names = fileIDs.compactMap { lab.file($0)?.file.name }
+      NSPasteboard.general.setString(names.joined(separator: "\n"), forType: .string)
+    }
   }
 }
 

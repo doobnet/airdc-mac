@@ -36,7 +36,9 @@ struct QueuePaneView: View {
           description: Text("Download files from a search, a file list or a magnet link in chat."))
       } else {
         switch lab.variant {
-        case .outline: OutlineQueueView()
+        case .outline: OutlineQueueView(style: .priorityPopup)
+        case .nativeOutline: OutlineQueueView(style: .commands)
+        case .outlineButtons: OutlineQueueView(style: .commandsWithButton)
         case .downloads: DownloadsQueueView()
         case .inspector: InspectorQueueView()
         }
