@@ -43,3 +43,7 @@ _Avoid_: Downloads, download list, transfers
 **Bundle**:
 A file or directory the user queued, tracked as one item however many files it holds; files queued later under the same directory merge into it.
 _Avoid_: Download, queue item, job
+
+**Source**:
+A user the Daemon can download a Bundle's files from.
+_Avoid_: Peer (when meaning one Bundle's sources), uploader
