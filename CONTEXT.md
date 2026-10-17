@@ -24,6 +24,10 @@ _Avoid_: Server, DC server
 The base URL the Daemon serves its Web UI on (e.g. `https://nas:5601`); the App reaches the Daemon's API from it. May be plain `http` — the Daemon can be local.
 _Avoid_: Host, endpoint, server URL
 
+**Trusted certificate**:
+The Daemon's certificate the user accepted when first connecting; the App connects only while the Daemon presents it.
+_Avoid_: Pin, fingerprint, keyprint
+
 **Connection**:
 An authenticated link between the App and its Daemon.
 _Avoid_: Client, socket, session
