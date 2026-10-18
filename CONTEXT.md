@@ -29,8 +29,8 @@ The Daemon's certificate the user accepted when first connecting; the App connec
 _Avoid_: Pin, fingerprint, keyprint
 
 **Connection**:
-An authenticated link between the App and its Daemon.
-_Avoid_: Client, socket, session
+An authenticated link between the App and its Daemon. Not a Daemon's link to a Hub.
+_Avoid_: Client, socket, session, hub connection
 
 **Session**:
 Something the Daemon holds open for the user and the App lets them switch between: a connected Hub, a private conversation with one user, a browsed file list, or a search.
